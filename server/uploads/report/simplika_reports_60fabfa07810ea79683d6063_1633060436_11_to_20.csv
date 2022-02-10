@@ -1,0 +1,11 @@
+endpoint_url,method,status,response_time_in_milliseconds,client,request_on,target_status_code,proxy_status_code
+NA,POST,405,291,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,200,13249,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,500,10788,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,500,25404,abcd,Invalid Date,,
+NA,POST,405,307,abcd,Invalid Date,,
+NA,POST,405,323,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,200,2398,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,500,1623,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,500,2160,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,500,2081,abcd,Invalid Date,,

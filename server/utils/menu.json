@@ -1,0 +1,356 @@
+{
+    "menu": [
+        {
+            "fun_id": 1,
+            "fun_name": "Dashboard",
+            "fun_router_name": "/dashboard",
+            "fun_icon": "fas fa-tachometer-alt",
+            "fun_parent": 0,
+            "fun_order": 1,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_reset": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 2,
+            "fun_name": "Products",
+            "fun_router_name": "/applications",
+            "fun_icon": "fas fa-rocket",
+            "fun_parent": 0,
+            "fun_order": 2,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 3,
+            "fun_name": "API Manager",
+            "fun_router_name": "/management",
+            "fun_icon": "fab fa-quinscape",
+            "fun_parent": 0,
+            "fun_order": 3,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 4,
+            "fun_name": "Partners",
+            "fun_router_name": "/clients",
+            "fun_icon": "fas fa-user-secret",
+            "fun_parent": 0,
+            "fun_order": 4,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 5,
+            "fun_name": "Analytics",
+            "fun_router_name": "/analytics",
+            "fun_icon": "fas fa-chart-line",
+            "fun_parent": 0,
+            "fun_order": 5,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 6,
+            "fun_name": "Reports",
+            "fun_router_name": "/report",
+            "fun_icon": "fa fa-file",
+            "fun_parent": 0,
+            "fun_order": 6,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 7,
+            "fun_name": "Backup / Restore",
+            "fun_router_name": "/backup-restore",
+            "fun_icon": "fas fa-hdd",
+            "fun_parent": 0,
+            "fun_order": 8,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 8,
+            "fun_name": "User Management",
+            "fun_router_name": "/user-management",
+            "fun_icon": "fas fa-user-clock",
+            "fun_parent": 0,
+            "fun_order": 9,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 9,
+            "fun_name": "User Master",
+            "fun_router_name": "/user-management",
+            "fun_icon": "fa fa-users",
+            "fun_parent": 8,
+            "fun_order": 1,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 10,
+            "fun_name": "User Role",
+            "fun_router_name": "/role-management",
+            "fun_icon": "fa fa-users",
+            "fun_parent": 8,
+            "fun_order": 2,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 11,
+            "fun_name": "Configurations",
+            "fun_router_name": "/configurations",
+            "fun_icon": "fa fa-cogs",
+            "fun_parent": 0,
+            "fun_order": 10,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 12,
+            "fun_name": "Status Codes",
+            "fun_router_name": "/status-codes",
+            "fun_icon": "fa fa-exclamation-triangle",
+            "fun_parent": 0,
+            "fun_order": 11,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 13,
+            "fun_name": "System Logs",
+            "fun_router_name": "/system-logs",
+            "fun_icon": "fa fa-book",
+            "fun_parent": 0,
+            "fun_order": 12,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 14,
+            "fun_name": "Discover Logs",
+            "fun_router_name": "/discover-logs",
+            "fun_icon": "fa fa-history",
+            "fun_parent": 0,
+            "fun_order": 7,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 15,
+            "fun_name": "Manage Organization",
+            "fun_router_name": "/manage-organization",
+            "fun_icon": "fa fa-history",
+            "rac_view": 1,
+            "fun_parent": 0,
+            "fun_order": 13,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_type": [
+                "multi"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 16,
+            "fun_name": "Data Purging",
+            "fun_router_name": "/data-purging",
+            "fun_icon": "fas fa-database",
+            "fun_parent": 0,
+            "fun_order": 14,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "multi",
+                "single"
+            ],
+            "rac_other": 0
+        },
+        {
+            "fun_id": 17,
+            "fun_name": "User Profile",
+            "fun_router_name": "/user-profile",
+            "fun_icon": "",
+            "fun_parent": 0,
+            "fun_order": 15,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 1
+        },
+        {
+            "fun_id": 18,
+            "fun_name": "Download Manager",
+            "fun_router_name": "/download-manager",
+            "fun_icon": "",
+            "fun_parent": 0,
+            "fun_order": 16,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 1
+        },
+        {
+            "fun_id": 19,
+            "fun_name": "Settings",
+            "fun_router_name": "/settings",
+            "fun_icon": "",
+            "fun_parent": 0,
+            "fun_order": 17,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 1
+        },
+        {
+            "fun_id": 20,
+            "fun_name": "Web Router",
+            "fun_router_name": "/web-router",
+            "fun_icon": "",
+            "fun_parent": 0,
+            "fun_order": 18,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 1
+        },
+        {
+            "fun_id": 21,
+            "fun_name": "release Notes",
+            "fun_router_name": "/release-notes",
+            "fun_icon": "",
+            "fun_parent": 0,
+            "fun_order": 19,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 1
+        },
+        {
+            "fun_id": 22,
+            "fun_name": "change Password",
+            "fun_router_name": "/change-password",
+            "fun_icon": "",
+            "fun_parent": 0,
+            "fun_order": 12,
+            "fun_status": 1,
+            "rac_add": 1,
+            "rac_view": 1,
+            "rac_type": [
+                "single",
+                "multi"
+            ],
+            "rac_other": 1
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+
+======================================================ver 2.5.0====================================================================
+
+>>>>>>>>client changes <<<<<<<<<<<<<<<<<<<<
+
+
+script to be run
+
+
+bin > upgrade > 2.5.0 > client_access_api_to_app.js  = for api_path migration in client_access collection
+
+bin > upgrade > 2.5.0 > appdata_indexin.js  =    indexing script for prod
+
+>>>>>>>>>>autoscale change<<<<<<<<<<<<<<<<<<<
+
+           config.json 
+
+ "server": "standalone OR autoscale",
+    "s3_bucket": {
+        "url": "s3url will be here",
+        "report_path": "/simplika/report/",
+        "image_path": "/simplika/images/applications/",
+        "document_path": "/simplika/documents/"
+    }
+
+ >>>>>>>>>>> report changes<<<<<<<<<<<<<<<<<<<<<<<<<
+
+             config.json 
+
+  "csv_file_path": "../uploads/report/",
+    "csv_downoad_url": "/static/reports",
+    "api_document_path": "../uploads/documents",
+    "imagePathUrl": "static/images/applications",
+    "imagePath": "uploads/images/applications",
+
+  "limit": {
+        "small_data": 10000,
+        "large_data": 50000
+    },
+
+
+>>>>>>>>>>>>  session change <<<<<<<<<<<<<<<<<<<<<
+
+            config.json
+
+     "session": {
+            "maxage": "1800000",
+        }
+
+>>>>>>>>>>>>  user management related <<<<<<<<<<<<<<<<<<<<<
+
+  manual change in db for role
+
+following queries needed to be executed step by step:-
+
+1) db.roles.insert( {
+    
+    "role_code": "Superadmin",
+    "role_desc": "super admin",
+    "role_status": 1
+}
+)
+
+2) db.roles.find()
+3) fill the object id of the role code name 'Superadmin' into the following query:-
+
+db.users.updateOne(
+     { "is_super_admin" : 1 },
+     { $set: { "role_id" : ObjectId(‘’<-objectid here->")} }
+  );
+
+
+
+
+
+
+
+
+

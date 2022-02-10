@@ -1,0 +1,42 @@
+{
+    "name": "simplika-dashboard-api",
+    "version": "1.0.0",
+    "description": "backend api",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack"
+    },
+    "author": "Vernost Team",
+    "license": "MIT",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "body-parser": "^1.19.0",
+        "connect-mongodb-session": "^3.1.1",
+        "cookie-parser": "^1.4.5",
+        "csurf": "^1.11.0",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "fast-csv": "^4.3.6",
+        "handlebars": "^4.7.6",
+        "helmet": "^4.6.0",
+        "jsonwebtoken": "^8.5.1",
+        "moment-timezone": "^0.5.33",
+        "mongodb": "3.5.9",
+        "multer": "^1.4.2",
+        "node-cache": "^5.1.2",
+        "node-cron": "^3.0.0",
+        "nodemailer": "^6.4.10",
+        "nodemailer-express-handlebars": "^4.0.0",
+        "nodemon": "^2.0.12",
+        "request": "^2.88.2",
+        "uuid": "^8.2.0",
+        "webpack-node-externals": "^2.5.2"
+    },
+    "devDependencies": {
+        "webpack": "^5.14.0",
+        "webpack-cli": "^4.3.1"
+    }
+}

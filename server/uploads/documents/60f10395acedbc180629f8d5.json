@@ -1,0 +1,45 @@
+{
+    "openapi": "3.0.1",
+    "servers": [
+        {
+            "url": "http://localhost:8081/{api_path}"
+        }
+    ],
+    "info": {
+        "title": "newAudit",
+        "x-logo": {
+            "url": "../../images/simplika-logo.png",
+            "backgroundColor": "#FFFFFF",
+            "width": "150px",
+            "altText": "newAudit"
+        },
+        "contact": {
+            "email": "xxstyagixx@gmail.com"
+        }
+    },
+    "basePath": "/server/development",
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/acd": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "afdf",
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}

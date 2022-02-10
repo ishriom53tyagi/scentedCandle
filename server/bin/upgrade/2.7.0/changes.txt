@@ -1,0 +1,146 @@
+
+======================================================ver 2.5.0====================================================================
+
+>>>>>>>>client changes <<<<<<<<<<<<<<<<<<<<
+
+
+script to be run
+
+
+bin > upgrade > 2.5.0 > client_access_api_to_app.js  = for api_path migration in client_access collection
+
+bin > upgrade > 2.5.0 > appdata_indexin.js  =    indexing script for prod
+
+>>>>>>>>>>autoscale change<<<<<<<<<<<<<<<<<<<
+
+           config.json 
+
+ "server": "standalone OR autoscale",
+    "s3_bucket": {
+        "url": "s3url will be here",
+        "report_path": "/simplika/report/",
+        "image_path": "/simplika/images/applications/",
+        "document_path": "/simplika/documents/"
+    }
+
+ >>>>>>>>>>> report changes<<<<<<<<<<<<<<<<<<<<<<<<<
+
+             config.json 
+
+  "csv_file_path": "../uploads/report/",
+    "csv_downoad_url": "/static/reports",
+    "api_document_path": "../uploads/documents",
+    "imagePathUrl": "static/images/applications",
+    "imagePath": "uploads/images/applications",
+
+  "limit": {
+        "small_data": 10000,
+        "large_data": 50000
+    },
+
+
+>>>>>>>>>>>>  session change <<<<<<<<<<<<<<<<<<<<<
+
+            config.json
+
+     "session": {
+            "maxage": "1800000",
+        }
+
+>>>>>>>>>>>>  user management related <<<<<<<<<<<<<<<<<<<<<
+
+  manual change in db for role
+
+following queries needed to be executed step by step:-
+
+1) db.roles.insert( {
+    
+    "role_code": "Superadmin",
+    "role_desc": "super admin",
+    "role_status": 1
+}
+)
+
+2) db.roles.find()
+3) fill the object id of the role code name 'Superadmin' into the following query:-
+
+db.users.updateOne(
+     { "is_super_admin" : 1 },
+     { $set: { "role_id" : ObjectId(‘’<-objectid here->")} }
+  );
+
+
+
+
+
+==============================================================ver 2.6.0==================================================================
+ 
+for angular
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>new added package<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+  "ngx-markdown-editor": "^3.3.3",
+  "moment-timezone": "^0.5.33",
+  "font-awesome": "^4.7.0",
+  "bootstrap-markdown": "^2.10.0",
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updated package<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+  "version": "2.5.0"                       >>>>>>>>     "version": "2.6.0"
+  "@angular/cli": "^10.1.1",               >>>>>>>>     "@angular/cli": "^10.2.1",
+  "@fullcalendar/angular": "^4.4.5-beta",  >>>>>>>>     "@fullcalendar/core": "^4.4.0",
+  "apexcharts": "^3.17.1",                 >>>>>>>>     "apexcharts": "^3.27.0",
+  "chart.js": "^2.9.3",                    >>>>>>>>     "chart.js": "^2.9.4",
+  "mat-progress-buttons": "^9.1.1",        >>>>>>>>     "mat-progress-buttons": "9.1.1",
+  "ng-apexcharts": "^1.2.2",               >>>>>>>>     "ng-apexcharts": "^1.5.12",
+   "karma": "~5.0.0",                      >>>>>>>>     "karma": "~5.2.3",
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>deleted package<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        "@swimlane/ngx-charts": "^13.0.2",
+        "@types/d3-shape": "^1.3.2",
+        "acorn": "^7.1.0",
+        "angular-morris-js": "^1.1.0",
+        "animate.css": "^3.7.2",
+        "async": "^3.2.0",
+        "bcrypt": "^5.0.1",
+        "bower": "^1.8.8",
+        "browser-sync": "^2.26.7",
+        "ejs": "^3.1.3",
+        "fast-csv": "^4.3.6",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-concat": "^2.6.1",
+        "gulp-connect": "^5.7.0",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglifycss": "^1.1.0",
+        "gulp-webserver": "^0.9.1",
+        "jquery": "^3.5.1",
+        "jquery-sparkline": "^2.4.0",
+        "material-design-iconic-font": "^2.2.0",
+        "mongodb": "^3.5.9",
+        "morris.js": "^0.5.0",
+        "multer": "^1.4.2",
+        "ngx-text-highlight": "^0.1.6",
+        "node-sass": "^4.13.1",
+        "node-waves": "^0.7.6",
+        "owl.carousel": "^2.3.4",
+        "raphael": "^2.3.0",
+        "simple-line-icons": "^2.4.1",
+        "sweetalert": "^2.1.2",
+
+=======================================================================================
+
+for node JS
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updated package<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
+   "bcrypt": "^5.0.0",                     >>>>>>>>>>>>>>>   "bcrypt": "^5.0.1",
+   "connect-mongodb-session": "^2.4.0",    >>>>>>>>>>>>>>>   "connect-mongodb-session": "^2.4.1",
+
+
+
+
+
+
+
+

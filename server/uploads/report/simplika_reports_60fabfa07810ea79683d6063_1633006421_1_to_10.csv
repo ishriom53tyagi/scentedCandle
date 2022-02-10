@@ -1,0 +1,11 @@
+endpoint_url,method,status,response_time_in_milliseconds,client,request_on,target_status_code,proxy_status_code
+/api/hotels/autosuggest/france,POST,404,343,abcd,Invalid Date,,404
+/api/hotels/autosuggest/france,POST,404,378,abcd,Invalid Date,,404
+/api/hotels/autosuggest/france,POST,404,335,abcd,Invalid Date,,404
+/api/hotels/autosuggest/france,POST,404,316,abcd,Invalid Date,,404
+/api/hotels/autosuggest/france,POST,404,314,abcd,Invalid Date,,404
+/api/hotels/autosuggest/france,POST,404,315,abcd,Invalid Date,,404
+/api/hotels/autosuggest/france,POST,401,209,abcd,Invalid Date,,401
+/rest/V1/categorylist/42,POST,200,1791,abcd,Invalid Date,200,
+/rest/V1/categorylist/42,POST,200,4327,abcd,Invalid Date,200,
+/rest/V1/categorylist/42,POST,200,2194,abcd,Invalid Date,200,

@@ -1,0 +1,2014 @@
+{
+    "openapi": "3.0.1",
+    "servers": [
+        {
+            "url": "http://localhost:8081/{api_path}"
+        }
+    ],
+    "info": {
+        "title": "xyz",
+        "x-logo": {
+            "url": "/static/images/applications/EXTRA-1625976690096.png",
+            "backgroundColor": "#FFFFFF",
+            "width": "150px",
+            "altText": "xyz"
+        },
+        "contact": {
+            "email": "xxstryagi@gmail.com"
+        }
+    },
+    "basePath": "/server/development",
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/api/cc/master/add_family": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Add Family",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "0": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "1": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "2": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "3": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "4": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "5": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "6": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": [
+                                        {
+                                            "key": "customer_unique_id",
+                                            "value": "8098045177",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "first_name",
+                                            "value": "AAA9",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "last_name",
+                                            "value": "BBB9",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "email",
+                                            "value": "abc9@gmail.com",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "phone",
+                                            "value": "235460009",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "gender",
+                                            "value": "Male",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "referrer_relation",
+                                            "value": "Father",
+                                            "type": "text"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/family_list/8098045177": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "List Family",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "TP_APPLICATION_KEY",
+                        "value": "9d04cea4-af10-472b-80f0-7f2c4b9584ed",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGlyZF9wYXJ0eV9hcHBfaWQiOjMwLCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTYwMzg2NjAwMCwiZXhwIjoxNjA0NDcwODAwfQ.SUUkh2MBdzqkY_HvXCI_delY9agaei8l3NSgXUHJlLA",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/delete_family": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Delete Family",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "TP_APPLICATION_KEY",
+                        "value": "9d04cea4-af10-472b-80f0-7f2c4b9584ed",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGlyZF9wYXJ0eV9hcHBfaWQiOjMwLCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTYwMzg2NjAwMCwiZXhwIjoxNjA0NDcwODAwfQ.SUUkh2MBdzqkY_HvXCI_delY9agaei8l3NSgXUHJlLA",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "0": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "1": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": [
+                                        {
+                                            "key": "customer_unique_id",
+                                            "value": "8098045177",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "family_unique_id",
+                                            "value": "8557375749",
+                                            "type": "text"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/add_transaction": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Add transaction",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "customer_unique_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "ty_transaction_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "merchant_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "merchant_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "offer_title": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "brand_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "amount": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "merchant_discount": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "offer_image": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "outlet_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "brand_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "offer_expiry": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "category_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "bill_amount": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "save_amount": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "offer_type": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "offer_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "enquiry_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "customer_unique_id": 5080073126,
+                                        "ty_transaction_id": 123,
+                                        "merchant_code": "ADD",
+                                        "merchant_name": "Adidas",
+                                        "offer_title": "flat 50% off",
+                                        "brand_name": "Adidas",
+                                        "amount": 9925,
+                                        "merchant_discount": 30,
+                                        "offer_image": "offer_image",
+                                        "outlet_code": "offer_code",
+                                        "brand_code": "brand_code",
+                                        "offer_expiry": "2021-01-02 08:10:11",
+                                        "category_name": "category_name",
+                                        "bill_amount": "bill_amount",
+                                        "save_amount": "save_amount",
+                                        "offer_type": "offer_type",
+                                        "offer_code": "offer_code",
+                                        "enquiry_code": "enquiry_code"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/customer_login": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Customer login",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "input": "beniel.nayagam@vernost.in"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/verify_otp": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Verify OTP",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "otp": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "device_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "fcm_token": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "os": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "input": "beniel.nayagam@vernost.in",
+                                        "otp": 1234,
+                                        "device_id": 1513,
+                                        "fcm_token": 456,
+                                        "os": "ios"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/get_transactions": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get transactions",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/resend_otp": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Resend OTP",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "input": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "input": "beniel.nayagam@vernost.in"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/dispute_transaction": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Dispute transaction",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGlyZF9wYXJ0eV9hcHBfaWQiOjMwLCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTYwNDM5ODY1MywiZXhwIjoxNjA0NDI3NDUzfQ.OraGpXnjSNSTA1NOYOfBZWVevhCC78h3xsqMo2rqExk",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "transaction_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "transaction_id": 10110
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/get_family_transactions?customer_unique_id=2719373804&limit=10&offset=0": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get family transactions",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "customer_unique_id",
+                        "description": "2719373804",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "10",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "0",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/get_customer_transactions?customer_unique_id=9102747171&limit=10&offset=0": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get customer transactions",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "customer_unique_id",
+                        "description": "9102747171",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "10",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "0",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/get_coupon_code": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get coupon code",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "customer_unique_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "merchant_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "customer_unique_id": 7566561573,
+                                        "merchant_code": "BIGBAZAR"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/tenant/add_tenant": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Add Tenant",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "customer_unique_id": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "first_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "dob": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "unit_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "tenant_joining_date": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "tenant_leaving_date": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "tenant_remark": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "customer_unique_id": "8576706595",
+                                        "first_name": "Supriya",
+                                        "last_name": "Barne",
+                                        "email": "supriya14@dummydomainxyz1001.com",
+                                        "phone": "998877677",
+                                        "dob": "2000-01-01",
+                                        "gender": "Male",
+                                        "unit_id": 16,
+                                        "tenant_joining_date": "2020-05-28",
+                                        "tenant_leaving_date": "2020-05-29",
+                                        "tenant_remark": "Testing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/consume_coupon": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Consume coupon",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "coupon_code": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "ty_transaction_id": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "coupon_code": "xyz123",
+                                        "ty_transaction_id": "ABC123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/process_transaction": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Process transactions",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/user/getCCToken": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get CC Token",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "TP_APPLICATION_KEY",
+                        "value": "9d04cea4-af10-472b-80f0-7f2c4b9584ed",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/property_list": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get property list / details",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/tenant/list_tenant?offset=0&limit=10&customer_unique_id=8098045177": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "List Tenant",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "description": "0",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "10",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "customer_unique_id",
+                        "description": "8098045177",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/tenant/delete_tenantt": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Delete Tenant",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "TP_APPLICATION_KEY",
+                        "value": "9d04cea4-af10-472b-80f0-7f2c4b9584ed",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGlyZF9wYXJ0eV9hcHBfaWQiOjMwLCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTYwNDQ3MzIyMCwiZXhwIjoxNjA1MDc4MDIwfQ.KzC5Rq9gsDJMWFtjjFwngstPuz4NSsJ_A-dO_K4oK5A",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/tenant/edit_tenant": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Update Tenant",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "language_code",
+                        "description": "EN",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "tenant_unique_id": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "customer_unique_id": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "unit_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    },
+                                    "first_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "dob": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "tenant_joining_date": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "tenant_leaving_date": {
+                                        "type": "string",
+                                        "optional": true
+                                    },
+                                    "tenant_remark": {
+                                        "type": "string",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "tenant_unique_id": "2110097822",
+                                        "customer_unique_id": "8576706595",
+                                        "unit_id": 16,
+                                        "first_name": "MD",
+                                        "last_name": "Islam",
+                                        "phone": "5346846869",
+                                        "dob": "2000-01-01",
+                                        "gender": "Male",
+                                        "tenant_joining_date": "2020-05-28",
+                                        "tenant_leaving_date": "2020-05-30",
+                                        "tenant_remark": "Testing"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/unit_rent_list?customer_unique_id=9102747171": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get rent unit list",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "customer_unique_id",
+                        "description": "9102747171",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/master_list": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Master API",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/get_unit_list?customer_unique_id=1109320948": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get unit list",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "customer_unique_id",
+                        "description": "1109320948",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/set_default_unit": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Set default unit",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "customer_unique_id": {
+                                        "type": "number",
+                                        "optional": true,
+                                        "min": 1,
+                                        "max": 10,
+                                        "details": 1234567890
+                                    },
+                                    "unit_id": {
+                                        "type": "number",
+                                        "optional": true,
+                                        "min": 1,
+                                        "max": 10,
+                                        "details": 26
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "customer_unique_id": 1234567890,
+                                        "unit_id": 26
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "Ex1": {
+                                        "summary": "summary"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/rest/V1/users/get_family_transactions?customer_unique_id=2719373804&limit=10&offset=0": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "get_family_transactions",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "customer_unique_id",
+                        "description": "2719373804",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "limit",
+                        "description": "10",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "offset",
+                        "description": "0",
+                        "required": false,
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/get_hot_selling_properties": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Hot selling properties",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "0": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "disabled": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "required": []
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": [
+                                        {
+                                            "key": "",
+                                            "value": "",
+                                            "type": "text",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/customer/get_profile?customer_unique_id=1109320948": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get profile",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "customer_unique_id",
+                        "description": "1109320948",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/property_suggession?search=E&unit_type=rent": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Property Suggession API",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "description": "E",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "unit_type",
+                        "description": "rent",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "0": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "1": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "2": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": [
+                                        {
+                                            "key": "shriom",
+                                            "value": "tyagi",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "sarthak",
+                                            "value": "kaushik",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "hariom",
+                                            "value": "tyagi",
+                                            "type": "text"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/broker_list": {
+            "get": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Broker list",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "unit_type",
+                        "description": "rent",
+                        "required": false,
+                        "in": "query"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "{{cc_token}}",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "0": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "disabled": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "required": []
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": [
+                                        {
+                                            "key": "",
+                                            "value": "",
+                                            "type": "text",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/notification/get_notification_list": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Get notifications list",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGlyZF9wYXJ0eV9hcHBfaWQiOjMwLCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTYwMjUwMDA3MiwiZXhwIjoxNjAyNTI4ODcyfQ.ud4nh4-Ob_0e2Cvazrhh6_wvKS6JSWjXgjxLuBz9BNU",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "customer_unique_id": {
+                                        "type": "number",
+                                        "optional": true
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": {
+                                        "customer_unique_id": 8098045177
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/cc/master/update_unit_type": {
+            "post": {
+                "tags": [
+                    "Other"
+                ],
+                "summary": "Update Unit Type",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "TP_APPLICATION_KEY",
+                        "value": "9d04cea4-af10-472b-80f0-7f2c4b9584ed",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "CC_TOKEN",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aGlyZF9wYXJ0eV9hcHBfaWQiOjMwLCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTYwMzM3MDQyMywiZXhwIjoxNjAzOTc1MjIzfQ.lB1KFq07mEf90sUM5_xlDnN_mkL4MNoujXRzY4TccVs",
+                        "required": false,
+                        "in": "header"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "required": false,
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "0": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "1": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "2": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "optional": true
+                                            },
+                                            "type": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        },
+                                        "required": []
+                                    }
+                                },
+                                "required": []
+                            },
+                            "examples": {
+                                "Ex1": {
+                                    "summary": "summary",
+                                    "value": [
+                                        {
+                                            "key": "id",
+                                            "value": "1",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "unit_type",
+                                            "value": "none",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "key": "amount",
+                                            "value": "11111111",
+                                            "type": "text"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}

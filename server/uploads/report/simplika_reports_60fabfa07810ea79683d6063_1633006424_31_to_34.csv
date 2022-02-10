@@ -1,0 +1,5 @@
+endpoint_url,method,status,response_time_in_milliseconds,client,request_on,target_status_code,proxy_status_code
+/rest/V1/categorylist/42,POST,200,1661,abcd,Invalid Date,200,
+/rest/V1/categorylist/42,POST,403,46,NA,Invalid Date,,403
+/rest/V1/categorylist/42,POST,200,1420,abcd,Invalid Date,200,
+/rest/V1/categorylist/42,POST,200,2482,abcd,Invalid Date,200,

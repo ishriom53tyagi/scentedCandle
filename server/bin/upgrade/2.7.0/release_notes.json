@@ -1,0 +1,101 @@
+[
+    {
+        "version": "2.6.0",
+        "categories": [
+            {
+                "category": "What's New",
+                "changes": [
+                    {
+                        "description": " 'Applications' changed to 'Products' <h4>Applications</h4>",
+                        "label": "Applications",
+                        "image":"19_Api_manager.jpg"
+                    },
+                    {
+                        "description": " 'Clients' changed to 'Partners' ",
+                        "image": "api.png"
+                    }
+                ]
+            },
+            {
+                "category": "Improvements",
+                "changes": [
+                    {
+                        "module": "Applications",
+                        "description": " 'Applications' changed to 'Products' ",
+                        "image": "geolocation.jpg"
+                    },
+                    {
+                        "module": "Clients",
+                        "description": " 'Clients' changed to 'Partners' ",
+                        "image": "map_icon.png"
+                    }
+                ]
+            },
+            {
+                "category": "Bug Fixes",
+                "changes": [
+                    {
+                        "module": "Applications",
+                        "description": " 'Applications' changed to 'Products' ",
+                        "image": "PngItem_1272135.png"
+                    },
+                    {
+                        "module": "Clients",
+                        "description": " 'Clients' changed to 'Partners' ",
+                        "image": "simplysorted.png"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "version": "2.7.0",
+        "categories": [
+            {
+                "category": "What's New",
+                "changes": [
+                    {
+                        "description": " 'Applications' changed to 'Products'",
+                        "desc":"<span class='badge badge-primary' style='background-color: #3f51b5;'><h5>Applications</h5></span><i class='fa fa-circle' style='font-size:1px'></i><span>'Applications' changed to 'Products'</span><br>",
+                        "label": "<h5>Applications</h5>",
+                        "image":"19_Api_manager.jpg"
+                    },
+                    {
+                        "description": " 'Clients' changed to 'Partners' ",
+                        "image": "api.png"
+                    }
+                ]
+            },
+            {
+                "category": "Improvements",
+                "changes": [
+                    {
+                        "module": "Applications",
+                        "description": " 'Applications' changed to 'Products' ",
+                        "image": "geolocation.jpg"
+                    },
+                    {
+                        "module": "Clients",
+                        "description": " 'Clients' changed to 'Partners' ",
+                        "image": "map_icon.png"
+                    }
+                ]
+            },
+            {
+                "category": "Bug Fixes",
+                "changes": [
+                    {
+                        "module": "Applications",
+                        "description": " 'Applications' changed to 'Products' ",
+                        "image": "PngItem_1272135.png"
+                    },
+                    {
+                        "module": "Clients",
+                        "description": " 'Clients' changed to 'Partners' ",
+                        "image": "simplysorted.png"
+                    }
+                ]
+            }
+        ]
+    }
+]

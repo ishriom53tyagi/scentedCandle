@@ -1,0 +1,11 @@
+endpoint_url,method,status,response_time_in_milliseconds,client,request_on,target_status_code,proxy_status_code
+/rest/V1/categorylist/42,POST,200,2667,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,200,2406,abcd,Invalid Date,,
+/rest/V1/categorylist/42,POST,404,224,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,3856,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,3977,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,3936,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,4359,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,3700,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,4188,abcd,Invalid Date,,
+/rest/V1/productview/420_1846WY004_5_RED,POST,500,4168,abcd,Invalid Date,,

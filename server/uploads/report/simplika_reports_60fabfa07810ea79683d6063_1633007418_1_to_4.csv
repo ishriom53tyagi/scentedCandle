@@ -1,0 +1,5 @@
+endpoint_url,method,status,response_time_in_milliseconds,client,request_on,target_status_code,proxy_status_code
+/rest/V1/categorylist/42,POST,200,1661,abcd,Thu Sep 30 2021 14:29:22 GMT+0530 (India Standard Time),200,NA
+/rest/V1/categorylist/42,POST,403,46,NA,Thu Sep 30 2021 14:29:09 GMT+0530 (India Standard Time),NA,403
+/rest/V1/categorylist/42,POST,200,1420,abcd,Thu Sep 30 2021 14:27:36 GMT+0530 (India Standard Time),200,NA
+/rest/V1/categorylist/42,POST,200,2482,abcd,Thu Sep 30 2021 14:26:17 GMT+0530 (India Standard Time),200,NA

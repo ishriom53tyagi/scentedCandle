@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <style>
+        /* Basics */
+        body {
+            Margin: 0;
+            padding: 0;
+            min-width: 100%;
+            background-color: #e2e2e2;
+        }
+
+        table {
+            border-spacing: 0;
+            font-family: sans-serif;
+            color: #333333;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        .webkit {
+            max-width: 600px;
+        }
+
+        .outer {
+            Margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .inner {
+            padding: 10px;
+        }
+
+        a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+
+        .h1 {
+            font-size: 21px;
+            font-weight: bold;
+            Margin-bottom: 18px;
+        }
+
+        .h2 {
+            font-size: 18px;
+            font-weight: bold;
+            Margin-bottom: 12px;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 16px 146px;
+        }
+
+        /* One column layout */
+        .one-column .contents {
+            text-align: left;
+        }
+
+        .one-column p {
+            font-size: 14px;
+            Margin-bottom: 10px;
+        }
+
+        /*Media Queries*/
+        @media screen and (max-width: 400px) {
+
+            .two-column .column,
+            .three-column .column {
+                max-width: 100% !important;
+            }
+
+            .two-column img {
+                max-width: 100% !important;
+            }
+
+            .three-column img {
+                max-width: 50% !important;
+            }
+        }
+
+        @media screen and (min-width: 401px) and (max-width: 620px) {
+            .three-column .column {
+                max-width: 33% !important;
+            }
+
+            .two-column .column {
+                max-width: 50% !important;
+            }
+        }
+
+        .resetBtn {
+            /* -webkit-column-break-before: always; */
+            margin: 15px 207px 14px;
+            border: none;
+            padding: 14px 18px;
+            font-size: inherit;
+            background-color: #1360a1;
+            color: white;
+            font-weight: 549;
+            cursor: pointer !important;
+        }
+
+        .resetBtn:hover {
+            /* -webkit-column-break-before: always; */
+            margin: 15px 207px 14px;
+            border: none;
+            padding: 14px 18px;
+            font-size: inherit;
+            background-color: #1a4569;
+            color: white;
+            font-weight: 549;
+            cursor: pointer !important;
+        }
+
+        h3 {
+            text-align: center;
+            margin-left: -485px !important;
+            color: white;
+            font-size: x-large;
+            margin-right: -27px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <center class="wrapper">
+        <div class="webkit">
+            <!--[if (gte mso 9)|(IE)]>
+			<table width="600" align="center">
+			<tr>
+			<td>
+			<![endif]-->
+            <table class="outer" align="center">
+                <tbody>
+                    <tr>
+                        <td class="full-width-image"
+                            style="background: -webkit-linear-gradient(left, #296490, #5eb95d);">
+                            <div id="template">
+                                <h3
+                                    style="text-align: center; margin-left: -485px !important;color: white;font-size: x-large;margin-right: -27px !important;">
+                                    Simplika</h3>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="one-column">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td class="inner contents" bgcolor="ffffff">
+                                            <p class="h1">{{title}} </p>
+                                            <span>{{textLine1}}</span><span>{{textLine9}}</span><br>
+                                            <span>{{textLine5}}</span><span>{{textLine6}}</span><span>{{textLine7}}</span><span>{{textLine11}}</span><span>{{textLine10}}</span><br>
+                                            <span>{{textLine8}} </span><br>
+                                            {{!-- <span><a href="{{textLine2}}{{textLine3}}{{textLine4}}"
+                                                    data-saferedirecturl="{{textLine2}}{{textLine3}}{{textLine4}}">Click
+                                                    here</a> {{textLine12}}</span> --}}
+                                            <span><button style="color: blue;border: none;background: white;"><a
+                                                        href="{{textLine2}}{{textLine3}}{{textLine4}}"
+                                                        style="text-decoration: none !important;color:blue !important">Click
+                                                        Here</a></button> {{textLine12}} </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="one-column">
+                            <table width="100%">
+                                <tbody>
+
+                                    <tr>
+                                        <td class="contents managePadding" bgcolor="ffffff"
+                                            style="padding: 0px 0px 0px 10px;"> <span>Regards,</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="contents managePadding" bgcolor="ffffff"
+                                            style="padding: 0px 0px 5px 10px;"> <span>SimplikA Team</span> </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="one-column" bgcolor="#f2f2f2">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td class="inner contents"
+                                            style="background: -webkit-linear-gradient(left, #296490, #5eb95d);color: white;">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </center>
+
+</body>
+
+</html>

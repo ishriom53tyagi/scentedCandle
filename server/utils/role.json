@@ -1,0 +1,452 @@
+{
+    "3247693b": {
+        "role_code": "SUPERADMIN",
+        "role_desc": "Superadmin",
+        "role_status": 1,
+        "role_access": [
+            {
+                "rac_fun_id": 1,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_reset": 1,
+                "rac_code": "dashboard"
+            },
+            {
+                "rac_fun_id": 2,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "applications"
+            },
+            {
+                "rac_fun_id": 3,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "management"
+            },
+            {
+                "rac_fun_id": 4,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "clients"
+            },
+            {
+                "rac_fun_id": 5,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "analytics"
+            },
+            {
+                "rac_fun_id": 6,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "report"
+            },
+            {
+                "rac_fun_id": 7,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "backup-restore"
+            },
+            {
+                "rac_fun_id": 8,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-management"
+            },
+            {
+                "rac_fun_id": 9,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-management"
+            },
+            {
+                "rac_fun_id": 10,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "role-management"
+            },
+            {
+                "rac_fun_id": 11,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "configurations"
+            },
+            {
+                "rac_fun_id": 12,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "status-codes"
+            },
+            {
+                "rac_fun_id": 13,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "system-logs"
+            },
+            {
+                "rac_fun_id": 14,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "discover-logs"
+            },
+            {
+                "rac_fun_id": 15,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "manage-organization"
+            },
+            {
+                "rac_fun_id": 16,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "data-purging"
+            },
+            {
+                "rac_fun_id": 17,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-profile"
+            },
+            {
+                "rac_fun_id": 18,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "download-manager"
+            },
+            {
+                "rac_fun_id": 19,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "settings"
+            },
+            {
+                "rac_fun_id": 20,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "web-router"
+            },
+            {
+                "rac_fun_id": 21,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "release-notes"
+            },
+            {
+                "rac_fun_id": 22,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "change-password"
+            }
+        ],
+        "role_child": [
+            "3247693b",
+            "7f5acfc6",
+            "bb063bfd"
+        ]
+    },
+    "7f5acfc6": {
+        "role_code": "ADMIN",
+        "role_desc": "Admin role",
+        "role_status": 1,
+        "role_access": [
+            {
+                "rac_fun_id": 1,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "dashboard"
+            },
+            {
+                "rac_fun_id": 2,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "applications"
+            },
+            {
+                "rac_fun_id": 3,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "management"
+            },
+            {
+                "rac_fun_id": 4,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "clients"
+            },
+            {
+                "rac_fun_id": 5,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "analytics"
+            },
+            {
+                "rac_fun_id": 6,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "report"
+            },
+            {
+                "rac_fun_id": 7,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "backup-restore"
+            },
+            {
+                "rac_fun_id": 8,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-management"
+            },
+            {
+                "rac_fun_id": 9,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-management"
+            },
+            {
+                "rac_fun_id": 10,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "role-management"
+            },
+            {
+                "rac_fun_id": 13,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "system-logs"
+            },
+            {
+                "rac_fun_id": 14,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "discover-logs"
+            },
+            {
+                "rac_fun_id": 17,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-profile"
+            },
+            {
+                "rac_fun_id": 18,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "download-manager"
+            },
+            {
+                "rac_fun_id": 19,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "settings"
+            },
+            {
+                "rac_fun_id": 20,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "web-router"
+            },
+            {
+                "rac_fun_id": 21,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "release-notes"
+            },
+            {
+                "rac_fun_id": 22,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "change-password"
+            }
+        ],
+        "role_child": [
+            "7f5acfc6",
+            "bb063bfd"
+        ]
+    },
+    "bb063bfd": {
+        "role_code": "USER",
+        "role_desc": "User Role",
+        "role_status": 1,
+        "role_access": [
+            {
+                "rac_fun_id": 1,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "dashboard"
+            },
+            {
+                "rac_fun_id": 2,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "applications"
+            },
+            {
+                "rac_fun_id": 3,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "management"
+            },
+            {
+                "rac_fun_id": 4,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "clients"
+            },
+            {
+                "rac_fun_id": 5,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "analytics"
+            },
+            {
+                "rac_fun_id": 6,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "report"
+            },
+            {
+                "rac_fun_id": 13,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "system-logs"
+            },
+            {
+                "rac_fun_id": 14,
+                "rac_add": 0,
+                "rac_view": 1,
+                "rac_edit": 0,
+                "rac_status": 1,
+                "rac_code": "discover-logs"
+            },
+            {
+                "rac_fun_id": 17,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "user-profile"
+            },
+            {
+                "rac_fun_id": 18,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "download-manager"
+            },
+            {
+                "rac_fun_id": 21,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "release-notes"
+            },
+            {
+                "rac_fun_id": 22,
+                "rac_add": 1,
+                "rac_view": 1,
+                "rac_edit": 1,
+                "rac_status": 1,
+                "rac_code": "change-password"
+            }
+        ],
+        "role_child": [
+            "bb063bfd"
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "mysql": {
+        "host": "vernostdevuat.cz7vnhsdptrh.us-east-1.rds.amazonaws.com",
+        "user": "ver_simplica_user",
+        "password": "$!Mp87#$-G",
+        "database": "simplica_db_vernost"
+    },
+    "mongodb": "mongodb://54.224.35.189:27018/?readPreference=primary&appname=MongoDB%20Compass&ssl=false",
+    "mongodb1": {
+        "host": "54.224.35.189",
+        "db": "simplika_sit",
+        "port": 27018,
+        "max_pool_size": 500,
+        "username": "",
+        "password": "",
+        "options": {
+            "useUnifiedTopology": true
+        },
+    "rethink": {
+        "host": "3.82.178.90",
+        "port": "28015"
+    }
+}
+
+}

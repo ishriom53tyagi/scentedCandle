@@ -1,0 +1,2000 @@
+{
+	"variables": [],
+	"info": {
+		"name": "hotel APIS",
+		"_postman_id": "42397e42-f4d3-cc13-aaea-2d6e9b23360e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "quotation_apis",
+			"description": "",
+			"item": [
+				{
+					"name": "delete quotation",
+					"request": {
+						"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/deletequotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "b0dedc559a536fb8d596db3a389771b1799d764df681664cd8ad545c0b31085c44ae185e9f783f4d4538e64354bf2aeca02a95b860c2228203d1d3b57bea9b8d39d12d4065b9abd0b5554f984108385fe1dec9b548e0bc8eb7cb188a53357f65fd2b80b849def3bd5207db3d4f7c694df845a889f2dd016211c86676edb47f7dd854a1f2de039406d7d8c7bbfc83d660",
+								"type": "text"
+							},
+							{
+								"key": "type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quotation_id\" : \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update quotation",
+					"request": {
+						"url": {
+							"raw": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/updatequotation?",
+							"protocol": "https",
+							"host": [
+								"uatinspiraservices",
+								"vetravel",
+								"io"
+							],
+							"path": [
+								"api",
+								"hotels",
+								"newhelper",
+								"updatequotation"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "5162bc1e6500b19ec32fa657c640b4f56a10a064a95e9f8eed0d5af7110721f3c077e74851f0a923013433fc2f276bc2f10fdb32436c4e5851054a749200656efd82586591974e68a6f9b3bfca166ece231bf5744eb89f5f117e268716eb9bd36dc7873cf3a46497e33205f7133e8f1d311da68643c9c93bf29a1fd10683db36",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n\n{\n    \"quotation_id\" : 37,\n     \"VeT_quote_hotel_detail\": [\n        {\n            \"PRODUCT_SEQ\": 10,\n            \"HOTEL_ID\": 10,\n            \"SUPPLIER_HOTEL_CODE\": 10,\n            \"NATIONALITY\": 1,\n            \"LANGUAGE\": 1,\n            \"ROOMS\": 1,\n            \"CHECK_IN_DATE\": \"2020-12-11\",\n            \"CHECK_OUT_DATE\": \"2020-12-12\",\n            \"DESTINATION\": 1,\n            \"NO_OF_CHILDS\": 1,\n            \"NO_OF_ADULTS\": 1,\n            \"HOTEL_NAME\": \"Hotel Leela Palace\",\n            \"HOTEL_DESCRIPTION\": \"test\",\n            \"HOTEL_IMAGE\": \"a.png\",\n            \"STAR_RATING\": \"5 star\",\n            \"CUSTOMER_RATING\": 0.5,\n            \"THEMES\": \"testttt\",\n            \"AMENITIES\": 1,\n            \"STATUS\": 1,\n            \"HOTELSEARCH\": 1,\n            \"PRODUCT_QUOTE_ID\": 1\n        }\n    ],\n    \"VeT_quote_flight_search_detail\": [\n        {\n            \"PRODUCT_SEQ\": 1,\n            \"TRIP_TYPE\": 1,\n            \"ORIGIN\": \"\",\n            \"DESTINATION\": \"\",\n            \"CABIN_CLASS\": 1,\n            \"FROM_DATE\": \"2020-11-12\",\n            \"TO_DATE\": \"2020-11-12\",\n            \"NO_OF_ADULT\": 1,\n            \"NO_OF_CHILD\": 1,\n            \"NO_OF_INFANT\": 0,\n            \"IS_NON_STOP\": 0,\n            \"IS_EXCLUDE_LCC\": 1,\n            \"PREFFERED_AIRLINE\": 1,\n            \"ALLIANCE\": 1,\n            \"PRODUCT_QUOTE_ID\": 1\n        }\n    ],\n    \"VeT_quote_flight_segment_detail\": [\n        {\n            \"PRODUCT_SEQ\": 1,\n            \"SEGMENT_NO\": 1,\n            \"LEG_SEQ\": 1,\n            \"DEPARTURE_DATE\": \"2020-11-11\" ,\n            \"ARRIVAL_DATE\": \"2020-11-12\",\n            \"CABIN_CLASS\": 1,\n            \"BOOKING_CLASS\": 1 ,\n            \"FARE_BASIS_CODE\":1 ,\n            \"MARKETING_CARRIER\": 1 ,\n            \"OPERATING_CARRIER\": 1,\n            \"FLIGHT_CODE\": \"6E\",\n            \"FLIGHT_NUMBER\": 747 ,\n            \"ORIGIN\": \"BOM\",\n            \"DESTINATION\": \"DXB\",\n            \"DURATION\": \"2h 20m\",\n            \"LAY_OVER_TIME\": \"2h\",\n            \"TECH_STOP\": 1,\n            \"ARR_TERMINAL\": 1 ,\n            \"DEPT_TERMINAL\": 2,\n            \"DEPARTURE_TIME\": \"08h 20m\",\n            \"ARRIVAL_TIME\": \"11h 00m\",\n            \"LEGS_DETAILS\": 1,\n            \"STATUS\": 1,\n            \"PRODUCT_QUOTE_ID\": 1\n        },\n        {\n            \"PRODUCT_SEQ\": 2,\n            \"SEGMENT_NO\": 2,\n            \"LEG_SEQ\": 1,\n            \"DEPARTURE_DATE\": \"2020-11-12\",\n            \"ARRIVAL_DATE\": \"2020-12-13\",\n            \"CABIN_CLASS\": 1,\n            \"BOOKING_CLASS\":1 ,\n            \"FARE_BASIS_CODE\":1 ,\n            \"MARKETING_CARRIER\":1 ,\n            \"OPERATING_CARRIER\": 1,\n            \"FLIGHT_CODE\": \"56FG\",\n            \"FLIGHT_NUMBER\": 567,\n            \"ORIGIN\": \"DXB\",\n            \"DESTINATION\": \"BOM\" ,\n            \"DURATION\": \"2h 10m\",\n            \"LAY_OVER_TIME\": \"30m\",\n            \"TECH_STOP\": 1,\n            \"ARR_TERMINAL\": 1 ,\n            \"DEPT_TERMINAL\": 2,\n            \"DEPARTURE_TIME\": \"13h 10m\",\n            \"ARRIVAL_TIME\": \"15h 20m\",\n            \"LEGS_DETAILS\": 1,\n            \"STATUS\": 1,\n            \"PRODUCT_QUOTE_ID\": 1\n        }\n    ]\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "list quotation",
+					"request": {
+						"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/listquotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "5162bc1e6500b19ec32fa657c640b4f56a10a064a95e9f8eed0d5af7110721f3c077e74851f0a923013433fc2f276bc2f10fdb32436c4e5851054a749200656efd82586591974e68a6f9b3bfca166ece231bf5744eb89f5f117e268716eb9bd36dc7873cf3a46497e33205f7133e8f1d311da68643c9c93bf29a1fd10683db36",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quotation_id\" : 51\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "send quotation",
+					"request": {
+						"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/sendquotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "b0dedc559a536fb8d596db3a389771b1799d764df681664cd8ad545c0b31085c44ae185e9f783f4d4538e64354bf2aeca02a95b860c2228203d1d3b57bea9b8d39d12d4065b9abd0b5554f984108385fe1dec9b548e0bc8eb7cb188a53357f65fd2b80b849def3bd5207db3d4f7c694df845a889f2dd016211c86676edb47f7dd854a1f2de039406d7d8c7bbfc83d660",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email_id\" : \"saniya.g@gmail.com\",\n    \"quotation_id\" : 29\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get quotation",
+					"request": {
+						"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/getquotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "5162bc1e6500b19ec32fa657c640b4f56a10a064a95e9f8eed0d5af7110721f3c077e74851f0a923013433fc2f276bc2f10fdb32436c4e5851054a749200656efd82586591974e68a6f9b3bfca166ece231bf5744eb89f5f117e268716eb9bd36dc7873cf3a46497e33205f7133e8f1d311da68643c9c93bf29a1fd10683db36",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create quotation",
+					"request": {
+						"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/createquotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "5162bc1e6500b19ec32fa657c640b4f56a10a064a95e9f8eed0d5af7110721f3c077e74851f0a923013433fc2f276bc2f10fdb32436c4e5851054a749200656efd82586591974e68a6f9b3bfca166ece231bf5744eb89f5f117e268716eb9bd36dc7873cf3a46497e33205f7133e8f1d311da68643c9c93bf29a1fd10683db36",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_id\": \"cb7056d210ac09d57d8eda4e0c9fa2b009920e806ff526a9b9694a7f44bffb6fe49fecfd2407fbedcae87ecf396abf02\",\n    \"uid\": \"31fb7c70-fc11-11ea-80ec-ab0f550656a4\",\n    \"vid\": 1076851,\n    \"quot_name\":\"abc_test\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "update_ localhost",
+					"request": {
+						"url": "localhost:8082/api/hotels/newhelper/updatequotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "b7dc0f6370edaddb19db782e22423b609e19344bd8948dba223aaa358df00e4ac28be4f27b78223cadfc23539f158603a36e170335c8e753a6c8190930b92b144db2ae1d94f9ef88c3dca65994542c891321ba257cbcec9802bcb1030fda1dbce0e7c84842de1207167866e977b085fe8ac5284311da677701e9762c9650ccfc6ed19fef91308e82874ce71d60b21df8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"search_id\": \"97d86891d8cc0f6931f3ad7e24eb0a3900cce59f7f19eaad3d3eb5a29a252ee8b46e5cc83c29e3b00cac4d4a5c4cb9d7\",\n                \"uid\": \"cccb0c80-f8f0-11ea-b796-4b0a3993e550\",\n                \"vid\": 1087419,\n                \"quot_id\": 33\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getlistQuot localhost",
+					"request": {
+						"url": "localhost:8082/api/hotels/newhelper/listquotation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "b7dc0f6370edaddb19db782e22423b609e19344bd8948dba223aaa358df00e4ac28be4f27b78223cadfc23539f158603a36e170335c8e753a6c8190930b92b144db2ae1d94f9ef88c3dca65994542c891321ba257cbcec9802bcb1030fda1dbce0e7c84842de1207167866e977b085fe8ac5284311da677701e9762c9650ccfc6ed19fef91308e82874ce71d60b21df8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quotation_id\" : 38\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "miki",
+			"description": "",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"url": "https://test.mikinet.co.uk/interfaceWL/7.0/hotelSearch",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestAuditInfo\": {\n        \"agentCode\": \"MXS001\",\n        \"requestPassword\": \"PASSWORDPASSWORD1234\",\n        \"requestDateTime\": \"2020-09-25T16:08:58.411Z\",\n        \"requestID\": 692063\n    },\n    \"versionNumber\": \"7.0\",\n    \"hotelSearchCriteria\": {\n        \"destination\": {\n            \"hotelRefs\": {\n                \"productCodes\": [\n                    \"CBC054300\",\n                    \"CBD235100\",\n                    \"CAF401100\",\n                    \"CAF561500\",\n                    \"CAP660300\",\n                    \"CAW774500\",\n                    \"CAX348500\",\n                    \"CAX878200\",\n                    \"CAO555100\",\n                    \"CAF529000\",\n                    \"CBA749700\",\n                    \"CBA749500\",\n                    \"CAF528800\",\n                    \"CAF528700\",\n                    \"CAF529300\",\n                    \"CAF536300\",\n                    \"CAF530000\",\n                    \"CAG700100\",\n                    \"CAH534600\",\n                    \"CAI641400\",\n                    \"CAI890800\",\n                    \"CAJ733600\",\n                    \"CAJ408000\",\n                    \"CAL833500\",\n                    \"CAL833400\",\n                    \"CAI498100\",\n                    \"CAJ656500\",\n                    \"CAF527400\",\n                    \"CAM658500\",\n                    \"CAQ807100\",\n                    \"CAR575700\",\n                    \"CAS406100\",\n                    \"CAU215700\",\n                    \"CAU845600\",\n                    \"CAV131800\",\n                    \"CAW562800\",\n                    \"CAY703600\",\n                    \"CAZ676500\",\n                    \"CBA949900\",\n                    \"CBC335000\",\n                    \"CAY194200\",\n                    \"CAV171600\",\n                    \"CAF400200\",\n                    \"CAF527300\",\n                    \"CAF566400\",\n                    \"CAF962600\",\n                    \"CAF935400\",\n                    \"CAF935200\",\n                    \"CAF935100\",\n                    \"CAI682100\",\n                    \"CAK623100\",\n                    \"CAU603000\",\n                    \"CAW951800\",\n                    \"CAY370200\",\n                    \"CAZ152400\",\n                    \"CAO712600\",\n                    \"CAR756200\",\n                    \"CAT794500\",\n                    \"CAV171500\",\n                    \"CAV656600\",\n                    \"CAX726400\",\n                    \"CAX726500\",\n                    \"CAX726600\",\n                    \"CAX726100\",\n                    \"CAY888500\",\n                    \"CAZ162300\",\n                    \"CAZ676600\",\n                    \"CBA043400\",\n                    \"CBA560800\",\n                    \"CBB863700\",\n                    \"CAU846400\",\n                    \"CAT349100\",\n                    \"CAU314600\",\n                    \"CAK305800\",\n                    \"CAV917700\",\n                    \"CAN796400\",\n                    \"CAW311100\",\n                    \"CAF966700\",\n                    \"CAF400300\",\n                    \"CAL110700\",\n                    \"CAF527900\",\n                    \"CAF527800\",\n                    \"CAF552500\",\n                    \"CAF552400\",\n                    \"CAG700500\",\n                    \"CAG698500\",\n                    \"CAI164100\",\n                    \"CAI410600\",\n                    \"CAI560500\",\n                    \"CAI460700\",\n                    \"CAI657200\",\n                    \"CAI910900\",\n                    \"CAI815300\",\n                    \"CAR590200\",\n                    \"CAV103900\",\n                    \"CBB920400\",\n                    \"CAW311200\",\n                    \"CAK650900\",\n                    \"CAF528600\",\n                    \"CAH984600\",\n                    \"CAO706400\",\n                    \"CAP414700\",\n                    \"CAP641600\",\n                    \"CAP915100\",\n                    \"CAQ343700\",\n                    \"CAR332700\",\n                    \"CAS084800\",\n                    \"CAU270800\",\n                    \"CAU318800\",\n                    \"CAV104400\",\n                    \"CAV104200\",\n                    \"CAV104300\",\n                    \"CAW542200\",\n                    \"CAY068400\",\n                    \"CAY062800\",\n                    \"CAW362900\",\n                    \"CAX130500\",\n                    \"CAR758800\",\n                    \"CAF531300\",\n                    \"CAF531500\",\n                    \"CAF564300\",\n                    \"CAG700700\",\n                    \"CAG701300\",\n                    \"CAG700800\",\n                    \"CAI270300\",\n                    \"CAI851600\",\n                    \"CAJ140000\",\n                    \"CAK651000\",\n                    \"CAK965900\",\n                    \"CAP529500\",\n                    \"CAY259500\",\n                    \"CBA756300\",\n                    \"CAF402300\",\n                    \"CAJ853800\",\n                    \"CAP529800\",\n                    \"CAV104000\",\n                    \"CAI309600\",\n                    \"CAJ256300\",\n                    \"CAU845400\",\n                    \"CAX726200\",\n                    \"CBA237100\",\n                    \"CBB863400\",\n                    \"CAQ299500\",\n                    \"CAF529800\",\n                    \"CAH984700\",\n                    \"CAF530700\",\n                    \"CAR756500\",\n                    \"CAR758000\",\n                    \"CAZ664500\",\n                    \"CBA565100\",\n                    \"CBA749600\",\n                    \"CAR757800\",\n                    \"CAG702500\",\n                    \"CAG701600\",\n                    \"CAG702100\",\n                    \"CAF402500\",\n                    \"CAU162100\",\n                    \"CAU845900\",\n                    \"CAW867600\",\n                    \"CBA749400\",\n                    \"CAP675000\",\n                    \"CAX348300\",\n                    \"CAY719600\",\n                    \"CAF531600\",\n                    \"CAV104500\",\n                    \"CAX726300\",\n                    \"CBC950900\"\n                ]\n            }\n        },\n        \"stayPeriod\": {\n            \"checkinDate\": \"2020-11-10\",\n            \"numberOfNights\": 2\n        },\n        \"rooms\": [\n            {\n                \"roomNo\": 1,\n                \"guests\": [\n                    {\n                        \"type\": \"ADT\"\n                    },\n                    {\n                        \"type\": \"ADT\"\n                    },\n                    {\n                        \"type\": \"CHD\",\n                        \"age\": 1\n                    },\n                    {\n                        \"type\": \"CHD\",\n                        \"age\": 1\n                    }\n                ]\n            }\n        ],\n        \"availabilityCriteria\": {\n            \"availabilityIndicator\": 2\n        },\n        \"priceCriteria\": {\n            \"returnBestPriceIndicator\": true\n        },\n        \"languageCode\": \"en\",\n        \"currencyCode\": \"USD\",\n        \"paxNationality\": \"GB\",\n        \"resultDetails\": {\n            \"returnDailyPrices\": false,\n            \"returnSpecialOfferDetails\": 0\n        }\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "availability",
+					"request": {
+						"url": "https://test.mikinet.co.uk/interfaceWL/7.0/hotelSearch",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n\n{\"requestAuditInfo\": \n                   {\"agentCode\": \"MXS001\", \n                   \"requestPassword\": \"PASSWORDPASSWORD1234\",\n                   \"requestDateTime\": \"2020-09-25T16:20:55.061Z\",\n                   \"requestID\": 197343 },\n                   \"versionNumber\": \"7.0\",\"hotelSearchCriteria\": {\"destination\": {\n                      \"hotelRefs\": { \"productCodes\" : [ \"CAF956900\" ]}\n                  },\n                  \"stayPeriod\": {\n                    \"checkinDate\":\"2020-10-10\",\n                    \"numberOfNights\":2\n                  },\n                  \"rooms\": [\n                    {\n                      \"roomNo\": 1,\n                      \"guests\": [\n                          {\n                            \"type\": \"ADT\"\n                          }\n                          ,\n                          {\n                            \"type\": \"ADT\"\n                          }\n                          ,\n                          {\n                            \"type\": \"CHD\",\n                            \"age\":1\n                          }\n                                                  ,\n                          {\n                            \"type\": \"CHD\",\n                            \"age\":1\n                          }\n                        ]\n                    }\n                  ],\n                  \"availabilityCriteria\": {\n                    \"availabilityIndicator\": 2\n                  },\n                  \"priceCriteria\": {\n                    \"returnBestPriceIndicator\": true\n                  },\n                  \"languageCode\": \"en\",\n                  \"currencyCode\": \"USD\",\n                  \"paxNationality\":\"GB\",\n                  \"resultDetails\": {\n                    \"returnDailyPrices\": false,\n                    \"returnHotelInfo\": 1,\n                    \"returnSpecialOfferDetails\":1 \n                  }\n                }\n              } \n\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "book",
+					"request": {
+						"url": "",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\"requestAuditInfo\": \n                   {\"agentCode\": \"MXS001\", \n                   \"requestPassword\": \"PASSWORDPASSWORD1234\",\n                   \"requestDateTime\": \"2020-09-21T17:15:32.944Z\",\n                   \"requestID\": 119984 },\n                   \"versionNumber\": \"7.0\",\"booking\":{ \"currencyCode\": \"USD\",\"paxNationality\": \"GB\",\"clientRef\":{\"value\": \"210920224532961\" },\n                    \"items\":[ {\n                  \"itemNumber\":1,\n                  \"immediateConfirmationRequired\":true,\n                  \"hotel\": {\n                  \"rooms\": [\n                  {\n                  \"roomNo\": 1,\n                  \"roomTypeCode\": \"00001\",\n                  \"guests\": [  \n                  {\n                  \"paxName\": {\n                  \"firstName\": \"Tushar \",\n                  \"lastName\": \"Mulay\",\n                  \"title\": \"Mr\"\n                  },\n                  \"type\": \"ADT\"\n                  }\n  ,\n                  {\n                  \"paxName\": {\n                  \"firstName\": \"Tushar \",\n                  \"lastName\": \"Mulay\",\n                  \"title\": \"Mr\"\n                  },\n                  \"type\": \"ADT\"\n                  }\n                  ],\n\n                  \"rateIdentifier\": \"79342d74-a49b-4c04-ab22-0ea56dd159e2|TnMyrrvjdPuPpDHhEswAaC3oXxT-6r8QpmaqFG6YgcpUwvcpkFdWWz-j-zQQCfuuQUiLIG7Wnq7aOVOvwvwnlA9uLOl4KaVZuLWWJLmMb_1yRbCr4mXTL2TWrG0aQ0ZHZtk_if9tqJnyr8uwco5ODW8aa78l92tiiJHomYpuZDLnp_593EpKjwUf3WgrDCPf3Mb4aZpMkKYaHcaESkNv_2MIwWnVXPWhkdn-cM3hO6jV3Qb199j8qtAutLuf_eG6\",\n                  \"roomTotalPrice\": 790.56\n                  }\n                  ],\n                  \"stayPeriod\": {\n                  \"checkinDate\": \"2020-10-10\",\n                  \"numberOfNights\": 2\n                  }\n                  },\n                  \"leadPaxName\": {\n                  \"firstName\": \"Tushar \",\n                  \"lastName\": \"Mulay\",\n                  \"title\": \"Mr\"\n                },\n                \"productCode\": \"CAF956900\"\n                }]\n              }\n                  }\n\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "midiffc api's",
+			"description": "",
+			"item": [
+				{
+					"name": "get dateformate",
+					"request": {
+						"url": "https://inspiraservices.vetravel.io/api/hotels/newhelper/getUserDateFormat",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "e375d042836eaab62a2acf6150303a7649a155d4c9b63c9e1c978aaea3ad26e019c9fce43160bda4a1fff6b6a17b6cf6a4557515dad89089b174a75808a3d02e01fc658e64cd3cc1c419e9877cae35580e93fae28aa51c54fa47391187e6a1d1b497e10433c37e98a29a1e7f615bcad0414eaf5efe16a651b4b3f5dc820f1e7c34c25002fd6cfd22aa1d19ede5716851254a672f90366be4f6637c951db92b6f",
+								"type": "text"
+							},
+							{
+								"key": "user_id",
+								"value": "386",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_type\" : 1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unlock cashcard",
+					"request": {
+						"url": "https://midofficeuatinspiraservices.vetravel.io/app/unlockCashCard",
+						"method": "POST",
+						"header": [
+							{
+								"key": "user_id",
+								"value": "",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"card_id\":8,\n\"booking_amount\":100,\n\"booking_currency\":\"USD\",\n\"booking_no\":20090236968,\n\"refund_amount\":\"\",\n\"cash_card_name\":\"sss\",\n\"currency_code\":\"sd\",\n\"payment_card_id\":\"8\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getOrderdetails",
+					"request": {
+						"url": "https://midofficeuatinspiraservices.vetravel.io/app/getOrderDeatails",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"ORDER_ID\":\"20101294355\",\n\"usr_type\":1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "test",
+					"request": {
+						"url": "https://hoteltravreadyservices.inspiravacations.com/api/hotels/helper/gettraveller",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "a5aac94afa8a1bcef46a113fd9decbfc5b0a6a1ec6914541c5e29f2e34d8a40594beb41f6652b1ac62092a593ea8da93928dd374505b1b3bd00ac1c936c1536cba6bfd45c9d63a245d79049861dcbb72ffcf68aae62af2fc3bea657b7ffae24b41328e4239c4d0466c99ed25a54d5f430decd53365f47369a179af5a01a7d6b4f924b1a6ad70b07a303b17120760d69ac95a1c42ebf3eae389b509369d1f1b1b",
+								"type": "text"
+							},
+							{
+								"key": "user_id",
+								"value": "353",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"usr_type\": \"1\",\n    \"travller_id\": [\n        930\n    ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "ROE-rate_PROD",
+					"request": {
+						"url": "https://hoteltravreadyservices.inspiravacations.com/api/hotels/helper/getCurrencyROE",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n                \"FROM_CURRENCY\": \"USD\",\n                \"TO_CURRENCY\": \"INR\",\n                \"FLAG_BUYER_SELLER\": \"B\"\n            }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "cashcardCalculation",
+					"request": {
+						"url": "http://23.21.120.203:8086/app/calculateCashCard",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "user_id",
+								"value": "385",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n             \"cash_card_id\": 8, \n            \"amount\": 100,\n            \"currency\" : \"USD\"\n          }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "lock cashcard",
+					"request": {
+						"url": "http://23.21.120.203:8086/app/lockCashCard",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unlock cashcard",
+					"request": {
+						"url": "http://23.21.120.203:8086/app/unlockCashCard",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "apply cashcard",
+					"request": {
+						"url": "http://23.21.120.203:8086/app/applyCashCardDetailsforagent",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getcashcard details",
+					"request": {
+						"url": "23.21.120.203:8086/app/getCashCardDetails",
+						"method": "GET",
+						"header": [
+							{
+								"key": "user_id",
+								"value": "388",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "SIT_ROE",
+					"request": {
+						"url": "http://23.21.120.203:8086/app/getCurrencyROE",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n                \"FROM_CURRENCY\": \"USD\",\n                \"TO_CURRENCY\": \"EUR\",\n                \"FLAG_BUYER_SELLER\": \"B\"\n            }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get HotelApplied CouponLogs",
+					"request": {
+						"url": "http://23.21.120.203:8086/app/getHotelAppliedCouponLogs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "user_id",
+								"value": "101630",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n                \"id\": \"\",\n                \"checkout_id\": \"8406\",\n                \"coupoun_id\" :\"\"\n              }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getSupplier",
+					"request": {
+						"url": "https://hoteltravreadyservices.inspiravacations.com/api/hotels/helper/getsupplier",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"org_id\": 42,\n    \"product_type\": \"HLT\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "prod markup",
+					"request": {
+						"url": "https://hoteltravreadyservices.inspiravacations.com/api/hotels/helper/getsuppliermarkup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "a07cb490-dd60-11ea-87d0-0242ac130003",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"org_id\": 51,\n\"site_id\": \"42\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pg_apis",
+			"description": "",
+			"item": [
+				{
+					"name": "capture",
+					"request": {
+						"url": "https://milespassuat.vetravel.io/capturepayment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "d518b84e-fc91-11ea-867d-1228f3ba7f84-2e5db81d07e2d276b17bbecc3ea3ab9fc0243c85",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"d518b84e-fc91-11ea-867d-1228f3ba7f84-2e5db81d07e2d276b17bbecc3ea3ab9fc0243c85\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hotels 2.0",
+			"description": "",
+			"item": [
+				{
+					"name": "search 2.0",
+					"request": {
+						"url": "localhost:8082/api/hotels/2.0/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search_type\": 21,\n    \"nationality\": \"US\",\n    \"currency\": \"USD\",\n    \"check_in_date\": \"2021-04-25\",\n    \"check_out_date\": \"2021-04-27\",\n    \"language\": \"en\",\n    \"hotel_id\": [\n        5187145,\n        2327153,\n        2902606,\n        5176716,\n        1061665,\n        1117375,\n        3045843,\n        5074132,\n        1061664,\n        1232151,\n        1888479,\n        2356835,\n        3001163,\n        3018393,\n        5121579,\n        5133815,\n        5135317,\n        5138210,\n        5141473,\n        5141763,\n        5151547,\n        5157044,\n        5162560,\n        5163139,\n        5164306,\n        5164388,\n        5164928,\n        5165722,\n        5166742,\n        5168370,\n        5172855,\n        5173144,\n        5173237,\n        5173262,\n        5173471,\n        5176657,\n        5181866,\n        5182089,\n        5182981,\n        5183388,\n        5183576,\n        5183824,\n        5183953,\n        5183978,\n        5183989,\n        5184065,\n        5187096,\n        5187416,\n        5187463,\n        5198331,\n        5218879,\n        5220270,\n        5221249,\n        5225013,\n        5225631,\n        5235723,\n        5239389,\n        5248120,\n        5248198,\n        5248275,\n        5248283,\n        5248370,\n        5248378,\n        5248440,\n        5248868,\n        5249152,\n        5249224,\n        5249721,\n        5250520,\n        5251912,\n        5252195,\n        5252831,\n        5253515,\n        5256126,\n        5259111,\n        5259584,\n        5260470,\n        5260501,\n        5261900,\n        5262433,\n        1061533,\n        1061548,\n        1061550,\n        1061561,\n        1061572,\n        1061574,\n        1061586,\n        1061587,\n        1061593,\n        1061602,\n        1061605,\n        1061607,\n        1061609,\n        1061611,\n        1061614,\n        1061618,\n        1061635,\n        1061641,\n        1061643,\n        1061647,\n        1061649,\n        1061651,\n        1061653,\n        1061660,\n        1061661,\n        1061663,\n        1061666,\n        1061668,\n        1061669,\n        1061670,\n        1061676,\n        1061677,\n        1061688,\n        1061692,\n        1063934,\n        1069957,\n        1072004,\n        1084525,\n        1094977,\n        1100201,\n        1101313,\n        1103006,\n        1115886,\n        1138823,\n        1195170,\n        1197122,\n        1278291,\n        1279949,\n        1580577,\n        1618555,\n        1618556,\n        1623601,\n        1623667,\n        1623672,\n        1623674,\n        1694035,\n        1731648,\n        1744267,\n        1754434,\n        1770416,\n        1770430,\n        1770431,\n        1770450,\n        1770745,\n        1770747,\n        1770748,\n        1770750,\n        1770751,\n        1770755,\n        1770757,\n        1925162,\n        2306064,\n        2316892,\n        2316911,\n        2316958,\n        2318377,\n        2334195,\n        2334209,\n        2334232,\n        2334233,\n        2334254,\n        2334258,\n        2334259,\n        2334260,\n        2334292,\n        2334294,\n        2334295,\n        2334296,\n        2334321,\n        2355527,\n        2446107,\n        2496363,\n        2573358,\n        2704560,\n        2883218,\n        2886474,\n        2892804,\n        2892805,\n        2892807,\n        2892808,\n        2892809,\n        2900223,\n        2908432,\n        2909383,\n        2911374,\n        2913305,\n        2913306,\n        2913373,\n        2913473,\n        2915528,\n        2924648,\n        2925858,\n        2927940,\n        2933854,\n        2941943,\n        2945594,\n        2946608,\n        2950284,\n        2951357,\n        2963635,\n        2964542,\n        2969487,\n        2969574,\n        2979958,\n        2982519,\n        2983083,\n        2997684,\n        3000835,\n        3002488,\n        3013330,\n        3016605,\n        3017202,\n        3025418,\n        3041954,\n        3048974,\n        3048995,\n        3049012,\n        3049889,\n        3050010,\n        3050025,\n        3050872,\n        3051327,\n        3055629,\n        5000261,\n        5000660,\n        5005887,\n        5040488,\n        5079288,\n        5080603,\n        5081815,\n        1074275,\n        1080139,\n        1798008,\n        2142096,\n        2351436,\n        2357010,\n        2420015,\n        2916088,\n        2942156,\n        2944262,\n        2966130,\n        5054671,\n        1061537,\n        2902565,\n        2921274,\n        2946883,\n        2960395,\n        3009763,\n        5159623,\n        5162728,\n        5169907,\n        5170213,\n        5173835,\n        5175036,\n        5175452,\n        5175619,\n        5183771,\n        5186224,\n        5188574,\n        5199981,\n        5226222,\n        5241456,\n        5244351,\n        5248981,\n        5251836,\n        5257319,\n        5260358,\n        1061584,\n        1061599,\n        1061627,\n        1061644,\n        1061671,\n        2335006,\n        2335110,\n        2916764,\n        2920933,\n        5063148,\n        5148788,\n        1069941,\n        2894603,\n        1117293,\n        5168301,\n        5173078,\n        5173229,\n        5173430,\n        5173431,\n        5174896,\n        5182770,\n        5184028,\n        5184201,\n        5211800,\n        5214739,\n        5233700,\n        5243951,\n        5244751,\n        5244905,\n        5248351,\n        5248382,\n        5249257,\n        5250101,\n        5253889,\n        5260348,\n        5260372,\n        5260392,\n        5260475,\n        5260788,\n        5263050,\n        5264582,\n        1061560,\n        1061595,\n        1061613,\n        1061634,\n        1061642,\n        1061645,\n        1061662,\n        1071224,\n        1093792,\n        1165007,\n        1258882,\n        1278427,\n        1576342,\n        1580515,\n        1580581,\n        1618518,\n        1623682,\n        1731539,\n        1731546,\n        1770423,\n        1836921,\n        2334111,\n        2334114,\n        2334117,\n        2334118,\n        2334119,\n        2334150,\n        2334151,\n        2334152,\n        2334153,\n        2334155,\n        2334161,\n        2334192,\n        2334193,\n        2334228,\n        2345347,\n        2584988,\n        2747774,\n        2900226,\n        2909655,\n        2913262,\n        2913264,\n        2913417,\n        2915467,\n        2918342,\n        2918346,\n        2919826,\n        2927747,\n        2927873,\n        2947382,\n        2947384,\n        2948201,\n        2950722,\n        2951118,\n        2951642,\n        2952163,\n        2953039,\n        2953591,\n        2954592,\n        2954851,\n        2957869,\n        2963686,\n        2963898,\n        2964969,\n        2970530,\n        2971413,\n        2977140,\n        2981043,\n        2982918,\n        2983321,\n        2983879,\n        2984391,\n        2984698,\n        2985401,\n        2985403,\n        3002984,\n        3003027,\n        3011328,\n        3011546,\n        3035221,\n        3036190,\n        5101042,\n        1061538,\n        5173523,\n        5216462,\n        1061646,\n        1121704,\n        1245747,\n        1738645,\n        2986861,\n        5146241,\n        5155980,\n        5156530,\n        5158599,\n        5168026,\n        5168325,\n        5170191,\n        5170383,\n        5172014,\n        5181885,\n        5186465,\n        5188911,\n        5188921,\n        5210032,\n        5218655,\n        5224536,\n        5229328,\n        5237838,\n        5244355,\n        5244475,\n        5248811,\n        5248883,\n        5249599,\n        5250055,\n        5252412,\n        5252687,\n        5255923,\n        1061536,\n        1061559,\n        1061573,\n        1061594,\n        1061617,\n        1061673,\n        1061689,\n        1070173,\n        1072011,\n        1113001,\n        1119758,\n        1271313,\n        1499495,\n        2305637,\n        2334135,\n        2457915,\n        2920239,\n        2940352,\n        2953507,\n        2971489,\n        3017807,\n        3019787,\n        3029892,\n        3029894,\n        3046919,\n        3048826,\n        3048989,\n        3048990,\n        3049004,\n        3049286,\n        3049986,\n        3049994,\n        3050429,\n        3050881,\n        3051051,\n        3051180,\n        3051182,\n        3051183,\n        3051319,\n        3051323,\n        3052832,\n        3052836,\n        3053867,\n        3055318,\n        5054286,\n        5077148,\n        5173383,\n        5179369,\n        5248976\n    ],\n    \"rooms\": [\n        {\n            \"adult_count\": 2,\n            \"children\": []\n        },\n        {\n            \"adult_count\": 2,\n            \"children\": []\n        }\n    ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hotel-availability",
+			"request": {
+				"url": "localhost:8082/api/hotels/hotel-availability",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "4590250def24c16f30571c9d0d6d280af2330f6da38cab353e18b6e93c9782fa3269f997d70897038cd4e22e2a89aaf470f1a8e7ba8f7df82bde5d0afcf68fe206bfb795a4b821d928af9298afca064091a6e01d66d4e4ba32d061c7b90e7d3bc7d3aa06c30fa7aa06959ba43bac0ff8d381aa390790d47c076d98fd82a3381e",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n        \"search_id\": \"5271808979bc6cfa673e72f609501b13285d435d25b27810f9de2738e43c24aa277e8ba45d7f57e8da2024f3c1b40770\",\n                \"unique_id\": \"64aada30-7c18-11eb-ac2a-e5005eeb6ecc\",\n                \"V_id\": 1053741,\n    \"currency\": \"USD\",\n    \"wallet_id\": \"\",\n    \"offer_id\": \"\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "recheck-price",
+			"request": {
+				"url": "localhost:8082/api/hotels/recheck-price",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "9e4f63a65141dc29e087bf2df3c2e94e27a36980f232ba631dee1943cd9bbe77fab969efdae45a2c373d93f17d1b27fdd0c29344f262984579013d610ff816a914677912fe4862261b764c1e319617e0bcc4635b47e7da9d396ea30d3e20565c59ca366639d4322a95de64c63aaef48326a3a73968abd0c4186a455669c78889",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": [\n        \"3244451602058459673\"\n    ],\n    \"currency\": \"USD\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"url": "localhost:8082/api/hotels/search",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "3f5cde4c-5e7c-43e7-bcd6-f4d67cb40536",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"search_text\": \"1331263\",\n    \"search_type\": 21,\n    \"v_id\":[1053741],\n    \"nationality\": \"IN\",\n    \"currency\": \"USD\",\n    \"check_in_date\": \"2021-05-01\",\n    \"check_out_date\": \"2021-05-02\",\n    \"rooms\": [\n        {\n            \"adult_count\": 2,\n            \"childs\": []\n        }\n    ],\n    \"language\": \"en-US\",\n    \"traveller_id\": null,\n    \"offer_id\": \"\"\n}"
+				},
+				"description": "hotel search api"
+			},
+			"response": []
+		},
+		{
+			"name": "FIlter_search",
+			"request": {
+				"url": "localhost:8082/api/hotels/search/filter",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "9e4f63a65141dc29e087bf2df3c2e94e27a36980f232ba631dee1943cd9bbe77fab969efdae45a2c373d93f17d1b27fdd0c29344f262984579013d610ff816a9445a6d3d6177072f46de854abe7fedeeda67d327ef171e2784134a06ee43146f870a0340c7383478885d0cdeeafd4e9d",
+						"type": "text"
+					},
+					{
+						"key": "unique_id",
+						"value": "12220c60-dd68-11ea-ada3-f7ce7c6c369c",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"search_text\": \"1149271\",\n    \"search_type\": 4,\n    \"nationality\": \"BR\",\n    \"currency\": \"EUR\",\n    \"check_in_date\": \"2020-08-28\",\n    \"check_out_date\": \"2020-08-29\",\n    \"language\": \"en\",\n    \"rooms\": [\n        {\n            \"adult_count\": 2,\n            \"childs\": []\n        }\n    ],\n    \"filter\": {\n        \"chain_id\": [],\n        \"customer_rating\": [],\n        \"star_rating\": [],\n        \"amenities\": [],\n        \"themes\": [],\n        \"hotel_id\": [],\n        \"minimum_price\": 100,\n        \"maximum_price\": 200,\n        \"property_types\": [],\n        \"attractions\": {\n            \"distance\": \"5\",\n            \"id\": \"\",\n            \"lat_long\": \"\"\n        },\n        \"hotel_type\": \"\",\n        \"limit\": 10,\n        \"offset\": 0,\n        \"sort_on\": \"saving_percentage\",\n        \"sort_by\": \"desc\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "cancel booking",
+			"request": {
+				"url": "localhost:8082/api/hotels/cancel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "12345",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"order_id\": \"103736\"\n   \n}"
+				},
+				"description": "cancel request"
+			},
+			"response": []
+		},
+		{
+			"name": "/signIn",
+			"request": {
+				"url": "localhost:8082/api/hotels/helper/signIn",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"usr_type\" : \"2\",\t\n\"email_id\": \"priya.g2990@gmail.com\",\n\"password\": \"Test@1234\",\n\"googletoken\": \"\",\n\"fbtoken\": \"\",\n\"site_url\": \"admin\",\n\"accesscode\": \"\",\n\"userdetails\": {\n\"usr_email_id\": \"nitin@vernost.in\",\n\"first_name\": \"\",\n\"last_name\": \"\",\n\"mastercode\": \"4521423\"\n\n\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "weeks-availabilty",
+			"request": {
+				"url": "localhost:8082/api/hotels/weeks-availability",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "ed3bddb0e2acfb8fcf8d08d198c10736fa5fd646e6d383ecb4287a4074967b99fa51a980fc9ae53f84318dde9357cd76571b0ffe46d78999975225120682e7fb",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"v_id\": 1014099,\n    \"search_id\": \"a87ff78325a3d8dfc95570ab2a092e43eb0dc5a24f6024b32a2169b76bb56b7c0f66d17fee1edb27e79104cef6355085\",\n    \"unique_id\": \"eb262d11-a010-11ea-b141-953614dcc628\",\n    \"currency\": \"USD\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "checklogin",
+			"request": {
+				"url": "localhost:8082/api/hotels/helper/checklogin",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "api_key",
+						"value": "ca3a8682f32930e0877b6cbfaeb22ba940ea395604a9b83055fa4565008eca7b7813aff45891b000843062c4da8e4a18cecb1ad5a8f926118f34814eec233ba7caec81e87bcd965cce0f8a922cfdae534a67e4d6d43adc88c613a91e9a457cf13d56d73e0f46a4dd240376a5fad106ef4a8a7a4137441fd8a15bec82c85327ce0c5124076fc771b8b156e7b8cebe43f3890344dd75c023b05751db3f24086b7ea9a5e7049e80593f4e264e1005a9d4f83f5c892a3491c0e138a2dcb08fc51f1ffba4f61a46334273e12ae2bf0647c54b18b7ce99d1608591a872a17906bf64be462d303522b6e0fe7f50a10c9d10d7de174baacece84232e31311f7b440a32d3940a0c87805361b014ee86ebb3acfdc2b757d7459ba662a047b0223f3cf947ca27d6a07489490728b1ac66230c9207ea9a9c66e32bfacc3b172048813461e5dc963c12dc1327188e0159fd887ca32fbe4fee75a4ff68c297fe2c72a0183cd6b6",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "hold",
+			"request": {
+				"url": "localhost:8082/api/hotels/hold",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "e4a3724ddd986df90a76c394f8e6b6a9be4834587aa5014c25f450cedeedd32069e485d2ffc7d5908aafd42733eeff52c9482f007f9b750823c8be62045140de",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"id\":\"4106711580725551128\"\n    \n    \n      \n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "confirm",
+			"request": {
+				"url": "localhost:8083/api/hotels/reserve",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-book",
+			"request": {
+				"url": "localhost:8082/api/hotels/hotel-book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "b81731f06e1ab685fdc4765d1f6e92664f96c3084ecb643dfee8b49ae5ae85dd0809c0ccef520648a86a022f536528e40afe2e59eb15799cf7c87adebb43f7e051d42f9327fb37778a1980c6d5a4aaec3c4c1a2d70c060cacf624cb2d034b50c13a5685173f133c036e7e4d14872d5bc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": [\n        \"3428961607074569901\"\n    ],\n    \"currency\": \"USD\",\n    \"language\": \"en-US\",\n    \"wallet_id\" :\"WLT234\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "init-book",
+			"request": {
+				"url": "localhost:8082/api/hotels/initbook",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "ca3a8682f32930e0877b6cbfaeb22ba940ea395604a9b83055fa4565008eca7b7813aff45891b000843062c4da8e4a18cecb1ad5a8f926118f34814eec233ba7caec81e87bcd965cce0f8a922cfdae534a67e4d6d43adc88c613a91e9a457cf164959b7b37c7a6405e173b8d6ee5f4518395f7f96fbc1827205273e384659b52",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"room_id\": [\n      \n         {\n            \"id\": \"6299351608716979833\",\n            \"guest_id\": \"1692\"\n        }\n    ],\n    \"coupon_code\": \"abc\",\n    \"cashcard\": \"\",\n    \"cashcard_amount\": 100,\n    \"usr_type\": 2,\n    \"cardid\": \"\",\n    \"quot_id\": \"02\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "proceed-book_",
+			"request": {
+				"url": "localhost:8082/api/hotels/proceedbook",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "bff7cc64af471e8ad855a4043a3d67d4b72cc65d02622fd8b9bb61dbd0e6a8f567e5848ee480a6e8d304e66cf193c4086587570c9bc2b2bb31345e9c2fc2791a7d07f5f03fae59f72d19153d21f495d51ed4ee98f1bbbb32f182c4766c476df6e668f25164f3942b3e3be962d3c33e191a6571f16ab276796f058eaf74a955ab",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"booking_id\": 21012581908\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "hotel-multiplerooms-availability",
+			"request": {
+				"url": "localhost:8082/api/hotels/hotel-multipleroom-availability",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "7d7cf83db2ea6dc89b602f6478b5b69812b1813673d9475bf305e98585a62c1b80d2ae39451ead24d41db4a69bfa7bb0860d21e2bfb6879fed07ea8ee0569111",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"v_id\": \"1049640\",\n    \"search_id\": \"51f5416b82d01bfbdac6ea91958dff2b7255e17ce594385e59db84ba8bf4f3c8\",\n    \"unique_id\": \"d4b34191-69eb-11ea-a143-3f848e6d551a\"\n    \n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "currency exchnge",
+			"request": {
+				"url": "http://3.234.185.228:8086/app/getCurrencyROE",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "7d7cf83db2ea6dc89b602f6478b5b69812b1813673d9475bf305e98585a62c1b80d2ae39451ead24d41db4a69bfa7bb0860d21e2bfb6879fed07ea8ee0569111",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "booking-details",
+			"request": {
+				"url": "localhost:8082/api/hotels/booking-details",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "7d7cf83db2ea6dc89b602f6478b5b69812b1813673d9475bf305e98585a62c1bb4f4e1b6979d92575fa23b5df122f93f58c6952a945811f7168eb369a8b3643d",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"booking_id\":\"63815582335\"\n}"
+				},
+				"description": "booking details"
+			},
+			"response": []
+		},
+		{
+			"name": "getbooking_hotelspro",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "Inspiramexico",
+						"password": "hUNjTZMXQmW94hLZ",
+						"showPassword": false
+					}
+				},
+				"url": {
+					"raw": "https://api-test.hotelspro.com/api/v2/book/905535596939?",
+					"protocol": "https",
+					"host": [
+						"api-test",
+						"hotelspro",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"book",
+						"905535596939"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "1,krishna,bnbnb,adult",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Basic SW5zcGlyYW1leGljbzpoVU5qVFpNWFFtVzk0aExa",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "1,khan,saeed,adult",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "2,khan,saeed,adult",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "solar2",
+			"request": {
+				"url": {
+					"raw": "http://3.209.70.252:8081/accesss2solr/solr/vthotelregioncore/select?fq=destination_id:1002678&q=search_type:6&fl=continent&omitHeader=true",
+					"protocol": "http",
+					"host": [
+						"3",
+						"209",
+						"70",
+						"252"
+					],
+					"port": "8081",
+					"path": [
+						"accesss2solr",
+						"solr",
+						"vthotelregioncore",
+						"select"
+					],
+					"query": [
+						{
+							"key": "fq",
+							"value": "destination_id:1002678"
+						},
+						{
+							"key": "q",
+							"value": "search_type:6"
+						},
+						{
+							"key": "fl",
+							"value": "continent"
+						},
+						{
+							"key": "omitHeader",
+							"value": "true"
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "autosuggest",
+			"request": {
+				"url": "https://uatinspiraservices.vetravel.io/api/hotels/autosuggest/orlando",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getVoucherDetails",
+			"request": {
+				"url": "localhost:8082/api/hotels/getVoucherDetails",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "9ab1599d5859d6bf117389aaaccd3a7fe42beb789fb4a2b235cefae86fdbb8e89a6ab6aa113755e859f998038eb1afac74b77d9ca2eab65737456ae25b74967f49931af715c08079274fcc1a065408f7",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"booking_id\":\"103615\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update-date",
+			"request": {
+				"url": "localhost:8082/api/hotels/updatedate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "ed3bddb0e2acfb8fcf8d08d198c10736fa5fd646e6d383ecb4287a4074967b99fa51a980fc9ae53f84318dde9357cd76571b0ffe46d78999975225120682e7fb",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"v_id\": 1014264,\n    \"search_id\": \"85d6ea633696b61a2e4c9c1d8ab8707eaefe95e0d3bd519c8fdf21c0ff843c661854848ca86cb6b2b0cf00635625065b\",\n    \"unique_id\": \"2eb7c311-8a16-11ea-855c-05e8428a9e3e\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "gettraveller",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/gettraveller",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "user_id",
+						"value": "333",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usr_type\": \"2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "signIn- 2",
+			"request": {
+				"url": "http://3.234.185.228:8086/app/signIn",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email_id\": \"director@inspiravacations.com\",\n\"password\": \"test\",\n\"googletoken\": \"\",\n\"fbtoken\": \"\",\n\"site_url\": \"admin\",\n\"accesscode\": \"\",\n\"userdetails\": {\n\"usr_email_id\": \"nitin@vernost.in\",\n\"first_name\": \"\",\n\"last_name\": \"\",\n\"mastercode\": \"4521423\"\n},\n\"usr_type\":2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getHomePageInfo",
+			"request": {
+				"url": "localhost:8082/api/hotels/gethomepageinfo",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "9ab1599d5859d6bf117389aaaccd3a7fe42beb789fb4a2b235cefae86fdbb8e84d74910e44e58a86421b9f574921ab2058bb15bb42080739a63a9878509c185ca57efb0e47648ef998081394c5d83f5aff8a9acf27ddd7410501251941c08fe0edec292110b6a8695f17c0532b7899a0",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "map-list",
+			"request": {
+				"url": "localhost:8082/api/hotels/map/list",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "9ab1599d5859d6bf117389aaaccd3a7fe42beb789fb4a2b235cefae86fdbb8e84d74910e44e58a86421b9f574921ab2058bb15bb42080739a63a9878509c185cc1f84e36dc6ff06424dfb52477cfa5025188963da58b806a0652cf7e1cd3678941baf859026800a379b8a040d23e7516",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"point1\": 16.96684766273553,\n    \"point2\": 70.76365261383057,\n    \"point3\": 19.864264917302062,\n    \"point4\": 74.67306881256104,\n    \"search_id\": \"e621a44154ca326891e5165def4ca233f2326a801bcdf00ba92b3e1262beae516f47cb0431b911c48f33ee8a3e5dd57b\",\n    \"search_text\": \"1149271\",\n    \"search_type\": 4,\n    \"nationality\": \"IN\",\n    \"currency\": \"USD\",\n    \"check_in_date\": \"2020-06-12\",\n    \"check_out_date\": \"2020-06-13\",\n    \"language\": \"en\",\n    \"rooms\": [\n        {\n            \"adult_count\": 2,\n            \"childs\": []\n        }\n    ]\n    \"currency\" :\"INR\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "hotelbedsCancellationPolicy",
+			"request": {
+				"url": "localhost:8082/api/hotels/getlatestcancellationpolicy",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "7efd3bbbf7c53b6dd74e99143050d9692ea037a1faf87171999df174e340f06d3e1d09e8a909a0a842033c29a74bb04f4cb49ec7dc08f9626d30d63fdff792d2f273c022aee8e9968af9c3e1f625e78e327414d1b59259a3b076b4e55f89556365f5ddfaa8f23c8fce420a6fa246ad12580f901397ca772dce366915d4b2a21f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"id\": [\n        \"9784661594303507968\"\n    ],\n    \"currency\":\"INR\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "card_details",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getsuppliercards",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"supplier_id\": \"686\",\n\"cred_id\": \"103\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getsupplier",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getsupplier",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": 42,\n    \"product_type\": \"HLT\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getsup_markup",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getsuppliermarkup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\":42,\n    \"site_id\":1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "s2url",
+			"request": {
+				"url": "http://localhost:8080/api/vetravel/master/auto_suggest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": 1,\n    \"text\": \"new york\",\n    \"rows\": 6,\n    \"language\": \"en\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getcancellationpolicy",
+			"request": {
+				"url": "localhost:8082/api/hotels/getcancellationpolicy",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "dde572a3d15e60964239a480dfb31af026ff6c3366220cc9f49a0e6bf3f9f8cfbaf4778109061d0e114e3e92152d648a193e317cd08c1bab41a874b519333d07f7659d5dac0b35c72c483660ba5a72d960b1be486a014483f60afbb3c9a68744cb09859c2888f54c6ad29191492305e87bf04e1a8376738f9e52033a54c088d1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_id\":\"20090414115\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get_quot",
+			"request": {
+				"url": "localhost:8082/api/hotels/newhelper/getquotation",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "api_key",
+						"value": "b7dc0f6370edaddb19db782e22423b609e19344bd8948dba223aaa358df00e4ac28be4f27b78223cadfc23539f158603a36e170335c8e753a6c8190930b92b144db2ae1d94f9ef88c3dca65994542c891321ba257cbcec9802bcb1030fda1dbce0e7c84842de1207167866e977b085fe8ac5284311da677701e9762c9650ccfc6ed19fef91308e82874ce71d60b21df8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "custom_book",
+			"request": {
+				"url": "localhost:8082/api/hotels/custombook",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "dde572a3d15e60964239a480dfb31af026ff6c3366220cc9f49a0e6bf3f9f8cfbaf4778109061d0e114e3e92152d648a193e317cd08c1bab41a874b519333d07f7659d5dac0b35c72c483660ba5a72d9423abbf97354a6eb66272cf8874e0775352d865cf8a54d334ea37a16852a0066268a0eff84ffecc205a8ecc5f187e8c2",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"client_reference_number\": \"test-123\",\n    \"email\": \"abc.xyz@123.com\",\n    \"phone_number\": \"80000000\",\n    \"nationality\": \"IN\",\n    \"address_line\": \"Number, building name, landmark\",\n    \"city\": \"Mumbai\",\n    \"state\": \"Maharashtra\",\n    \"country\": \"India\",\n    \"zipcode\": \"400072\",\n    \"rooms\": [\n        { \n            \"id\":\"4819081597236944672\",\n            \"adults\": [\n                {\n                    \"title\": \"Mr\",\n                    \"first_name\": \"FirstName\",\n                    \"last_name\": \"Lastname\",\n                    \"age\": 33,\n                    \"is_lead_guest\": true\n                }\n            ],\n            \"children\":[\n                {\n                    \"title\": \"Mr\",\n                    \"first_name\": \"FName\",\n                    \"last_name\": \"Lname\",\n                    \"age\": 4\n                }\n            ]\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getcreditlimitreq",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getcreditlimit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": 42,\n    \"site_id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "applyCredit ",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/applyAgencyCreditLimit",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": 42,\n    \"consume_amount\": 1,\n    \"consume_currency\": \"USD\",\n    \"order_booking_ref_no\": \"\",\n    \"transaction_currency\": \"USD\",\n    \"order_id\": 20081220885,\n    \"site_id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getAgencyCreditLimit",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getAgencyCreditLimit",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "user_id",
+						"value": "101335",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "cashcardRedemption",
+			"request": {
+				"url": "localhost:8082/api/hotels/cashcardRedemption",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "b0dedc559a536fb8d596db3a389771b1799d764df681664cd8ad545c0b31085cddefecb725d9fa26341a88e5f01e22834bbc62487eb07280a53300af48b015d6db5f19710986081e45869bb32ecd35c6e2f148622c1b724f78df221b6276819a0d2f607c29598ae03978f5e92be134e41555be1e46dd1e428c45062942d28a11eb15c5690c6cf9deb9ee04096e4fda25",
+						"type": "text"
+					},
+					{
+						"key": "user_id",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": [\n        \"4533891600428830701\"\n    ],\n    \"cash_card_id\": 9\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getCashCardDetails",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getCashCardDetails",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createQuataion",
+			"request": {
+				"url": "localhost:8082/api/hotels/newhelper/updatequotation",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "b7dc0f6370edaddb19db782e22423b609e19344bd8948dba223aaa358df00e4ac28be4f27b78223cadfc23539f158603a36e170335c8e753a6c8190930b92b144db2ae1d94f9ef88c3dca65994542c891321ba257cbcec9802bcb1030fda1dbce0e7c84842de1207167866e977b085fe8ac5284311da677701e9762c9650ccfc6ed19fef91308e82874ce71d60b21df8",
+						"type": "text"
+					},
+					{
+						"key": "org_id",
+						"value": "55",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"search_id\": \"97d86891d8cc0f6931f3ad7e24eb0a3900cce59f7f19eaad3d3eb5a29a252ee8b46e5cc83c29e3b00cac4d4a5c4cb9d7\",\n                \"uid\": \"cccb0c80-f8f0-11ea-b796-4b0a3993e550\",\n                \"vid\": 1087419,\n                \"quot_id\": 33\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getquotation",
+			"request": {
+				"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/getquotation",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "api_key",
+						"value": "b7dc0f6370edaddb19db782e22423b609e19344bd8948dba223aaa358df00e4a0b33825d4099df1ae359e50e8ab8b445445d224d2dbe8b74afe49379745504248bc7cb15bcd5be911690058276702fff6efe634473043aeb4fd3ea4c6c761d93317441e46226a062d05189558633158d16195ba76eeac04c9898be9040e847b6b06563be5b9d1ce1eeba10f752677bb1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create Quotation uat",
+			"request": {
+				"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/createquotation",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "b7dc0f6370edaddb19db782e22423b609e19344bd8948dba223aaa358df00e4ac28be4f27b78223cadfc23539f158603a36e170335c8e753a6c8190930b92b144db2ae1d94f9ef88c3dca65994542c891321ba257cbcec9802bcb1030fda1dbce0e7c84842de1207167866e977b085fe8ac5284311da677701e9762c9650ccfc6ed19fef91308e82874ce71d60b21df8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"search_id\": \"97d86891d8cc0f6931f3ad7e24eb0a3900cce59f7f19eaad3d3eb5a29a252ee8b46e5cc83c29e3b00cac4d4a5c4cb9d7\",\n                \"uid\": \"cccb0c80-f8f0-11ea-b796-4b0a3993e550\",\n                \"vid\": 1087419\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getpgsupplier",
+			"request": {
+				"url": "https://midofficeuatinspiraservices.vetravel.io/app/getsupplierpg",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": 3,\n    \"site_id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "lock cashcard",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create quot midffc",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "gethomecurrencyinfo",
+			"request": {
+				"url": "localhost:8082/api/hotels//gethomecurrencyinfo",
+				"method": "GET",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "101499",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "xyz",
+			"request": {
+				"url": "https://hoteltravreadyservices.inspiravacations.com/api/hotels/newhelper/getholiday",
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "9532624e5322d924e2af6ff04b67349827719fb08af66607b2002ecd40afca844614ad8554e7e2adaf511b97b267868df1bc8526c09da35481b774f5eb375f20ed0caf948ac26e3be6f50545a21889f98c4d35d9e3ffea4a18b17ecc8bd7848dcf5e10885cff40e533891a784d637c4c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"org_id\": 42,\n\"site_id\": 1,\n\"start_date\": \"2021-08\",\n\"end_date\": \"2021-09\",\n\"fetch\": \"All\",\n\"usr_type\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get -aminities",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "test",
+			"request": {
+				"url": {
+					"raw": "https://inspiraservices.vetravel.io/api/hotels/images/image-1607067829007-Agent.png?",
+					"protocol": "https",
+					"host": [
+						"inspiraservices",
+						"vetravel",
+						"io"
+					],
+					"path": [
+						"api",
+						"hotels",
+						"images",
+						"image-1607067829007-Agent.png"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "123",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "sit_markup",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "map_list",
+			"request": {
+				"url": "localhost:8082/api/hotels/map/list",
+				"method": "POST",
+				"header": [
+					{
+						"key": "type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "b81731f06e1ab685fdc4765d1f6e92664f96c3084ecb643dfee8b49ae5ae85dd0809c0ccef520648a86a022f536528e40afe2e59eb15799cf7c87adebb43f7e051d42f9327fb37778a1980c6d5a4aaec3c4c1a2d70c060cacf624cb2d034b50c08047536c0fddca3dd135dd32730d11c"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"point1\": 25.149774012115124,\n    \"point2\": 55.1719551225662,\n    \"point3\": 25.396900177606707,\n    \"point4\": 55.46724487743376,\n    \"search_id\": \"84fb711c737425841981b4ab02052c344369a6bb30eeac37b295825bc42303d278b32768f2ca3923ffb7567691924a18\",\n    \"search_text\": \"1279855\",\n    \"search_type\": 6,\n    \"nationality\": \"AE\",\n    \"currency\": \"USD\",\n    \"check_in_date\": \"2020-12-03\",\n    \"check_out_date\": \"2020-12-04\",\n    \"language\": \"en-US\",\n    \"rooms\": [\n        {\n            \"adult_count\": 2,\n            \"childs\": []\n        }\n    ],\n    \"filter\": {\n        \"chain_id\": [],\n        \"customer_rating\": [],\n        \"star_rating\": [],\n        \"amenities\": [],\n        \"themes\": [],\n        \"hotel_id\": [],\n        \"property_types\": [],\n        \"attractions\": {\n            \"distance\": \"5\",\n            \"id\": \"\",\n            \"lat_long\": \"\"\n        },\n        \"hotel_type\": \"\",\n        \"limit\": 50,\n        \"offset\": 0,\n        \"sort_on\": \"saving_percentage\",\n        \"sort_by\": \"desc\"\n    },\n    \"unique_id\": \"79b86880-29b5-11eb-85ae-21115d77acb9\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "signin211",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"url": "",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "trileo sms send",
+			"request": {
+				"url": "localhost:8082/api/hotels/sendsms",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"message\": \"subject: vernost,successful transfer money to your account\",\n\"mobile_no\": \"+917666515199\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "cleare cache",
+			"request": {
+				"url": "https://inspiraservices.vetravel.io/api/hotels/clearcache",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"authentication\": \"vernost@$V$T\",\n\"flushtype\": \"1\",\n\"flushkey\": \"42\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/getquotation",
+			"request": {
+				"url": "https://uatinspiraservices.vetravel.io/api/hotels/newhelper/getquotation",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
