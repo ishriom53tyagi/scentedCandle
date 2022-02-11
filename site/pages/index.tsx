@@ -4,6 +4,7 @@ import { ProductCard } from '@components/product'
 import { Grid, Marquee, Hero } from '@components/ui'
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { UserSignUp } from 'service/auth'
 
 export async function getStaticProps({
   preview,
@@ -39,6 +40,7 @@ export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   console.log("Products ==>>>>>>>>>>>>>>>>>>>>",products);
+  UserSignUp();
   
   return (
     <>
