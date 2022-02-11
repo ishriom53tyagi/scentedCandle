@@ -8,9 +8,10 @@ const bcrypt = require('bcryptjs');
 module.exports.singupUsers = async  function (req ,res)  {
     try{
         const db = getDb();
-        var customer = await db.customers.findOne({email: req.body.email});
+        var customer = await db.collection("customers").findOne({email: req.body.email});
+        console.log('Customer ==>>',customer);
 
-        if(!isEmpty(customer)){
+        if(customer){
             return responseData(res, false, 400, "A customer already exist with that email");
         }
         if(!(req.body.email || req.body.password || req.body.password))

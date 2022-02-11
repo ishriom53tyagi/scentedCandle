@@ -13,16 +13,16 @@ const loginService = require('../services/login')
 const signUpService = require('../services/signup');
 
 
-const csrfProtection = csrf({ cookie: true });
+// const csrfProtection = csrf({ cookie: true });
 
-//for flush cache data
-router.get('/flushData', (req, res) => {
-    cache.flush();
-    res.status(200);
-    res.end();
-});
+// //for flush cache data
+// router.get('/flushData', (req, res) => {
+//     cache.flush();
+//     res.status(200);
+//     res.end();
+// });
 
-router.use(csrfProtection);
+// router.use(csrfProtection);
 router.post('/signUp',signUpService.singupUsers);
 
 
