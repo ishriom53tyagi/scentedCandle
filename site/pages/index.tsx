@@ -5,6 +5,7 @@ import { Grid, Marquee, Hero } from '@components/ui'
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { UserSignUp } from 'service/auth'
+import { useEffect } from 'react'
 
 export async function getStaticProps({
   preview,
@@ -40,7 +41,14 @@ export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   console.log("Products ==>>>>>>>>>>>>>>>>>>>>",products);
-  UserSignUp();
+
+  useEffect(() => {
+    async function fetchUser() {
+      let response = await UserSignUp();
+      console.log("Response after call",response);
+    }
+    fetchUser();
+  },[]);
   
   return (
     <>

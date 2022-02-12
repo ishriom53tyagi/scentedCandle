@@ -5,7 +5,6 @@ export const getPostData = (url, body) => {
     return new Promise((resolve, reject) => {
             const headers = { 
                 'Authorization': 'Bearer my-token',
-                'My-Custom-Header': 'foobar'
             };
             axios.post(`${host}${url}`, body, { headers })
                 .then((response) => resolve(response))
