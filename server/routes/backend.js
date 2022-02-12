@@ -11,7 +11,7 @@ const tokenVerifyMiddleware = require('../middleware/tokenverify');
 
 const loginService = require('../services/login')
 const signUpService = require('../services/signup');
-
+const products = require('../services/products');
 
 // const csrfProtection = csrf({ cookie: true });
 
@@ -24,7 +24,7 @@ const signUpService = require('../services/signup');
 
 // router.use(csrfProtection);
 router.post('/signUp',signUpService.singupUsers);
-
+router.post('/getAllProducts',products.getAllProducts);
 
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);
