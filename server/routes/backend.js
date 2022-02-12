@@ -24,7 +24,7 @@ const products = require('../services/products');
 
 // router.use(csrfProtection);
 router.post('/signUp',signUpService.singupUsers);
-router.post('/getAllProducts',products.getAllProducts);
+router.get('/getAllProducts',products.getAllProducts);
 
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);

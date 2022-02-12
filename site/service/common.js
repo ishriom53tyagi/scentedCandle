@@ -11,3 +11,14 @@ export const getPostData = (url, body) => {
                 .catch((err)=> reject(err));
     })
 }
+
+export const getData = (url) => {
+    return new Promise((resolve, reject) => {
+            const headers = { 
+                'Authorization': 'Bearer my-token',
+            };
+            axios.get(`${host}${url}`, { headers })
+                .then((response) => resolve(response))
+                .catch((err)=> reject(err));
+    })
+}
