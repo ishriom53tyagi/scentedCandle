@@ -7,7 +7,8 @@ export const UserSignUp = () => {
         password: "sarthak123"
     }
     getPostData(url,data).then((response) => {
-        console.log("Response after post data",response);
+        console.log("Response after post data",response.data);
+        return  response?.data;
     }).catch((err) => {
         console.log("Error updating ",err);
     })
