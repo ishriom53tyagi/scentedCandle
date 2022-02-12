@@ -28,7 +28,6 @@ const UserNav: FC<Props> = ({ className }) => {
   return (
     <nav className={cn(s.root, className)}>
       <ul className={s.list}>
-        {process.env.COMMERCE_CART_ENABLED && (
           <li className={s.item}>
             <Button
               className={s.item}
@@ -45,8 +44,6 @@ const UserNav: FC<Props> = ({ className }) => {
               )}
             </Button>
           </li>
-        )}
-        {process.env.COMMERCE_WISHLIST_ENABLED && (
           <li className={s.item}>
             <Link href="/wishlist">
               <a onClick={closeSidebarIfPresent} aria-label="Wishlist">
@@ -54,8 +51,6 @@ const UserNav: FC<Props> = ({ className }) => {
               </a>
             </Link>
           </li>
-        )}
-        {process.env.COMMERCE_CUSTOMERAUTH_ENABLED && (
           <li className={s.item}>
             {customer ? (
               <DropdownMenu />
@@ -69,7 +64,6 @@ const UserNav: FC<Props> = ({ className }) => {
               </button>
             )}
           </li>
-        )}
         <li className={s.mobileMenu}>
           <Button
             className={s.item}
