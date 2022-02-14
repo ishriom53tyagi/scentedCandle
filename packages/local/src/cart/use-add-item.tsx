@@ -1,17 +1,32 @@
 import useAddItem, { UseAddItem } from '@vercel/commerce/cart/use-add-item'
 import { MutationHook } from '@vercel/commerce/utils/types'
+import { useCallback } from 'react';
+import useCart from './use-cart';
 
 export default useAddItem as UseAddItem<typeof handler>
 export const handler: MutationHook<any> = {
   fetchOptions: {
-    query: '',
+    url: 'http://localhost:5120/api/backend/cart',
+    method: 'POST',
   },
-  async fetcher({ input, options, fetch }) {},
+  async fetcher({ input: item, options, fetch }) {
+    console.log("options",item,options);
+    const data = await fetch({
+      ...options,
+      body: { item },
+    })
+  },
   useHook:
     ({ fetch }) =>
     () => {
-      return async function addItem() {
-        return {}
-      }
+      const { mutate } = useCart();
+      return useCallback(
+        async function addItem(input) {
+          const data = await fetch({ input })
+          await mutate(data, false)
+          return data
+        },
+        [fetch, mutate]
+      )
     },
 }

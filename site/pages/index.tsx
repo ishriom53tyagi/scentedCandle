@@ -13,16 +13,16 @@ export async function getStaticProps({
   locales,
 }: GetStaticPropsContext) {
   const config = { locale, locales }
-  const productsPromise = commerce.getAllProducts({
-    variables: { first: 6 },
-    config,
-    preview,
-    // Saleor provider only
-    ...({ featured: true } as any),
-  })
+  // const productsPromise = commerce.getAllProducts({
+  //   variables: { first: 6 },
+  //   config,
+  //   preview,
+  //   // Saleor provider only
+  //   ...({ featured: true } as any),
+  // })
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
-  const  productstest  = await productsPromise
+  // const  productstest  = await productsPromise
 
   let products  = await getAllProducts();
   products = products.data.data;

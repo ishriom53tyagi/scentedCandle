@@ -12,6 +12,7 @@ const tokenVerifyMiddleware = require('../middleware/tokenverify');
 const loginService = require('../services/login')
 const signUpService = require('../services/signup');
 const products = require('../services/products');
+const cart = require('../services/cart');
 
 // const csrfProtection = csrf({ cookie: true });
 
@@ -25,6 +26,9 @@ const products = require('../services/products');
 // router.use(csrfProtection);
 router.post('/signUp',signUpService.singupUsers);
 router.get('/getAllProducts',products.getAllProducts);
+
+router.post('/cart',cart.getcart);
+router.get('/cartDetails',cart.getcartDetails);
 
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);

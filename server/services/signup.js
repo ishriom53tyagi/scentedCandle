@@ -5,6 +5,7 @@ const ObjectId = require('mongodb').ObjectId;
 const ipAddress = require('../utils/common');
 const bcrypt = require('bcryptjs');
 
+
 module.exports.singupUsers = async  function (req ,res)  {
     try{
         const db = getDb();
@@ -18,7 +19,8 @@ module.exports.singupUsers = async  function (req ,res)  {
         }
         let customerObj = {
             email: req.body.email,
-            username: req.body.name,
+            firstName: req.body.firstName,
+            lastName : req.body.lastName,
             password: bcrypt.hashSync(req.body.password, 10),
             created: new Date()
         };

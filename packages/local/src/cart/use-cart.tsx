@@ -6,37 +6,41 @@ export default useCart as UseCart<typeof handler>
 
 export const handler: SWRHook<any> = {
   fetchOptions: {
-    query: '',
+    method: 'GET',
+    url:  'http://localhost:5120/api/backend/cartDetails',
   },
-  async fetcher() {
-    return {
-      id: '',
-      createdAt: '',
-      currency: { code: '' },
-      taxesIncluded: '',
-      lineItems: [],
-      lineItemsSubtotalPrice: '',
-      subtotalPrice: 0,
-      totalPrice: 0,
-    }
+  async fetcher({ options, fetch }) {
+
+    return  await fetch({ ...options })
+    // return {
+    //   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+    //   createdAt: '',
+    //   currency: { code: '' },
+    //   taxesIncluded: '',
+    //   lineItems: [], 
+    //   lineItemsSubtotalPrice: '',
+    //   subtotalPrice: 0,
+    //   totalPrice: 0,
+    // }
+    
   },
   useHook:
     ({ useData }) =>
     (input) => {
+      const response = useData({
+        swrOptions: { revalidateOnFocus: false, ...input?.swrOptions },
+      })
       return useMemo(
         () =>
-          Object.create(
-            {},
-            {
-              isEmpty: {
-                get() {
-                  return true
-                },
-                enumerable: true,
+          Object.create(response, {
+            isEmpty: {
+              get() {
+                 return (response.data?.lineItems.length ?? 0) <= 0
               },
-            }
-          ),
-        []
+              enumerable: true,
+            },
+          }),
+        [response]
       )
     },
 }
