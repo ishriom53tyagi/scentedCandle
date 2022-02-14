@@ -25,9 +25,9 @@ module.exports.getcartDetails = async  function (req ,res)  {
         const db = getDb();
         let obj =  {
             id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-            createdAt: '',
-            currency: { code: '' },
-            taxesIncluded: '',
+            createdAt: '2022-02-14T16:05:07+00:00',
+            currency: { code: 'USD' },
+            taxesIncluded: 'false',
             lineItems: [
               {
                  countItems:1,
@@ -57,9 +57,9 @@ module.exports.getcartDetails = async  function (req ,res)  {
                  variantId:381
               }
             ], 
-            lineItemsSubtotalPrice: '',
-            subtotalPrice: 0,
-            totalPrice: 0,
+            lineItemsSubtotalPrice: 100,
+            subtotalPrice: 100,
+            totalPrice: 100,
           }
         //   return obj;
         return responseData(res, true, 200,"Data finished", obj);
