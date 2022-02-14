@@ -1,10 +1,12 @@
 import { getPostData } from './common';
 
-export const UserSignUp = async () => {
+export const UserSignUp = async (email,firstName,lastName,password) => {
     const url = "/signUp";
     const data = {
-        email: "sarthak@gmail.com",
-        password: "sarthak123"
+        email: email,
+        firstName:firstName,
+        lastName:lastName,
+        password:password
     }
    try {
     const response = await getPostData(url,data);

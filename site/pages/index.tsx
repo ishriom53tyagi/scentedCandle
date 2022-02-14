@@ -58,7 +58,7 @@ export default function Home({
       <Grid variant="filled">
         {products.slice(0, 3).map((product: any, i: number) => (
           <ProductCard
-            key={product.id}
+            key={product._id}
             product={product}
             imgProps={{
               width: i === 0 ? 1080 : 540,
