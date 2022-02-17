@@ -10,7 +10,6 @@ export const handler: MutationHook<any> = {
     method: 'POST',
   },
   async fetcher({ input: item, options, fetch }) {
-    console.log("options",item,options);
     const data = await fetch({
       ...options,
       body: { item },
@@ -23,6 +22,7 @@ export const handler: MutationHook<any> = {
       return useCallback(
         async function addItem(input) {
           const data = await fetch({ input })
+          console.log("DATa",data, input);
           await mutate(data, false)
           return data
         },
