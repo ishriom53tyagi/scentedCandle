@@ -29,6 +29,7 @@ router.get('/getAllProducts',products.getAllProducts);
 
 router.post('/cart',cart.getcart);
 router.get('/cartDetails',cart.getcartDetails);
+router.get('/checkout',cart.checkout);
 
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);

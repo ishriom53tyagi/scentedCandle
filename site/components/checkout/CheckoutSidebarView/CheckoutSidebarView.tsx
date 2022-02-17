@@ -16,16 +16,16 @@ const CheckoutSidebarView: FC = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false)
   const { setSidebarView, closeSidebar } = useUI()
   const { data: cartData, mutate: refreshCart } = useCart()
-  const { data: checkoutData, submit: onCheckout } = useCheckout()
-  const { clearCheckoutFields } = useCheckoutContext()
+  // const { data: checkoutData, submit: onCheckout } = useCheckout()
+  // const { clearCheckoutFields } = useCheckoutContext()
 
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     try {
       setLoadingSubmit(true)
       event.preventDefault()
 
-      await onCheckout()
-      clearCheckoutFields()
+      // await onCheckout()
+      // clearCheckoutFields()
       setLoadingSubmit(false)
       refreshCart()
       closeSidebar()
@@ -61,11 +61,13 @@ const CheckoutSidebarView: FC = () => {
         </Link>
 
         <PaymentWidget
-          isValid={checkoutData?.hasPayment}
+          // isValid={checkoutData?.hasPayment}
+          isValid={true}
           onClick={() => setSidebarView('PAYMENT_VIEW')}
         />
         <ShippingWidget
-          isValid={checkoutData?.hasShipping}
+          // isValid={checkoutData?.hasShipping}
+          isValid={true}
           onClick={() => setSidebarView('SHIPPING_VIEW')}
         />
 
@@ -108,7 +110,7 @@ const CheckoutSidebarView: FC = () => {
           <Button
             type="submit"
             width="100%"
-            disabled={!checkoutData?.hasPayment || !checkoutData?.hasShipping}
+            // disabled={!checkoutData?.hasPayment || !checkoutData?.hasShipping}
             loading={loadingSubmit}
           >
             Confirm Purchase

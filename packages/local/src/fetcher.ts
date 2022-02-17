@@ -29,10 +29,8 @@ export const fetcher: Fetcher = async ({
       : undefined
     const headers = hasBody ? { 'Content-Type': 'application/json' } : undefined
     const res = await fetch(url!, { method, body, headers })
-    console.log("fetcher request  response ===>>",res);
     if (res.ok) {
       const { data } = await res.json()
-      console.log("here we go for data",data);
       return data
     }
   
