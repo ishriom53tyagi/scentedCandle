@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Searchbar: FC<Props> = ({ className, id = 'search' }) => {
-  const router = useRouter()
+  const router = useRouter() 
 
   useEffect(() => {
     router.prefetch('/search')
