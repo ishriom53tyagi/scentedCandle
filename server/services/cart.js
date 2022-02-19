@@ -6,45 +6,83 @@ const ipAddress = require('../utils/common')
 const bcrypt = require('bcryptjs')
 
 let obj = {
-  id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-  createdAt: '2022-02-14T16:05:07+00:00',
-  currency: { code: 'USD' },
-  taxesIncluded: 'false',
-  lineItems: [
-    {
-      countItems: 1,
-      discounts: [],
-      id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-      name: 'jacket',
-      path: 'lightweight-jacket',
-      productId: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-      quantity: 1,
-      variant: [
-        {
-          id: 381,
-          image: [
-            {
-              url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
-            },
-          ],
-          listPrice: 160.12,
-          name: 'jacket',
-          price: 160,
-          requiresShipping: true,
-          sku: '5F6D80F2EB67C_11047-BL-XS',
-        },
-      ],
-      variantId: 381,
-    },
-  ],
-  lineItemsSubtotalPrice: 100,
-  subtotalPrice: 100,
-  totalPrice: 100,
+            id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+            createdAt: '2022-02-14T16:05:07+00:00',
+            currency: { code: 'USD' },
+            taxesIncluded: 'false',
+            lineItems: [
+              {
+                countItems: 1,
+                discounts: [],
+                id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+                name: 'jacket',
+                path: 'lightweight-jacket',
+                productId: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+                quantity: 1,
+                variant: [
+                  {
+                    id: 381,
+                    image: [
+                      {
+                        url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
+                      },
+                    ],
+                    listPrice: 160.12,
+                    name: 'jacket',
+                    price: 160,
+                    requiresShipping: true,
+                    sku: '5F6D80F2EB67C_11047-BL-XS',
+                  },
+                ],
+                variantId: 381,
+              },
+            ],
+            lineItemsSubtotalPrice: 100,
+            subtotalPrice: 100,
+            totalPrice: 100,
 }
 
 module.exports.getcart = async function (req, res) {
   try {
     const db = getDb()
+    obj =
+    {
+      id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+      createdAt: '2022-02-14T16:05:07+00:00',
+      currency: { code: 'USD' },
+      taxesIncluded: 'false',
+      lineItems: [
+        {
+          countItems: 1,
+          discounts: [],
+          id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+          name: 'jacket',
+          path: 'lightweight-jacket',
+          productId: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
+          quantity: 1,
+          variant: [
+            {
+              id: 381,
+              image: [
+                {
+                  url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
+                },
+              ],
+              listPrice: 160.12,
+              name: 'jacket',
+              price: 160,
+              requiresShipping: true,
+              sku: '5F6D80F2EB67C_11047-BL-XS',
+            },
+          ],
+          variantId: 381,
+        },
+      ],
+      lineItemsSubtotalPrice: 100,
+      subtotalPrice: 100,
+      totalPrice: 100,
+    }
+
     return responseData(res, true, 200, 'get cart details we are in')
   } catch (err) {
     console.log('error ==>>>', err)
@@ -55,9 +93,10 @@ module.exports.getcart = async function (req, res) {
 module.exports.getcartDetails = async function (req, res) {
   try {
     const db = getDb()
-    console.log('Obje retrued', obj)
+    let data = obj.lineItems.length> 0 ? obj : null
     //   return obj;
-    return responseData(res, true, 200, 'Data finished', obj)
+    console.log("data  cart js value==>",data)
+    return responseData(res, true, 200, 'Data finished', data);
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')
@@ -74,6 +113,7 @@ module.exports.deleteCart = async function (req, res) {
       totalPrice: 0,
     }
 
+    // obj={};
     console.log('apai called')
     //   return obj;
     return responseData(res, true, 200, 'Data finished', null)
@@ -209,3 +249,15 @@ module.exports.checkout = async function (req, res) {
     return responseData(res, false, 500, 'Internal Server Error')
   }
 }
+
+
+  module.exports.updateCart = async function(req ,res)
+  {
+
+    console.log("Req body value ==>",req.body);
+    obj.lineItems[0].quantity = req.body.item.quantity;
+    obj.subtotalPrice = req.body.item.quantity * obj.subtotalPrice;
+    obj.totalPrice = req.body.item.quantity * obj.totalPrice;
+    return responseData(res, true, 200, 'update qunatity with this value',obj);
+    
+  }

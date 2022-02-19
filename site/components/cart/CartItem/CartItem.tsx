@@ -36,8 +36,8 @@ const CartItem = ({
   const updateItem = useUpdateItem({ item })
 
   const { price } = usePrice({
-    amount: item.variant.price * item.quantity,
-    baseAmount: item.variant.listPrice * item.quantity,
+    amount: item.variant[0].price * item.quantity,
+    baseAmount: item.variant[0].listPrice * item.quantity,
     currencyCode,
   })
 
@@ -50,7 +50,9 @@ const CartItem = ({
 
   const increaseQuantity = async (n = 1) => {
     const val = Number(quantity) + n
+    console.log("Set Quantity ====>>",quantity,val);
     setQuantity(val)
+    console.log("After set quantity");
     await updateItem({ quantity: val })
   }
 
@@ -92,8 +94,8 @@ const CartItem = ({
                 className={s.productImage}
                 width={150}
                 height={150}
-                src={item.variant.image?.url || placeholderImg}
-                alt={item.variant.image?.altText || "Product Image"}
+                src={item.variant[0].image?.url || placeholderImg}
+                alt={item.variant[0].image?.altText || "Product Image"}
                 unoptimized
               />
             </a>

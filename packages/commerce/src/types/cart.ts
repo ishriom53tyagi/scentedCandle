@@ -18,7 +18,7 @@ export type LineItem = {
   discounts: Discount[]
   // A human-friendly unique string automatically generated from the product’s name
   path: string
-  variant: ProductVariant
+  variant: ProductVariant[]
   options?: SelectedOption[]
 }
 

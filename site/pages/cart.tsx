@@ -23,7 +23,7 @@ export async function getStaticProps({
   }
 }
 
-export default function Cart() {
+export default function Cart() {  
   const error = null
   const success = null
   const { data, isLoading, isEmpty } = useCart()
