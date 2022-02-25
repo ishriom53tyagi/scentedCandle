@@ -8,6 +8,8 @@ import { handler as useSearch } from './product/use-search'
 import { handler as useLogin } from './auth/use-login'
 import { handler as useLogout } from './auth/use-logout'
 import { handler as useSignup } from './auth/use-signup'
+import { handler as useCheckout } from './checkout/use-checkout'
+import { handler as useSubmitCheckout } from './checkout/use-submit-checkout'
 
 export const localProvider = {
   locale: 'en-us',
@@ -17,6 +19,7 @@ export const localProvider = {
   customer: { useCustomer },
   products: { useSearch },
   auth: { useLogin, useLogout, useSignup },
+  checkout :{  useCheckout , useSubmitCheckout}
 }
 
 export type LocalProvider = typeof localProvider
