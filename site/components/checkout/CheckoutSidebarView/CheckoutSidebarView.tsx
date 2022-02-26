@@ -7,6 +7,7 @@ import SidebarLayout from '@components/common/SidebarLayout'
 import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
 import useCheckout from '@framework/checkout/use-checkout'
+
 import ShippingWidget from '../ShippingWidget'
 import PaymentWidget from '../PaymentWidget'
 import s from './CheckoutSidebarView.module.css'
@@ -15,6 +16,7 @@ import { useCheckoutContext } from '../context'
 const CheckoutSidebarView: FC = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false)
   const { setSidebarView, closeSidebar } = useUI()
+  const [checked, setChecked] = useState("");
   const { data: cartData, mutate: refreshCart } = useCart()
   const { data: checkoutData, submit: onCheckout } = useCheckout()
   // const { clearCheckoutFields } = useCheckoutContext()
@@ -35,6 +37,10 @@ const CheckoutSidebarView: FC = () => {
     }
   }
 
+  const handleCheckChange = (e: any) => {
+    console.log("Values return",e);
+    setChecked(e.target.value);
+  }
   const { price: subTotal } = usePrice(
     cartData && {
       amount: Number(cartData.subtotalPrice),
@@ -104,6 +110,30 @@ const CheckoutSidebarView: FC = () => {
         <div className="flex justify-between border-t border-accent-2 py-3 font-bold mb-2">
           <span>Total</span>
           <span>{total}</span>
+        </div>
+        <div className="radio m-2 mx-0">
+          <label>
+            <input
+              type="radio"
+              value="COD"
+              className='mr-2'
+              checked={checked === "COD"}
+              onChange={handleCheckChange}
+            />
+            Cash On Delivery
+          </label>
+        </div>
+        <div className="radio m-2 mx-0">
+          <label>
+            <input
+              type="radio"
+              value="RazorPay"
+              className='mr-2'
+              checked={checked === "RazorPay"}
+              onChange={handleCheckChange}
+            />
+            Online Payment with credit/debit card, UPI and net banking
+          </label>
         </div>
         <div>
           {/* Once data is correctly filled */}
