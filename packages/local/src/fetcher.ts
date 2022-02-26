@@ -38,8 +38,17 @@ export const fetcher: Fetcher = async ({
         const options = {
           expires:60 * 60 * 24 * 30
         }
-          Cookies.set("cartId", result.data.cartId ,options);
+        Cookies.set("cartId", result.data.cartId ,options);
       }
+
+      if(result?.data.cartCookie && !(Cookies.get("cartCookie")))
+      {
+        const options = {
+          expires:60 * 60 * 24 * 30
+        }
+        Cookies.set("cartCookie", result.data.cartCookie ,options);
+      }
+
 
       return result.data.data;
     }

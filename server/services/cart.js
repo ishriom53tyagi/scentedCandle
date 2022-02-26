@@ -1,9 +1,7 @@
 const { responseData } = require('../utils/responseHandler')
 const config = require('../config')
 const getDb = require('../utils/database').getDb
-const ObjectId = require('mongodb').ObjectId
-const ipAddress = require('../utils/common')
-const bcrypt = require('bcryptjs')
+const getRandomString = require('../utils/common');
 
 let obj = {
             id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -45,6 +43,7 @@ let obj = {
 module.exports.getcart = async function (req, res) {
   try {
     const db = getDb()
+    let cartCookie = getRandomString.uuidv4();
     obj =
     {
       id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -83,7 +82,7 @@ module.exports.getcart = async function (req, res) {
       totalPrice: 100,
     }
 
-    return responseData(res, true, 200, 'get cart details we are in',obj);
+    return responseData(res, true, 200, 'get cart details we are in',{obj , cartCookie});
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')

@@ -6,6 +6,7 @@ import { Grid, Marquee, Hero } from '@components/ui'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { useEffect } from 'react'
 import { getAllProducts } from 'service/products'
+import Cookies from 'js-cookie'
 
 export async function getStaticProps({
   preview,
@@ -13,19 +14,24 @@ export async function getStaticProps({
   locales,
 }: GetStaticPropsContext) {
   const config = { locale, locales }
-  // const productsPromise = commerce.getAllProducts({
-  //   variables: { first: 6 },
-  //   config,
-  //   preview,
-  //   // Saleor provider only
-  //   ...({ featured: true } as any),
-  // })
+  const productsPromise = commerce.getAllProducts({
+    variables: { first: 6 },
+    config,
+    preview,
+    // Saleor provider only
+    ...({ featured: true } as any),
+  })
+
+
+
   const pagesPromise = commerce.getAllPages({ config, preview })
   const siteInfoPromise = commerce.getSiteInfo({ config, preview })
-  // const  productstest  = await productsPromise
+  const  productstest  = await productsPromise
+
+  console.log("products promise and all" ,productstest);
 
   let products  = await getAllProducts();
-  products = products.data.data;
+  products = products.data.data.products;
 
   const { pages } = await pagesPromise
   const { categories, brands } = await siteInfoPromise
