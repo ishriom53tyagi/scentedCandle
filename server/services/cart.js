@@ -82,7 +82,7 @@ module.exports.getcart = async function (req, res) {
       totalPrice: 100,
     }
 
-    return responseData(res, true, 200, 'get cart details we are in',{obj , cartCookie});
+    return responseData(res, true, 200, 'get cart details we are in',obj);
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')

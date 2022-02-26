@@ -49,8 +49,7 @@ export const fetcher: Fetcher = async ({
         Cookies.set("cartCookie", result.data.cartCookie ,options);
       }
 
-
-      return result.data.data;
+      return result.data;
     }
 
     throw await getError(res)

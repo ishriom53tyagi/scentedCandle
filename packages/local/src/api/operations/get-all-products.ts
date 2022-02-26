@@ -27,7 +27,6 @@ const host = "http://localhost:5120/api/backend";
 
    let result =  await axios.get("http://localhost:5120/api/backend/getAllProducts", { headers });
    result =  result.data.data;
-   console.log("data value is here for axios" ,result);
     // // Create or update the cart cookie
     // res.setHeader(
     //   'Set-Cookie',
