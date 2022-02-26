@@ -2,10 +2,8 @@ const express = require('express');
 const router = express.Router();
 const csrf = require('csurf');
 
-const tokenVerifyMiddleware = require('../middleware/tokenverify');
 // const roleCode = require('../middleware/roleCode');
 
-const loginService = require('../services/login')
 const signUpService = require('../services/signup');
 const products = require('../services/products');
 const cart = require('../services/cart');
@@ -30,7 +28,7 @@ router.get('/cartDetails', cart.getcartDetails)
 router.get('/checkout', cart.checkout)
 
 
-router.get('/catalog/products',search.getSearchDetails);
+router.post('/catalog/products',search.getSearchDetails);
 
 router.post('/cart/update',cart.updateCart);
 // router.get('/roles', rolesService.getUserRoles);

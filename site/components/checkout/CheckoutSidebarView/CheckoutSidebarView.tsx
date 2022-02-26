@@ -18,8 +18,8 @@ const CheckoutSidebarView: FC = () => {
   const { setSidebarView, closeSidebar } = useUI()
   const [checked, setChecked] = useState("");
   const { data: cartData, mutate: refreshCart } = useCart()
-  // const { data: checkoutData, submit: onCheckout } = useCheckout()
-  const { clearCheckoutFields } = useCheckoutContext()
+  const { data: checkoutData, submit: onCheckout } = useCheckout()
+  // const { clearCheckoutFields } = useCheckoutContext()
 
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     try {

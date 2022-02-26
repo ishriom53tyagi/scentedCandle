@@ -4,10 +4,10 @@ export default useSearch as UseSearch<typeof handler>
 
 export const handler: SWRHook<any> = {
   fetchOptions: {
-    method: 'GET',
+    method: 'POST',
     url: 'http://localhost:5120/api/backend/catalog/products',
   },
-  fetcher({ input: { search, categoryId, brandId, sort }, options, fetch }) {
+  async fetcher({ input: { search, categoryId, brandId, sort }, options, fetch }) {
     // Use a dummy base as we only care about the relative path
     const url = new URL(options.url!, 'http://a')
 
@@ -17,13 +17,16 @@ export const handler: SWRHook<any> = {
     if (Number.isInteger(brandId))
       url.searchParams.set('brandId', String(brandId))
     if (sort) url.searchParams.set('sort', sort)
+    console.log("ok ok okk mana to hai sick");
+    let data =  {
+                  search:search,
+                  categoryId:categoryId,
+                  brandId:brandId,
+                  sort:sort
+                }
 
-    console.log("Url total",url.pathname + url.search,options.method);
-
-    return fetch({
-      method: 'GET',
-      url: 'http://localhost:5120/api/backend/catalog/products',
-    })
+    return await fetch({ ...options, body: { data } })
+  
   },
   useHook: ({ useData }) => (input) => {
     return useData({

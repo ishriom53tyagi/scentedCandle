@@ -83,7 +83,7 @@ module.exports.getcart = async function (req, res) {
       totalPrice: 100,
     }
 
-    return responseData(res, true, 200, 'get cart details we are in')
+    return responseData(res, true, 200, 'get cart details we are in',obj);
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')
@@ -95,8 +95,6 @@ module.exports.getcartDetails = async function (req, res) {
     const db = getDb()
     let data = obj.lineItems.length> 0 ? obj : null
     //   return obj;
-    console.log("data  cart js value==>",data)
-    return responseData(res, true, 200, 'Data finished', data);
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')
@@ -126,8 +124,6 @@ module.exports.deleteCart = async function (req, res) {
 module.exports.checkout = async function (req, res) {
   try {
     const db = getDb()
-
-    console.log('Every time it hit the data ')
 
     let data = {
       id: '79dbef51-322d-4964-8fbe-a318041f19ba',
@@ -254,7 +250,6 @@ module.exports.checkout = async function (req, res) {
   module.exports.updateCart = async function(req ,res)
   {
 
-    console.log("Req body value ==>",req.body);
     obj.lineItems[0].quantity = req.body.item.quantity;
     obj.subtotalPrice = req.body.item.quantity * obj.subtotalPrice;
     obj.totalPrice = req.body.item.quantity * obj.totalPrice;

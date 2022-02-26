@@ -1,5 +1,6 @@
 import { Fetcher } from '@vercel/commerce/utils/types'
 import { FetcherError } from '@vercel/commerce/utils/errors'
+import Cookies from 'js-cookie'
 
 async function getText(res: Response) {
   try {
@@ -28,11 +29,20 @@ export const fetcher: Fetcher = async ({
       ? JSON.stringify(variables ? { variables } : bodyObj)
       : undefined
     const headers = hasBody ? { 'Content-Type': 'application/json' } : undefined
-    const res = await fetch(url!, { method, body, headers })
+    const res = await fetch(url!, { method, body, headers , credentials: 'same-origin' })
     if (res.ok) {
-      const { data } = await res.json()
-      return data
+      const result = await res.json();
+
+      if(result?.data.cartId && !(Cookies.get("cartId")))
+      {
+        const options = {
+          expires:60 * 60 * 24 * 30
+        }
+          Cookies.set("cartId", result.data.cartId ,options);
+      }
+
+      return result.data.data;
     }
-  
+
     throw await getError(res)
 }

@@ -16,7 +16,7 @@ module.exports.getAllProducts = async  function (req ,res)  {
             return responseData(res, false, 200, "Sorry No Products Found");
 
         }
-        return responseData(res, true, 200,"products found",products);
+        return responseData(res, true, 200,"products found",{products:products , cartId: randomNumber});
     }
     catch(err)
     {
