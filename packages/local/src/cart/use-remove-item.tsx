@@ -7,6 +7,7 @@ import { ValidationError } from '@vercel/commerce/utils/errors'
 import useRemoveItem, { UseRemoveItem } from '@vercel/commerce/cart/use-remove-item'
 import type { Cart, LineItem, RemoveItemHook } from '@vercel/commerce/types/cart'
 import useCart from './use-cart'
+import Cookies from "js-cookie"
 
 export type RemoveItemFn<T = any> = T extends LineItem
   ? (input?: RemoveItemActionInput<T>) => Promise<Cart | null | undefined>
@@ -28,8 +29,8 @@ export const handler = {
     options,
     fetch,
   }: HookFetcherContext<RemoveItemHook>) {
-    console.log("Inside fetcher ",options, itemId);
-    return await fetch({ ...options, body: { itemId } })
+    let cartCookie = Cookies.get("cartCookie");
+    return await fetch({ ...options, body: { itemId ,cartCookie } })
   },
   useHook: ({ fetch }: MutationHookContext<RemoveItemHook>) => <
     T extends LineItem | undefined = undefined
@@ -48,7 +49,7 @@ export const handler = {
       }
 
       const data = await fetch({ input: { itemId } })
-      console.log("data==>>",data);
+     
       const tempData = data && Object.keys(data).length == 0 ?null:data;
       await mutate(tempData, false)
       return tempData

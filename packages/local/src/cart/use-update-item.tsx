@@ -9,6 +9,7 @@ import useUpdateItem, { UseUpdateItem } from '@vercel/commerce/cart/use-update-i
 import type { LineItem, UpdateItemHook } from '@vercel/commerce/types/cart'
 import { handler as removeItemHandler } from './use-remove-item'
 import useCart from './use-cart'
+import Cookies from "js-cookie"
 
 export type UpdateItemActionInput<T = any> = T extends LineItem
   ? Partial<UpdateItemHook['actionInput']>
@@ -26,7 +27,6 @@ export const handler = {
     options,
     fetch,
   }: HookFetcherContext<UpdateItemHook>) {
-    console.log(item.quantity ,"item quantity");
     if (Number.isInteger(item.quantity)) {
       // Also allow the update hook to remove an item if the quantity is lower than 1
       if (item.quantity! < 1) {
@@ -41,10 +41,10 @@ export const handler = {
         message: 'The item quantity has to be a valid integer',
       })
     }
-
+    let cartCookie = Cookies.get("cartCookie");
     return await fetch({
       ...options,
-      body: { itemId, item },
+      body: { itemId, item , cartCookie },
     })
   },
   useHook: ({ fetch }: MutationHookContext<UpdateItemHook>) => <
@@ -55,7 +55,6 @@ export const handler = {
       wait?: number
     } = {}
   ) => {
-    console.log("Inside hook");
     const { item } = ctx
     const { mutate } = useCart() as any
     return useCallback(
@@ -77,7 +76,7 @@ export const handler = {
           },
         })
         await mutate(data, false)
-        console.log("DAta in updated ",data);
+       
         return data
       }, ctx.wait ?? 500),
       [fetch, mutate]

@@ -4,6 +4,7 @@ import type { OperationContext } from '@vercel/commerce/api/operations'
 import type { LocalConfig, Provider } from '../index'
 import data from '../../data.json'
 const axios = require("axios");
+const host = "http://localhost:5120/api/backend";
 
 export default function getAllProductsOperation({
   commerce,
@@ -19,23 +20,16 @@ export default function getAllProductsOperation({
     preview?: boolean
   } = {}): Promise<{ products: Product[] | any[] }> {
 
-
-const host = "http://localhost:5120/api/backend";
       const headers = { 
         'Authorization': 'Bearer my-token',
     };
-
    let result =  await axios.get("http://localhost:5120/api/backend/getAllProducts", { headers });
-   result =  result.data.data;
-    // // Create or update the cart cookie
-    // res.setHeader(
-    //   'Set-Cookie',
-    //   getCartCookie(config.cartCookie, data.id, config.cartCookieMaxAge)
-    // )
-    // res.status(200).json({ data: normalizeCart(data) })
-    
+   result =  result.data.data.products;
+    // return {
+    //   products: data.products,
+    // }
     return {
-      products: data.products,
+      products: result,
     }
   }
   return getAllProducts

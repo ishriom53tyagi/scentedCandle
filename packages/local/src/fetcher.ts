@@ -33,14 +33,6 @@ export const fetcher: Fetcher = async ({
     if (res.ok) {
       const result = await res.json();
 
-      if(result?.data.cartId && !(Cookies.get("cartId")))
-      {
-        const options = {
-          expires:60 * 60 * 24 * 30
-        }
-        Cookies.set("cartId", result.data.cartId ,options);
-      }
-
       if(result?.data.cartCookie && !(Cookies.get("cartCookie")))
       {
         const options = {
@@ -49,7 +41,8 @@ export const fetcher: Fetcher = async ({
         Cookies.set("cartCookie", result.data.cartCookie ,options);
       }
 
-      return result.data;
+      return result.data?.data ? result.data?.data : result.data ;
+
     }
 
     throw await getError(res)

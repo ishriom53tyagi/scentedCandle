@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { CommerceProvider } from '@framework'
@@ -15,9 +15,12 @@ import PaymentMethodView from '@components/checkout/PaymentMethodView'
 import CheckoutSidebarView from '@components/checkout/CheckoutSidebarView'
 import { CheckoutProvider } from '@components/checkout/context'
 import MenuSidebarView, { Link } from '../UserNav/MenuSidebarView'
+import { saveUserSession } from 'service/anonymousUser'
+import Cookies from 'js-cookie'
 
 import LoginView from '@components/auth/LoginView'
 import s from './Layout.module.css'
+import { getAnoynmusUserCookie } from '../../../service/common'
 
 const Loading = () => (
   <div className="w-80 h-80 flex items-center text-center justify-center p-3">
@@ -122,6 +125,17 @@ const Layout: FC<Props> = ({
     label: c.name,
     href: `/search/${c.slug}`,
   }))
+
+ useEffect(() => {
+    if(!(Cookies.get("anoynmusUserCookie"))) {
+      let userCookie =   getAnoynmusUserCookie();
+      let cookie = {"userCookie" : userCookie };
+      saveUserSession(cookie);
+      Cookies.set("anoynmusUserCookie" ,userCookie , {
+              expires:60 * 60 * 24 * 30
+      });
+    } 
+}, [])
 
   return (
     <CommerceProvider locale={locale}>

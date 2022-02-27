@@ -1,7 +1,7 @@
 const { responseData } = require('../utils/responseHandler')
-const config = require('../config')
 const getDb = require('../utils/database').getDb
 const getRandomString = require('../utils/common');
+
 
 let obj = {
             id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -42,47 +42,40 @@ let obj = {
 
 module.exports.getcart = async function (req, res) {
   try {
-    const db = getDb()
-    let cartCookie = getRandomString.uuidv4();
-    obj =
-    {
-      id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-      createdAt: '2022-02-14T16:05:07+00:00',
-      currency: { code: 'USD' },
-      taxesIncluded: 'false',
-      lineItems: [
-        {
-          countItems: 1,
-          discounts: [],
-          id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-          name: 'jacket',
-          path: 'lightweight-jacket',
-          productId: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
-          quantity: 1,
-          variant: [
-            {
-              id: 381,
-              image: [
-                {
-                  url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
-                },
-              ],
-              listPrice: 160.12,
-              name: 'jacket',
-              price: 160,
-              requiresShipping: true,
-              sku: '5F6D80F2EB67C_11047-BL-XS',
-            },
-          ],
-          variantId: 381,
-        },
-      ],
-      lineItemsSubtotalPrice: 100,
-      subtotalPrice: 100,
-      totalPrice: 100,
-    }
 
-    return responseData(res, true, 200, 'get cart details we are in',obj);
+    const db = getDb()
+    let cartCookie
+
+    let productsData = await db.collection("products").find({ id: req.body.item.productId }).toArray();
+    let data ;
+
+    if(!(req.body.cartCookie)) {
+
+        cartCookie = getRandomString.uuidv4();
+
+        let obj = { id: cartCookie,
+                  createdAt: Date.now(),
+                  currency: { code: 'USD' },
+                  taxesIncluded: 'false',
+                  lineItems: [],
+                  lineItemsSubtotalPrice: productsData[0].price.value,
+                  subtotalPrice: productsData[0].price.value,
+                  totalPrice: productsData[0].price.value,
+                }
+  
+        let updatedCart = updateCartObj(false , productsData[0] );
+        obj.lineItems.push(updatedCart);
+        data = obj;
+        let unsued =  await db.collection("cart").insertOne(obj);
+    } else { 
+
+       cartCookie = req.body.cartCookie ;
+       let cart =   await db.collection("cart").find({id: req.body.cartCookie }).toArray();
+       let updatedCart = updateCartObj(true , productsData[0] , cart[0] );
+       data = updatedCart ;
+       await db.collection("cart").updateOne({ id: req.body.cartCookie }, { $set : updatedCart });
+    }
+    return responseData(res, true, 200, 'get cart details we are in', {data , cartCookie} );
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')
@@ -92,7 +85,13 @@ module.exports.getcart = async function (req, res) {
 module.exports.getcartDetails = async function (req, res) {
   try {
     const db = getDb()
-    let data = obj.lineItems.length> 0 ? obj : null
+    let cart
+    if(req.body.cartCookie) {
+       cart =   await db.collection("cart").find({id: req.body.cartCookie }).toArray();
+    }
+    let data = cart[0]?.lineItems.length > 0 ? cart[0] : null ;
+    // let data = obj.lineItems.length> 0 ? obj : null
+    return responseData(res, true, 200, 'cartDetails' ,data );
     //   return obj;
   } catch (err) {
     console.log('error ==>>>', err)
@@ -102,18 +101,27 @@ module.exports.getcartDetails = async function (req, res) {
 
 module.exports.deleteCart = async function (req, res) {
   try {
-    const db = getDb()
-    obj = {
-      lineItems: [],
-      lineItemsSubtotalPrice: 0,
-      subtotalPrice: 0,
-      totalPrice: 0,
-    }
+        const db = getDb()
+        let updated =  await db.collection("cart").update(
 
-    // obj={};
-    console.log('apai called')
-    //   return obj;
-    return responseData(res, true, 200, 'Data finished', null)
+                {'id': req.body.cartCookie}, 
+
+                { 
+                  $pull: 
+                  {
+                     "lineItems" : { "id": req.body.itemId }
+                   },
+                   $set:{
+                    lineItemsSubtotalPrice:0,
+                    subtotalPrice :0,
+                    totalPrice :0
+                   }
+                 },
+                 {multi: true}
+                );
+        let data = await db.collection("cart").find({ "id" : req.body.cartCookie }).toArray();
+      
+        return responseData(res, true, 200, 'Data finished', data[0]);
   } catch (err) {
     console.log('error ==>>>', err)
     return responseData(res, false, 500, 'Internal Server Error')
@@ -248,10 +256,75 @@ module.exports.checkout = async function (req, res) {
 
   module.exports.updateCart = async function(req ,res)
   {
+    const db = getDb();
 
-    obj.lineItems[0].quantity = req.body.item.quantity;
-    obj.subtotalPrice = req.body.item.quantity * obj.subtotalPrice;
-    obj.totalPrice = req.body.item.quantity * obj.totalPrice;
-    return responseData(res, true, 200, 'update qunatity with this value',obj);
+    let cart =   await db.collection("cart").find({id: req.body.cartCookie }).toArray();
+    cart = cart[0];
+    let price , qunatity ;
+    for(let i =0 ; i<cart.lineItems.length >0 ; i++) {
+      console.log( cart.lineItems[i].productId  , req.body.itemId);
+      if(cart.lineItems[i].productId == req.body.itemId) {
+        price = cart.lineItems[i].price;
+        qunatity = cart.lineItems[i].quantity;
+      }
+    }
+
+    let lineItemsSubtotalPrice = cart.lineItemsSubtotalPrice - (price* qunatity)  + req.body.item.quantity*price;
+    let subtotalPrice =  cart.subtotalPrice - (price* qunatity)  + req.body.item.quantity*price;
+    let totalPrice =  cart.totalPrice - (price* qunatity)  + req.body.item.quantity*price;
+
+    await db.collection("cart").updateOne({id: req.body.cartCookie , "lineItems.id" : req.body.itemId },
+      {
+        $set:{
+          "lineItems.$.quantity" : req.body.item.quantity,
+          lineItemsSubtotalPrice:lineItemsSubtotalPrice ,
+          subtotalPrice:subtotalPrice,
+          totalPrice:totalPrice
+        }
+      })
+      let data =   await db.collection("cart").find({id: req.body.cartCookie }).toArray();
+      // return responseData(res, true, 200, 'update qunatity with this value',obj);
+      return responseData(res, true, 200, 'update qunatity with this value',data[0]);
     
   }
+  function updateCartObj(iscartUpdated, productData, cartData) {
+
+        let linesObject = {
+          countItems: 1,
+          discounts: [],
+          id: productData.id,
+          name: productData.name,
+          path: productData.slug,
+          productId: productData.id,
+          quantity: 1,
+          price:productData.price.value,
+          variant: [
+            {
+              id: 381,
+              image: [
+                {
+                  url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
+                },
+              ],
+              listPrice: 160.12,
+              name: 'jacket',
+              price: 160,
+              requiresShipping: true,
+              sku: '5F6D80F2EB67C_11047-BL-XS',
+            },
+          ],
+          variantId: 381,
+        }
+        if(!(iscartUpdated)) {
+
+          return linesObject ;
+        }
+        console.log(cartData,"cartData");
+        cartData.lineItems.push(linesObject);
+        cartData.lineItemsSubtotalPrice =  cartData.lineItemsSubtotalPrice + productData.price.value;
+        cartData.subtotalPrice = cartData.subtotalPrice + productData.price.value
+        cartData.totalPrice =  cartData.totalPrice + productData.price.value
+        
+        return cartData;
+ 
+}

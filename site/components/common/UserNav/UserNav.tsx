@@ -20,7 +20,6 @@ const countItem = (count: number, item: LineItem) => count + item.quantity
 
 const UserNav: FC<Props> = ({ className }) => {
   const { data } = useCart()
-  console.log("Use text data nav bar ==>>",data)
   const { data: customer } = useCustomer()
   const { toggleSidebar, closeSidebarIfPresent, openModal, setSidebarView } =
     useUI()

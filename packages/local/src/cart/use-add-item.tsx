@@ -11,11 +11,11 @@ export const handler: MutationHook<any> = {
     method: 'POST',
   },
   async fetcher({ input: item, options, fetch }) {
-    let cartId = Cookies.get("cartId");
+    let cartCookie = Cookies.get("cartCookie");
     
     const data = await fetch({
       ...options,
-      body: { item , cartId},
+      body: { item , cartCookie},
     })
    return data;
   },
@@ -26,7 +26,7 @@ export const handler: MutationHook<any> = {
       return useCallback(
         async function addItem(input) {
           const data = await fetch({ input })
-          console.log("Data",data, input);
+     
           await mutate(data, false)
           return data
         },
