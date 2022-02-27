@@ -53,7 +53,8 @@ module.exports.getcart = async function (req, res) {
 
         cartCookie = getRandomString.uuidv4();
 
-        let obj = { id: cartCookie,
+        let obj = { 
+                  id: cartCookie,
                   createdAt: Date.now(),
                   currency: { code: 'USD' },
                   taxesIncluded: 'false',
@@ -63,7 +64,7 @@ module.exports.getcart = async function (req, res) {
                   totalPrice: productsData[0].price.value,
                 }
   
-        let updatedCart = updateCartObj(false , productsData[0] );
+        let updatedCart = await updateCartObj(false , productsData[0] );
         obj.lineItems.push(updatedCart);
         data = obj;
         let unsued =  await db.collection("cart").insertOne(obj);
@@ -71,7 +72,13 @@ module.exports.getcart = async function (req, res) {
 
        cartCookie = req.body.cartCookie ;
        let cart =   await db.collection("cart").find({id: req.body.cartCookie }).toArray();
-       let updatedCart = updateCartObj(true , productsData[0] , cart[0] );
+       let updatedCart = await updateCartObj(true , productsData[0] , cart[0] , cartCookie);
+       if( updatedCart?.isDuplicate == true) {
+           
+            data = updatedCart.data
+            console.log("fine and working what is wrong with that " ,data );
+            return responseData(res, true, 200, 'get cart details we are in', {data , cartCookie} );
+       }
        data = updatedCart ;
        await db.collection("cart").updateOne({ id: req.body.cartCookie }, { $set : updatedCart });
     }
@@ -287,7 +294,9 @@ module.exports.checkout = async function (req, res) {
       return responseData(res, true, 200, 'update qunatity with this value',data[0]);
     
   }
-  function updateCartObj(iscartUpdated, productData, cartData) {
+  async function updateCartObj(iscartUpdated, productData, cartData , cartCookie) {
+
+        const db = getDb(); 
 
         let linesObject = {
           countItems: 1,
@@ -315,11 +324,56 @@ module.exports.checkout = async function (req, res) {
           ],
           variantId: 381,
         }
+
         if(!(iscartUpdated)) {
 
           return linesObject ;
         }
-        console.log(cartData,"cartData");
+
+       let data =  await db.collection("cart").find({id: cartCookie ,"lineItems.id": productData.id }).toArray();
+
+       if(data.length > 0) {
+
+          data = data[0];
+          let price ;
+          let quantity ;
+
+          for(let i =0 ; i<data.lineItems.length >0 ; i++) {
+
+            console.log("andedeee" , data.lineItems[i]);
+            if(data.lineItems[i].productId == productData.id) {
+              price = data.lineItems[i].price;
+              quantity = data.lineItems[i].quantity;
+            }
+
+          }
+
+          let lineItemsSubtotalPrice = data.lineItemsSubtotalPrice - (price* quantity)  + (quantity+1)*price;
+          let subtotalPrice =  data.subtotalPrice - (price* quantity)  + (quantity+1)*price;
+          let totalPrice =  data.totalPrice - (price* quantity)  + (quantity+1)*price;
+            await db.collection("cart").updateOne({id: cartCookie , "lineItems.id" :productData.id },
+            {
+              $set:{
+                "lineItems.$.quantity" : quantity+1,
+                lineItemsSubtotalPrice:lineItemsSubtotalPrice ,
+                subtotalPrice:subtotalPrice,
+                totalPrice:totalPrice
+            }
+              })
+              linesObject.quantity = quantity+1
+              linesObject.lineItems = [];
+              data.lineItems[0].quantity = quantity+1;
+              linesObject.lineItemsSubtotalPrice =   data.lineItemsSubtotalPrice - (price* quantity)  + (quantity+1)*price;
+              linesObject.subtotalPrice =  data.subtotalPrice - (price* quantity)  + (quantity+1)*price;
+              linesObject.totalPrice =   data.totalPrice - (price* quantity)  + (quantity+1)*price;
+              linesObject.currency =  { code: 'USD' },
+        
+              linesObject.lineItems.push(data.lineItems[0]);
+
+              return { data :linesObject , isDuplicate :true };
+       }
+
+
         cartData.lineItems.push(linesObject);
         cartData.lineItemsSubtotalPrice =  cartData.lineItemsSubtotalPrice + productData.price.value;
         cartData.subtotalPrice = cartData.subtotalPrice + productData.price.value
@@ -327,4 +381,32 @@ module.exports.checkout = async function (req, res) {
         
         return cartData;
  
+}
+
+async function UpdatedCart(cart) {
+  let price , qunatity ;
+
+  for(let i =0 ; i<cart.lineItems.length >0 ; i++) {
+
+    if(cart.lineItems[i].productId == req.body.itemId) {
+      price = cart.lineItems[i].price;
+      qunatity = cart.lineItems[i].quantity;
+    }
+  }
+
+  let lineItemsSubtotalPrice = cart.lineItemsSubtotalPrice - (price* qunatity)  + req.body.item.quantity*price;
+  let subtotalPrice =  cart.subtotalPrice - (price* qunatity)  + req.body.item.quantity*price;
+  let totalPrice =  cart.totalPrice - (price* qunatity)  + req.body.item.quantity*price;
+
+  await db.collection("cart").updateOne({id: req.body.cartCookie , "lineItems.id" : req.body.itemId },
+    {
+      $set:{
+        "lineItems.$.quantity" : req.body.item.quantity,
+        lineItemsSubtotalPrice:lineItemsSubtotalPrice ,
+        subtotalPrice:subtotalPrice,
+        totalPrice:totalPrice
+      }
+    })
+    let data =   await db.collection("cart").find({id: req.body.cartCookie }).toArray();
+    return data;
 }
