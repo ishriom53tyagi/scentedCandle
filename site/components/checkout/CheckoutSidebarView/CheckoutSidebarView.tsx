@@ -7,6 +7,7 @@ import SidebarLayout from '@components/common/SidebarLayout'
 import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
 import useCheckout from '@framework/checkout/use-checkout'
+import useAddresses from '@framework/customer/address/use-addresses'
 
 import ShippingWidget from '../ShippingWidget'
 import PaymentWidget from '../PaymentWidget'
@@ -19,15 +20,18 @@ const CheckoutSidebarView: FC = () => {
   const [checked, setChecked] = useState("");
   const { data: cartData, mutate: refreshCart } = useCart()
   const { data: checkoutData, submit: onCheckout } = useCheckout()
-  // const { clearCheckoutFields } = useCheckoutContext()
+  const { data: addressData, isLoading, error } = useAddresses();
+
+  console.log("Checkout data ",checkoutData, addressData);
+  const { clearCheckoutFields } = useCheckoutContext()
 
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     try {
       setLoadingSubmit(true)
       event.preventDefault()
 
-      // await onCheckout()
-      // clearCheckoutFields()
+      await onCheckout()
+      clearCheckoutFields()
       setLoadingSubmit(false)
       refreshCart()
       closeSidebar()
@@ -66,15 +70,15 @@ const CheckoutSidebarView: FC = () => {
           </a>
         </Link>
 
-        <PaymentWidget
+        {/* <PaymentWidget
           // isValid={checkoutData?.hasPayment}
           isValid={true}
           onClick={() => setSidebarView('PAYMENT_VIEW')}
-        />
+        /> */}
         <ShippingWidget
-          // isValid={checkoutData?.hasShipping}
-          isValid={true}
+          isValid={addressData && addressData.length > 0? true: false}
           onClick={() => setSidebarView('SHIPPING_VIEW')}
+          data={addressData && addressData.length > 0? addressData[0]: null}
         />
 
         <ul className={s.lineItemsList}>

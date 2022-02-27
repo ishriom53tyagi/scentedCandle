@@ -128,7 +128,7 @@ const Layout: FC<Props> = ({
 
  useEffect(() => {
     if(!(Cookies.get("anoynmusUserCookie"))) {
-      let userCookie =   getAnoynmusUserCookie();
+      let userCookie =  getAnoynmusUserCookie();
       let cookie = {"userCookie" : userCookie };
       saveUserSession(cookie);
       Cookies.set("anoynmusUserCookie" ,userCookie , {

@@ -19,7 +19,6 @@ export const handler: SWRHook<GetCheckoutHook> = {
       const response = useData({
         swrOptions: { revalidateOnFocus: false, ...input?.swrOptions },
       })
-
       return useMemo(
         () =>
           Object.create(response, {
