@@ -34,7 +34,7 @@ export function useMutationHook<H extends MutationHook<any>>(
   hook: PickRequired<H, 'fetcher'>
 ) {
   const fetcher = useFetcher()
-
+  console.log("Hook values ",hook);
   return hook.useHook({
     fetch: useCallback(
       ({ input } = {}) => {

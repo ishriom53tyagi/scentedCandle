@@ -24,22 +24,23 @@ interface Form extends HTMLFormElement {
 
 const ShippingView: FC = () => {
   const { setSidebarView } = useUI()
-  // const addAddress = useAddAddress()
+  const addAddress = useAddAddress()
 
   async function handleSubmit(event: React.ChangeEvent<Form>) {
     event.preventDefault()
 
-      // await addAddress({
-      //   type: event.target.type.value,
-      //   firstName: event.target.firstName.value,
-      //   lastName: event.target.lastName.value,
-      //   company: event.target.company.value,
-      //   streetNumber: event.target.streetNumber.value,
-      //   apartments: event.target.streetNumber.value,
-      //   zipCode: event.target.zipCode.value,
-      //   city: event.target.city.value,
-      //   country: event.target.country.value,
-      // })
+
+      await addAddress({
+        type: event.target.type.value,
+        firstName: event.target.firstName.value,
+        lastName: event.target.lastName.value,
+        company: event.target.company.value,
+        streetNumber: event.target.streetNumber.value,
+        apartments: event.target.streetNumber.value,
+        zipCode: event.target.zipCode.value,
+        city: event.target.city.value,
+        country: event.target.country.value,
+      })
 
     setSidebarView('CHECKOUT_VIEW')
   }
@@ -66,11 +67,11 @@ const ShippingView: FC = () => {
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>First Name</label>
-                <input name="firstName" className={s.input} />
+                <input name="firstName" className={s.input} required/>
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Last Name</label>
-                <input name="lastName" className={s.input} />
+                <input name="lastName" className={s.input} required/>
               </div>
             </div>
             <div className={s.fieldset}>
@@ -79,7 +80,7 @@ const ShippingView: FC = () => {
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Street and House Number</label>
-              <input name="streetNumber" className={s.input} />
+              <input name="streetNumber" className={s.input} required/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>
@@ -90,16 +91,16 @@ const ShippingView: FC = () => {
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Postal Code</label>
-                <input name="zipCode" className={s.input} />
+                <input name="zipCode" className={s.input} required/>
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>City</label>
-                <input name="city" className={s.input} />
+                <input name="city" className={s.input} required/>
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
-              <select name="country" className={s.select}>
+              <select name="country" className={s.select} required>
                 <option>Hong Kong</option>
               </select>
             </div>
