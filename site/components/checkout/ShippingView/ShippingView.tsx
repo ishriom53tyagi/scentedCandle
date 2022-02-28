@@ -101,7 +101,7 @@ const ShippingView: FC = () => {
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
               <select name="country" className={s.select} required>
-                <option>Hong Kong</option>
+                <option>India</option>
               </select>
             </div>
           </div>
