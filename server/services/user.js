@@ -46,17 +46,26 @@ module.exports.addAddress = async function (req, res) {
 
     console.log('user values ', user)
 
-    if (!user && user.length == 0) {
+    if (user.length == 0) {
       return responseData(res, true, 200, 'User Does not exist')
     }
 
     const billingAddress = req.body.item
-    await db
-      .collection('anonymousUser')
-      .updateOne(
-        { userId: req.body.userCookie },
-        { $push: { billingAddress: billingAddress } }
-      )
+    if (user[0].billingAddress) {
+      await db
+        .collection('anonymousUser')
+        .updateOne(
+          { userId: req.body.userCookie },
+          { $set: { billingAddress: [billingAddress] } }
+        )
+    } else {
+      await db
+        .collection('anonymousUser')
+        .updateOne(
+          { userId: req.body.userCookie },
+          { $push: { billingAddress: billingAddress } }
+        )
+    }
     console.log('Billing Address', billingAddress)
     return responseData(res, true, 200, 'User Does not exist', billingAddress)
   }
@@ -71,7 +80,7 @@ module.exports.getAddress = async function (req, res) {
       .find({ userId: req.body.userCookie })
       .toArray()
 
-    if (!user && user.length == 0) {
+    if (user.length == 0) {
       return responseData(res, true, 200, 'User Does not exist')
     }
 

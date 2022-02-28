@@ -5,6 +5,7 @@ import Button from '@components/ui/Button'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'
 import useAddAddress from '@framework/customer/address/use-add-item'
+import useAddresses from '@framework/customer/address/use-addresses'
 
 import s from './ShippingView.module.css'
 
@@ -25,10 +26,10 @@ interface Form extends HTMLFormElement {
 const ShippingView: FC = () => {
   const { setSidebarView } = useUI()
   const addAddress = useAddAddress()
+  const { data: addressData, isLoading, error } = useAddresses();
 
   async function handleSubmit(event: React.ChangeEvent<Form>) {
     event.preventDefault()
-
 
       await addAddress({
         type: event.target.type.value,
@@ -36,7 +37,7 @@ const ShippingView: FC = () => {
         lastName: event.target.lastName.value,
         company: event.target.company.value,
         streetNumber: event.target.streetNumber.value,
-        apartments: event.target.streetNumber.value,
+        apartments: event.target.apartments.value,
         zipCode: event.target.zipCode.value,
         city: event.target.city.value,
         country: event.target.country.value,
@@ -67,40 +68,40 @@ const ShippingView: FC = () => {
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>First Name</label>
-                <input name="firstName" className={s.input} required/>
+                <input name="firstName" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].firstName:""} required/>
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Last Name</label>
-                <input name="lastName" className={s.input} required/>
+                <input name="lastName" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].lastName:""} required/>
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Company (Optional)</label>
-              <input name="company" className={s.input} />
+              <input name="company" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].company:""} />
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Street and House Number</label>
-              <input name="streetNumber" className={s.input} required/>
+              <input name="streetNumber" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].streetNumber:""} required/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>
                 Apartment, Suite, Etc. (Optional)
               </label>
-              <input name="apartments" className={s.input} />
+              <input name="apartments" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].apartments:""} />
             </div>
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Postal Code</label>
-                <input name="zipCode" className={s.input} required/>
+                <input name="zipCode" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].zipCode:""} required/>
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>City</label>
-                <input name="city" className={s.input} required/>
+                <input name="city" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].city:""} required/>
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
-              <select name="country" className={s.select} required>
+              <select name="country" className={s.select} defaultValue={addressData && addressData.length > 0 ? addressData[0].country:""} required>
                 <option>India</option>
               </select>
             </div>

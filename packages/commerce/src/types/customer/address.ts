@@ -23,7 +23,7 @@ export type CustomerAddressTypes = {
 export type GetAddressesHook<
   T extends CustomerAddressTypes = CustomerAddressTypes
 > = {
-  data: T['address'][] | null
+  data: T['fields'][] | null
   input: {}
   fetcherInput: { cartId?: string }
   swrState: { isEmpty: boolean }
@@ -31,7 +31,7 @@ export type GetAddressesHook<
 
 export type AddItemHook<T extends CustomerAddressTypes = CustomerAddressTypes> =
   {
-    data: T['address']
+    data: T['fields']
     input?: T['fields']
     fetcherInput: T['fields']
     body: { item: T['fields'] }
