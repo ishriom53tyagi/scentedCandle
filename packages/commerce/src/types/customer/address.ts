@@ -31,7 +31,7 @@ export type GetAddressesHook<
 
 export type AddItemHook<T extends CustomerAddressTypes = CustomerAddressTypes> =
   {
-    data: T['address']
+    data: T['fields']
     input?: T['fields']
     fetcherInput: T['fields']
     body: { item: T['fields'] }

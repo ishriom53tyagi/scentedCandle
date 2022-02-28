@@ -31,8 +31,9 @@ export const handler: MutationHook<AddItemHook> = {
         async function addItem(input) {
           console.log("Inputs for form ",input);
           const data = await fetch({ input })
-
-          await mutate([data], false)
+          if(data) {
+            await mutate([data], false)
+          }
 
           return data
         },
