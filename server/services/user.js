@@ -37,7 +37,7 @@ module.exports.saveAnonymousUserSession = async function (req, res) {
 
 module.exports.addAddress = async function (req, res) {
   const db = getDb()
-  console.log('REquest body addAddress', req.body)
+
   if (req.body.userCookie) {
     let user = await db
       .collection('anonymousUser')
@@ -66,7 +66,7 @@ module.exports.addAddress = async function (req, res) {
           { $push: { billingAddress: billingAddress } }
         )
     }
-    console.log('Billing Address', billingAddress)
+
     return responseData(res, true, 200, 'User Does not exist', billingAddress)
   }
 }
