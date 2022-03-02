@@ -1,6 +1,9 @@
 const { responseData } = require('../utils/responseHandler')
 const getDb = require('../utils/database').getDb
 const getRandomString = require('../utils/common')
+const Razorpay = require('razorpay')
+const RAZORPAY_SECRET = 'FFOWaou3b53tJEAo0dePFJzP'
+const RAZORPAY_KEY_ID = 'rzp_test_t5UpDd0l8YtnLg'
 
 let obj = {
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -458,4 +461,48 @@ async function UpdatedCart(cart) {
 
 module.exports.saveOrder = async function (req, res) {
   console.log('Request body for save order ', req.body)
+}
+
+module.exports.razorOrder = async function (req, res) {
+  console.log('Request body for razor order ', req.body)
+  const db = getDb()
+  try {
+    if (!req.body.cartCookie) {
+      return responseData(res, true, 400, 'No cart cookie')
+    }
+    console.log('After validation ')
+    let data = await db.collection('cart').findOne({ id: req.body.cartCookie })
+
+    const amount = parseInt(data.totalPrice)
+
+    console.log('Data in cart', data, amount)
+
+    if (amount < 1) {
+      return responseData(res, true, 400, 'No Product in cart')
+    }
+
+    const instance = new Razorpay({
+      key_id: RAZORPAY_KEY_ID,
+      key_secret: RAZORPAY_SECRET,
+    })
+
+    const randomNumber = parseInt(Math.random() * 1000)
+
+    const options = {
+      amount: amount * 100,
+      currency: 'INR',
+      receipt: `receipt_order_${randomNumber}`,
+    }
+
+    const order = await instance.orders.create(options)
+
+    if (!order) return res.status(500).send('Some error occured')
+
+    console.log('Order razory pay', order)
+
+    return responseData(res, true, 200, 'Razor pay order created', order)
+  } catch (error) {
+    console.log('ERror ', error)
+    res.status(500).send(error)
+  }
 }

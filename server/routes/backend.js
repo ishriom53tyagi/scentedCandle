@@ -39,6 +39,8 @@ router.post('/catalog/products', search.getSearchDetails)
 
 router.post('/submit/checkout', cart.saveOrder)
 
+router.post('/razorpay/order', cart.razorOrder)
+
 router.post('/cart/update', cart.updateCart)
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);

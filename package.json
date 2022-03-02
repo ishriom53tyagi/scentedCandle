@@ -58,5 +58,8 @@
     "hooks": {
       "pre-commit": "turbo run lint"
     }
+  },
+  "dependencies": {
+    "react-razorpay": "^1.1.4"
   }
 }
