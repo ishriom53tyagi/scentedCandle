@@ -19,11 +19,10 @@ let obj = {
       variant: [
         {
           id: 381,
-          image: [
+          image:
             {
               url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
             },
-          ],
           listPrice: 160.12,
           name: 'jacket',
           price: 160,
@@ -43,7 +42,7 @@ module.exports.getcart = async function (req, res) {
   try {
     const db = getDb()
     let cartCookie
-
+    console.log("this api hit or not" , "getcart");
     let productsData = await db
       .collection('products')
       .find({ id: req.body.item.productId })
@@ -107,6 +106,7 @@ module.exports.getcartDetails = async function (req, res) {
   try {
     const db = getDb()
     let cart
+    console.log("req. body cart cookie " , req.body.cartCookie);
     if (req.body.cartCookie) {
       cart = await db
         .collection('cart')
@@ -343,11 +343,10 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
     variant: [
       {
         id: 381,
-        image: [
+        image: 
           {
             url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
           },
-        ],
         listPrice: 160.12,
         name: 'jacket',
         price: 160,

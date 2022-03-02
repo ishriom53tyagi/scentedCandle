@@ -50,9 +50,7 @@ const CartItem = ({
 
   const increaseQuantity = async (n = 1) => {
     const val = Number(quantity) + n
-    console.log("Set Quantity ====>>",quantity,val);
     setQuantity(val)
-    console.log("After set quantity");
     await updateItem({ quantity: val })
   }
 
