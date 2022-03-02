@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FC, useState } from 'react'
+import useRazorpay, { RazorpayOptions } from "react-razorpay";
 import CartItem from '@components/cart/CartItem'
 import { Button, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
@@ -8,6 +9,8 @@ import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
 import useCheckout from '@framework/checkout/use-checkout'
 import useAddresses from '@framework/customer/address/use-addresses'
+import { createOrder } from 'service/razorPay';
+import Cookies from 'js-cookie';
 
 import ShippingWidget from '../ShippingWidget'
 import PaymentWidget from '../PaymentWidget'
@@ -15,6 +18,7 @@ import s from './CheckoutSidebarView.module.css'
 import { useCheckoutContext } from '../context'
 
 const CheckoutSidebarView: FC = () => {
+  const Razorpay = useRazorpay();
   const [loadingSubmit, setLoadingSubmit] = useState(false)
   const { setSidebarView, closeSidebar } = useUI()
   const [checked, setChecked] = useState("");
@@ -23,27 +27,6 @@ const CheckoutSidebarView: FC = () => {
   const { data: addressData, isLoading, error } = useAddresses();
 
   const { clearCheckoutFields } = useCheckoutContext()
-
-  async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    try {
-      setLoadingSubmit(true)
-      event.preventDefault()
-
-      await onCheckout({ type: checked })
-      clearCheckoutFields()
-      setLoadingSubmit(false)
-      refreshCart()
-      closeSidebar()
-    } catch {
-      // TODO - handle error UI here.
-      setLoadingSubmit(false)
-    }
-  }
-
-  const handleCheckChange = (e: any) => {
-    console.log("Values return",e);
-    setChecked(e.target.value);
-  }
   const { price: subTotal } = usePrice(
     cartData && {
       amount: Number(cartData.subtotalPrice),
@@ -56,6 +39,63 @@ const CheckoutSidebarView: FC = () => {
       currencyCode: cartData.currency.code,
     }
   )
+
+  async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+    try {
+      setLoadingSubmit(true)
+      event.preventDefault()
+      if(checked == 'RazorPay') {
+        const cartCookie = Cookies.get('cartCookie');
+        const data = await createOrder({ cartCookie });
+
+        console.log("Data after order api ",data);
+        const order = data.data;
+
+        const options: RazorpayOptions = {
+          key: 'rzp_test_t5UpDd0l8YtnLg',
+          amount: String(Number(cartData.totalPrice)*100),
+          currency: "INR",
+          name: "Scented Candles",
+          description: "Order Payment",
+          image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1574276039-19851559-097-b-1574276022.jpg?crop=1.00xw:0.834xh;0,0.110xh&resize=768:*",
+          order_id: order.id,
+          handler: async (res) => {
+            console.log("Razor Payment response ",res);
+            await onCheckout({ type: checked, ...res })
+          },
+          prefill: {
+            name: "Piyush Garg",
+            email: "youremail@example.com",
+            contact: "9999999999",
+          },
+          notes: {
+            address: "Razorpay Corporate Office",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+    
+        const rzpay = new Razorpay(options);
+        rzpay.open();
+      }else {
+        await onCheckout({ type: checked })
+        clearCheckoutFields()
+        setLoadingSubmit(false)
+        refreshCart()
+        closeSidebar()
+      }
+     
+    } catch {
+      // TODO - handle error UI here.
+      setLoadingSubmit(false)
+    }
+  }
+
+  const handleCheckChange = (e: any) => {
+    setChecked(e.target.value);
+  }
+  
 
   return (
     <SidebarLayout
