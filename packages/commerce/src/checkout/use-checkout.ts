@@ -21,7 +21,6 @@ export const fetcher: HookFetcherFn<GetCheckoutHook> = async ({
 const fn = (provider: Provider) => provider.checkout?.useCheckout!
 
 const useCheckout: UseCheckout = (input) => {
-  console.log("fnnnnnnn==>>",fn);
   const hook = useHook(fn)
   const { cartCookie } = useCommerce()
   const fetcherFn = hook.fetcher ?? fetcher

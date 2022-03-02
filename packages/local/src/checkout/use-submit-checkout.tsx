@@ -5,21 +5,23 @@ import { useCallback } from 'react'
 import useSubmitCheckout, {
   UseSubmitCheckout,
 } from '@vercel/commerce/checkout/use-submit-checkout'
+import Cookie from 'js-cookie';
 
 export default useSubmitCheckout as UseSubmitCheckout<typeof handler>
 
 export const handler: MutationHook<SubmitCheckoutHook> = {
   fetchOptions: {
-    url: '/api/checkout',
+    url: 'http://localhost:5120/api/backend/submit/checkout',
     method: 'POST',
   },
   async fetcher({ input: item, options, fetch }) {
     // @TODO: Make form validations in here, import generic error like import { CommerceError } from '@vercel/commerce/utils/errors'
     // Get payment and delivery information in here
-
+    const cartCookie = Cookie.get('cartCookie');
+    const userCookie = Cookie.get('anoynmusUserCookie');
     const data = await fetch({
       ...options,
-      body: { item },
+      body: { item, cartCookie, userCookie },
     })
 
     return data

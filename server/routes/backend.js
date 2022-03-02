@@ -37,6 +37,8 @@ router.post('/customer/getAddress', user.getAddress)
 
 router.post('/catalog/products', search.getSearchDetails)
 
+router.post('/submit/checkout', cart.saveOrder)
+
 router.post('/cart/update', cart.updateCart)
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);

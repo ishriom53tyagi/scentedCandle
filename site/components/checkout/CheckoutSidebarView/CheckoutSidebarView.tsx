@@ -22,7 +22,6 @@ const CheckoutSidebarView: FC = () => {
   const { data: checkoutData, submit: onCheckout } = useCheckout()
   const { data: addressData, isLoading, error } = useAddresses();
 
-  console.log("Checkout data ",checkoutData, addressData);
   const { clearCheckoutFields } = useCheckoutContext()
 
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
@@ -30,7 +29,7 @@ const CheckoutSidebarView: FC = () => {
       setLoadingSubmit(true)
       event.preventDefault()
 
-      await onCheckout()
+      await onCheckout({ type: checked })
       clearCheckoutFields()
       setLoadingSubmit(false)
       refreshCart()
@@ -144,7 +143,7 @@ const CheckoutSidebarView: FC = () => {
           <Button
             type="submit"
             width="100%"
-            // disabled={!checkoutData?.hasPayment || !checkoutData?.hasShipping}
+            disabled={!addressData || !checked}
             loading={loadingSubmit}
           >
             Confirm Purchase

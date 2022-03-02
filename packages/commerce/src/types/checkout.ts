@@ -15,7 +15,7 @@ export type CheckoutTypes = {
 
 export type SubmitCheckoutHook<T extends CheckoutTypes = CheckoutTypes> = {
   data: T
-  input?: T
+  input?: { type: string}
   fetcherInput: T
   body: { item: T }
   actionInput: T
@@ -26,7 +26,7 @@ export type GetCheckoutHook<T extends CheckoutTypes = CheckoutTypes> = {
   input: {}
   fetcherInput: { cartId?: string }
   swrState: { isEmpty: boolean }
-  mutations: { submit: UseSubmitCheckout }
+  mutations: { submit: UseSubmitCheckout<any> }
 }
 
 export type CheckoutHooks<T extends CheckoutTypes = CheckoutTypes> = {
