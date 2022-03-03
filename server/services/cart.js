@@ -5,6 +5,7 @@ const Razorpay = require('razorpay')
 const RAZORPAY_SECRET = 'FFOWaou3b53tJEAo0dePFJzP'
 const RAZORPAY_KEY_ID = 'rzp_test_t5UpDd0l8YtnLg'
 const crypto = require("crypto");
+const email = require("../services/email");
 
 let obj = {
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -463,7 +464,9 @@ async function UpdatedCart(cart) {
 module.exports.saveOrder = async function (req, res) {
   try{
 
+
     const db = getDb();
+
     if(req.body.item.type == "RazorPay") {
   
       let body=req.body.item.order.data.razorpay_order_id + "|" + req.body.item.razorpay_payment_id;
@@ -479,8 +482,16 @@ module.exports.saveOrder = async function (req, res) {
       }
       return responseData(res, false, 200, 'Payment is not completed please try again');
     }
+    let customerInserted = await insertCustomer(req.body.cartCookie ,req.body.userCookie );
 
-    await insertCustomer(req.body.cartCookie ,req.body.userCookie );
+    let emailParams = {
+      name:"shriom" ,
+      toEmail: "xxstyagixx@gmail.com",
+      orderNr : "123123123"
+    }
+
+   let emailSent =  await email.sendOrderConfirmation(emailParams);
+   console.log("is email sent or not" , emailSent);
 
     return responseData(res, true, 200, 'Order placed successfully');
   }
@@ -493,17 +504,28 @@ module.exports.saveOrder = async function (req, res) {
 }
 
 async function insertCustomer(cartCookie,userCookie) {
+  try{
+    const db = getDb();
+    let finalOrderData = await db.collection("cart").find({ id : cartCookie}).toArray();
+    let userDetails = await db.collection("anonymousUser").find( { userId : userCookie}).toArray();
 
-  let finalOrderData = await db.collection("cart").find({ id : cartCookie}).toArray();
-  let userDetails = await db.collection("anonymousUser").find( { userId : userCookie}).toArray();
-
-  await db.collection("customer").insertOne({
-                                  orders: finalOrderData[0],
-                                  customerAddress: userDetails[0].billingAddress,
-                                  created_on: Date.now()
-                                   });
+    let unsued =  await db.collection("customer").insertOne({
+                                    orders: finalOrderData[0],
+                                    customerAddress: userDetails[0].billingAddress,
+                                    created_on: Date.now()
+                                    });
+    if(unsued) {
+      return true;
+    }
+  }
+    catch(err){
+      console.log(err,"error")
+      return false;
+    }
 
 }
+
+
 
 module.exports.razorOrder = async function (req, res) {
   console.log('Request body for razor order ', req.body)

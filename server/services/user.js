@@ -22,14 +22,8 @@ module.exports.saveAnonymousUserSession = async function (req, res) {
     if (user && user.length > 0) {
       return responseData(res, true, 200, 'already exist')
     }
-    await db
-      .collection('anonymousUser')
-      .insertOne({ userId: req.body.userCookie })
-    let user2 = await db
-      .collection('anonymousUser')
-      .find({ userId: req.body.userCookie })
-      .toArray()
-    console.log('User Generated ', user2, user)
+    await db.collection('anonymousUser').insertOne({ userId: req.body.userCookie });
+
     return responseData(res, true, 200, 'updated')
   }
   return responseData(res, false, 500, 'internal server error')
