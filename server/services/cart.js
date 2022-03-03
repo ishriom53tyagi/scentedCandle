@@ -4,6 +4,7 @@ const getRandomString = require('../utils/common')
 const Razorpay = require('razorpay')
 const RAZORPAY_SECRET = 'FFOWaou3b53tJEAo0dePFJzP'
 const RAZORPAY_KEY_ID = 'rzp_test_t5UpDd0l8YtnLg'
+const crypto = require("crypto");
 
 let obj = {
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -460,7 +461,48 @@ async function UpdatedCart(cart) {
 }
 
 module.exports.saveOrder = async function (req, res) {
-  console.log('Request body for save order ', req.body)
+  try{
+
+    const db = getDb();
+    if(req.body.item.type == "RazorPay") {
+  
+      let body=req.body.item.order.data.razorpay_order_id + "|" + req.body.item.razorpay_payment_id;
+    
+      var expectedSignature = crypto.createHmac('sha256', 'Wok5mJv2F0pa5HKLeXZfUr9r')
+                                      .update(body.toString())
+                                      .digest('hex');
+                      
+      if(expectedSignature === req.body.response.razorpay_signature) {
+
+        await insertCustomer(req.body.cartCookie ,req.body.userCookie );
+
+      }
+      return responseData(res, false, 200, 'Payment is not completed please try again');
+    }
+
+    await insertCustomer(req.body.cartCookie ,req.body.userCookie );
+
+    return responseData(res, true, 200, 'Order placed successfully');
+  }
+  catch(err) {
+
+    return responseData(res, false, 200 ,err);
+
+  }
+
+}
+
+async function insertCustomer(cartCookie,userCookie) {
+
+  let finalOrderData = await db.collection("cart").find({ id : cartCookie}).toArray();
+  let userDetails = await db.collection("anonymousUser").find( { userId : userCookie}).toArray();
+
+  await db.collection("customer").insertOne({
+                                  orders: finalOrderData[0],
+                                  customerAddress: userDetails[0].billingAddress,
+                                  created_on: Date.now()
+                                   });
+
 }
 
 module.exports.razorOrder = async function (req, res) {

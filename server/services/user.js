@@ -38,6 +38,7 @@ module.exports.saveAnonymousUserSession = async function (req, res) {
 module.exports.addAddress = async function (req, res) {
   const db = getDb()
 
+  console.log("Req body cookie user" , req.body.userCookie);
   if (req.body.userCookie) {
     let user = await db
       .collection('anonymousUser')
