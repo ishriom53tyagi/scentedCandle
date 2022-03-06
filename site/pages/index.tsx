@@ -43,7 +43,11 @@ export async function getStaticProps({
     revalidate: 60,
   }
 }
-
+export function randomDescriptipon(){
+    let arr = [" Scented candles create a desirable ambience and atmosphere" , "Candles liven up your decor ", "Scented candles add fragrance to your space"];
+    let index =  Math.floor(Math.random() * arr.length);
+    return arr[index];
+  }
 export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -77,8 +81,8 @@ export default function Home({
         ))}
       </Marquee>
       <Hero
-        headline=" Dessert dragée halvah croissant."
-        description="Cupcake ipsum dolor sit amet lemon drops pastry cotton candy. Sweet carrot cake macaroon bonbon croissant fruitcake jujubes macaroon oat cake. Soufflé bonbon caramels jelly beans. Tiramisu sweet roll cheesecake pie carrot cake. "
+        headline= {randomDescriptipon()}
+        // description= {randomDescriptipon()}
       />
       <Grid layout="B" variant="filled">
         {products.slice(0, 3).map((product: any, i: number) => (

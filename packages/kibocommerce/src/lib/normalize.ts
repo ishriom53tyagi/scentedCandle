@@ -82,7 +82,7 @@ export function normalizeCart(data: any): any {
     email: data?.email,
     createdAt: data?.created_time,
     currency: {
-      code: 'USD',
+      code: 'INR',
     },
     taxesIncluded: true,
     lineItems: data.items.map(normalizeLineItem),

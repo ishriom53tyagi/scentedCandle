@@ -10,7 +10,7 @@ const email = require("../services/email");
 let obj = {
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
   createdAt: '2022-02-14T16:05:07+00:00',
-  currency: { code: 'USD' },
+  currency: { code: 'INR' },
   taxesIncluded: 'false',
   lineItems: [
     {
@@ -47,7 +47,6 @@ module.exports.getcart = async function (req, res) {
   try {
     const db = getDb()
     let cartCookie
-    console.log("this api hit or not" , "getcart");
     let productsData = await db
       .collection('products')
       .find({ id: req.body.item.productId })
@@ -60,7 +59,7 @@ module.exports.getcart = async function (req, res) {
       let obj = {
         id: cartCookie,
         createdAt: Date.now(),
-        currency: { code: 'USD' },
+        currency: { code: 'INR' },
         taxesIncluded: 'false',
         lineItems: [],
         lineItemsSubtotalPrice: productsData[0].price.value,
@@ -86,7 +85,7 @@ module.exports.getcart = async function (req, res) {
       )
       if (updatedCart?.isDuplicate == true) {
         data = updatedCart.data
-        console.log('fine and working what is wrong with that ', data)
+       
         return responseData(res, true, 200, 'get cart details we are in', {
           data,
           cartCookie,
@@ -110,7 +109,7 @@ module.exports.getcart = async function (req, res) {
 module.exports.getcartDetails = async function (req, res) {
   try {
     const db = getDb()
-    let cart
+    let cart = []
     console.log("req. body cart cookie " , req.body.cartCookie);
     if (req.body.cartCookie) {
       cart = await db
@@ -169,9 +168,9 @@ module.exports.checkout = async function (req, res) {
         customerId: 0,
         email: '',
         currency: {
-          name: 'US Dollars',
-          code: 'USD',
-          symbol: '$',
+          name: 'INDIAN RUPEE',
+          code: 'INR',
+          symbol: '₹',
           decimalPlaces: 2,
         },
         isTaxIncluded: false,
@@ -352,9 +351,9 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
           {
             url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
           },
-        listPrice: 160.12,
-        name: 'jacket',
-        price: 160,
+        listPrice: productData.price.value,
+        name: productData.name,
+        price: productData.price.value,
         requiresShipping: true,
         sku: '5F6D80F2EB67C_11047-BL-XS',
       },
@@ -377,7 +376,7 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
     let quantity
 
     for (let i = 0; i < data.lineItems.length > 0; i++) {
-      console.log('andedeee', data.lineItems[i])
+    
       if (data.lineItems[i].productId == productData.id) {
         price = data.lineItems[i].price
         quantity = data.lineItems[i].quantity
@@ -409,7 +408,7 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
       data.subtotalPrice - price * quantity + (quantity + 1) * price
     linesObject.totalPrice =
       data.totalPrice - price * quantity + (quantity + 1) * price
-    ;(linesObject.currency = { code: 'USD' }),
+    ;(linesObject.currency = { code: 'INR' }),
       linesObject.lineItems.push(data.lineItems[0])
 
     return { data: linesObject, isDuplicate: true }
@@ -417,7 +416,7 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
 
   cartData.lineItems.push(linesObject)
   cartData.lineItemsSubtotalPrice =
-    cartData.lineItemsSubtotalPrice + productData.price.value
+  cartData.lineItemsSubtotalPrice + productData.price.value
   cartData.subtotalPrice = cartData.subtotalPrice + productData.price.value
   cartData.totalPrice = cartData.totalPrice + productData.price.value
 
@@ -483,14 +482,12 @@ module.exports.saveOrder = async function (req, res) {
       return responseData(res, false, 200, 'Payment is not completed please try again');
     }
     let customerInserted = await insertCustomer(req.body.cartCookie ,req.body.userCookie );
+    let cartData = await db.collection("cart").find({ id: req.body.cartCookie}).toArray();
 
-    let emailParams = {
-      name:"shriom" ,
-      toEmail: "xxstyagixx@gmail.com",
-      orderNr : "123123123"
-    }
+    let emailSent =  await email.sendOrderConfirmation(cartData[0]);
 
-   let emailSent =  await email.sendOrderConfirmation(emailParams);
+   await  deleteCartDetails(req.body.cartCookie);
+
    console.log("is email sent or not" , emailSent);
 
     return responseData(res, true, 200, 'Order placed successfully');
@@ -502,6 +499,36 @@ module.exports.saveOrder = async function (req, res) {
   }
 
 }
+
+async function deleteCartDetails(cookie) {
+  
+  try {
+    const db = getDb()
+
+    let updated = await db.collection('cart').update(
+      { id: cookie },
+
+      {
+        $set: {
+          lineItems:[],
+          lineItemsSubtotalPrice: 0,
+          subtotalPrice: 0,
+          totalPrice: 0,
+        },
+      },
+      { multi: true }
+    )
+  
+
+    return true;
+
+  } catch (err) {
+    console.log('error ==>>>', err);
+    throw err;
+  }
+
+}
+
 
 async function insertCustomer(cartCookie,userCookie) {
   try{
@@ -534,12 +561,11 @@ module.exports.razorOrder = async function (req, res) {
     if (!req.body.cartCookie) {
       return responseData(res, true, 400, 'No cart cookie')
     }
-    console.log('After validation ')
+  
     let data = await db.collection('cart').findOne({ id: req.body.cartCookie })
 
     const amount = parseInt(data.totalPrice)
 
-    console.log('Data in cart', data, amount)
 
     if (amount < 1) {
       return responseData(res, true, 400, 'No Product in cart')
