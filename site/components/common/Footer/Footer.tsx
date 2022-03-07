@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
-import { Github, Vercel } from '@components/icons'
+import { Instagram,  Facebook, Visa, Paytm, Rupay } from '@components/icons'
 import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
@@ -21,13 +21,25 @@ const links = [
     url: '/',
   },
   {
-    name: 'contact us',
+    name: 'About Us',
     url: '/',
   } ,
   {
-    name: 'advertisment',
+    name: 'Contact Us',
     url: '/',
-  } 
+  } ,
+  {
+    name: 'Terms of Service',
+    url: '/',
+  },
+  {
+    name: 'Privacy Policy',
+    url: '/',
+  },
+  {
+    name: 'Shipping & Payment',
+    url: '/',
+  }
 ]
 
 const Footer: FC<Props> = ({ className, pages }) => {
@@ -48,7 +60,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
               </a>
             </Link>
           </div>
-          <div className="col-span-1 lg:col-span-8">
+          <div className="col-span-1 lg:col-span-5">
             <div className="grid md:grid-rows-4 md:grid-cols-3 md:grid-flow-col">
               {[...links, ...sitePages].map((page) => (
                 <span key={page.url} className="py-3 md:py-0 md:pb-4">
@@ -61,24 +73,28 @@ const Footer: FC<Props> = ({ className, pages }) => {
               ))}
             </div>
           </div>
-          {/* <div className="col-span-1 lg:col-span-2 flex items-start lg:justify-end text-primary">
-            <div className="flex space-x-6 items-center h-10">
-              <a
-                className={s.link}
-                aria-label="Github Repository"
-                href="https://github.com/vercel/commerce"
-              >
-                <Github />
-              </a>
-         
+          <div className="col-span-1 lg:col-span-5">
+            <h2 className='mb-4'>SHIPPING ALL OVER INDIA</h2>
+            <div className="">
+              NEW DELHI | BANGLORE | MUMBAI | HYDERABAD | CHENNAI | PUNE | KOLKATA | NOIDA | GURUGRA | AHMEDABAD | CHANDIGARH | JAIPUR | LUCKNOW | INDORE | GAZIABAD | AND MORE....
             </div>
-          </div> */}
+            <div className='mt-4 flex'>
+                <a href=""><Instagram /></a>
+                <a href="" className='ml-2'><Facebook /></a>
+            </div>
+          </div>
         </div>
         <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6 text-sm">
           <div>
             <span>&copy; 2022 candles, Inc. All rights reserved.</span>
           </div>
-     
+          <div className='flex'>
+            <div className='mx-2'>
+            <Visa /></div>
+            <div className='mx-2'> <Paytm /> </div>
+            
+            <div className="mx-2"><Rupay /></div>
+          </div> 
         </div>
       </Container>
     </footer>

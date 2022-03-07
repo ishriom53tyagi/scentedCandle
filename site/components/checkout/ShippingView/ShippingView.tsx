@@ -35,7 +35,8 @@ const ShippingView: FC = () => {
         type: event.target.type.value,
         firstName: event.target.firstName.value,
         lastName: event.target.lastName.value,
-        company: event.target.company.value,
+        phone: event.target.phone.value,
+        email: event.target.email.value,
         streetNumber: event.target.streetNumber.value,
         apartments: event.target.apartments.value,
         zipCode: event.target.zipCode.value,
@@ -76,8 +77,12 @@ const ShippingView: FC = () => {
               </div>
             </div>
             <div className={s.fieldset}>
-              <label className={s.label}>Company (Optional)</label>
-              <input name="company" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].company:""} />
+              <label className={s.label}>Phone Number</label>
+              <input name="phone" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].phone:""} />
+            </div>
+            <div className={s.fieldset}>
+              <label className={s.label}>Email</label>
+              <input name="email" className={s.input} defaultValue={addressData && addressData.length > 0 ? addressData[0].email:""} />
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Street and House Number</label>

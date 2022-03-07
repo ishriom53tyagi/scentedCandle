@@ -20,3 +20,8 @@ export { default as ChevronLeft } from './ChevronLeft'
 export { default as ChevronDown } from './ChevronDown'
 export { default as ChevronRight } from './ChevronRight'
 export { default as DoubleChevron } from './DoubleChevron'
+export { default as Instagram } from './Instagram';
+export { default as Facebook } from './Facebook';
+export { default as Visa } from './Visa';
+export { default as Rupay } from './Rupay';
+export { default as Paytm } from './Paytm';

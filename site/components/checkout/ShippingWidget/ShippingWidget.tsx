@@ -18,10 +18,12 @@ const ShippingWidget: FC<ComponentProps> = ({ onClick, isValid, data }) => {
       <div className="flex flex-1 items-center">
         <MapPin className="w-5 flex" /> 
         {data? <span className='text-left ml-3'>
-          <strong>{`${data.firstName} ${data.lastName}`}</strong> {`, ${data.company? `(${data.company})`: ""}`} <br></br>
+          <strong>{`${data.firstName} ${data.lastName}`}</strong> <br></br>
           {`${data.streetNumber} ${data.apartments},`} <br />
           {`${data.city}, ${data.zipCode}`} <br />
-          {`${data.country}`}
+          {`${data.country}`} <br />
+          <strong>Email - </strong>  {`${data.email}`} <br />
+          <strong>Phone - </strong>  {`${data.phone}`}
         </span>: 
         <span className="ml-5 text-sm text-center font-medium">
           Add Shipping Address

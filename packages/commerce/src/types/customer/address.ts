@@ -7,7 +7,8 @@ export interface AddressFields {
   type: string
   firstName: string
   lastName: string
-  company: string
+  phone: number,
+  email: string,
   streetNumber: string
   apartments: string
   zipCode: string
