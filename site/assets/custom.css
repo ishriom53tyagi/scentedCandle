@@ -1,0 +1,98 @@
+.contact {
+  padding-block: 72px;
+  position: relative;
+}
+
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.contact__container {
+  max-width: 1080px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+.contact h1 {
+  font-size: 4rem;
+  margin-bottom: .75em;
+  font-weight: 700;
+}
+
+.contact .hero::before {
+  background-image: url(/assets/candles-contact.jpg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  height: 100%;
+  margin: 0 0 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45%;
+}
+
+.contact__card {
+  background: #fff;
+  box-shadow: 0 4px 12px 0 rgba(104, 115, 125, .15);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem 2.5rem;
+  text-align: center;
+  align-self: stretch;
+  color: #03363d;
+  width: 48%;
+  flex: 0 0 auto;
+}
+
+[data-theme="dark"] .contact__card {
+  box-shadow: 0 4px 12px 0 rgba(219, 219, 219, 0.76);
+}
+
+.contact__card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.contact__card h3 {
+  line-height: calc(1em + 8px);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.contact__card p {
+  font-weight: 400;
+  margin-top: 24px;
+}
+
+.contact__card a {
+  font-size: 1.125rem;
+  line-height: 1.5625rem;
+  padding: 12px 24px 11px;
+  color: #fff;
+  background-color: #012b30;
+  border: 2px solid #012b30;
+  margin-top: 40px;
+}
+
+.contact__container {
+  isolation: isolate;
+}
+
+@media (max-width: 900px) {
+  .contact__card {
+    width: 100%;
+  }
+
+  .contact .hero::before {
+    background: none;
+  }
+}
