@@ -14,10 +14,10 @@ export type CheckoutTypes = {
 }
 
 export type SubmitCheckoutHook<T extends CheckoutTypes = CheckoutTypes> = {
-  data: T
-  input?: { type: string}
+  data: { data: string }
+  input?: { type: string }
   fetcherInput: T
-  body: { item: T }
+  body: { item: T, cartCookie: string }
   actionInput: T
 }
 

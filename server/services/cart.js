@@ -4,8 +4,8 @@ const getRandomString = require('../utils/common')
 const Razorpay = require('razorpay')
 const RAZORPAY_SECRET = 'FFOWaou3b53tJEAo0dePFJzP'
 const RAZORPAY_KEY_ID = 'rzp_test_t5UpDd0l8YtnLg'
-const crypto = require("crypto");
-const email = require("../services/email");
+const crypto = require('crypto')
+const email = require('../services/email')
 
 let obj = {
   id: 'Z2lkOi8vc2hvcGlmeS9Qcm9ksdWN0LzU0NDczMjUwMjQ0MjA=',
@@ -24,10 +24,9 @@ let obj = {
       variant: [
         {
           id: 381,
-          image:
-            {
-              url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
-            },
+          image: {
+            url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
+          },
           listPrice: 160.12,
           name: 'jacket',
           price: 160,
@@ -85,7 +84,7 @@ module.exports.getcart = async function (req, res) {
       )
       if (updatedCart?.isDuplicate == true) {
         data = updatedCart.data
-       
+
         return responseData(res, true, 200, 'get cart details we are in', {
           data,
           cartCookie,
@@ -110,7 +109,7 @@ module.exports.getcartDetails = async function (req, res) {
   try {
     const db = getDb()
     let cart = []
-    console.log("req. body cart cookie " , req.body.cartCookie);
+    console.log('req. body cart cookie ', req.body.cartCookie)
     if (req.body.cartCookie) {
       cart = await db
         .collection('cart')
@@ -347,10 +346,9 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
     variant: [
       {
         id: 381,
-        image: 
-          {
-            url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
-          },
+        image: {
+          url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
+        },
         listPrice: productData.price.value,
         name: productData.name,
         price: productData.price.value,
@@ -376,7 +374,6 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
     let quantity
 
     for (let i = 0; i < data.lineItems.length > 0; i++) {
-    
       if (data.lineItems[i].productId == productData.id) {
         price = data.lineItems[i].price
         quantity = data.lineItems[i].quantity
@@ -416,7 +413,7 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
 
   cartData.lineItems.push(linesObject)
   cartData.lineItemsSubtotalPrice =
-  cartData.lineItemsSubtotalPrice + productData.price.value
+    cartData.lineItemsSubtotalPrice + productData.price.value
   cartData.subtotalPrice = cartData.subtotalPrice + productData.price.value
   cartData.totalPrice = cartData.totalPrice + productData.price.value
 
@@ -461,47 +458,52 @@ async function UpdatedCart(cart) {
 }
 
 module.exports.saveOrder = async function (req, res) {
-  try{
+  try {
+    const db = getDb()
 
+    if (req.body.item.type == 'RazorPay') {
+      let body =
+        req.body.item.order.data.razorpay_order_id +
+        '|' +
+        req.body.item.razorpay_payment_id
 
-    const db = getDb();
+      var expectedSignature = crypto
+        .createHmac('sha256', 'Wok5mJv2F0pa5HKLeXZfUr9r')
+        .update(body.toString())
+        .digest('hex')
 
-    if(req.body.item.type == "RazorPay") {
-  
-      let body=req.body.item.order.data.razorpay_order_id + "|" + req.body.item.razorpay_payment_id;
-    
-      var expectedSignature = crypto.createHmac('sha256', 'Wok5mJv2F0pa5HKLeXZfUr9r')
-                                      .update(body.toString())
-                                      .digest('hex');
-                      
-      if(expectedSignature === req.body.response.razorpay_signature) {
-
-        await insertCustomer(req.body.cartCookie ,req.body.userCookie );
-
+      if (expectedSignature === req.body.response.razorpay_signature) {
+        await insertCustomer(req.body.cartCookie, req.body.userCookie)
       }
-      return responseData(res, false, 200, 'Payment is not completed please try again');
+      return responseData(
+        res,
+        false,
+        200,
+        'Payment is not completed please try again'
+      )
     }
-    let customerInserted = await insertCustomer(req.body.cartCookie ,req.body.userCookie );
-    let cartData = await db.collection("cart").find({ id: req.body.cartCookie}).toArray();
+    let customerInserted = await insertCustomer(
+      req.body.cartCookie,
+      req.body.userCookie
+    )
+    let cartData = await db
+      .collection('cart')
+      .find({ id: req.body.cartCookie })
+      .toArray()
 
-    let emailSent =  await email.sendOrderConfirmation(cartData[0]);
+    let emailSent = await email.sendOrderConfirmation(cartData[0])
 
-   await  deleteCartDetails(req.body.cartCookie);
+    await deleteCartDetails(req.body.cartCookie)
 
-   console.log("is email sent or not" , emailSent);
-
-    return responseData(res, true, 200, 'Order placed successfully');
+    return responseData(res, true, 200, 'Order placed successfully', {
+      orderId: customerInserted.insertedId,
+    })
+  } catch (err) {
+    return responseData(res, false, 400, err)
   }
-  catch(err) {
-
-    return responseData(res, false, 200 ,err);
-
-  }
-
 }
 
 async function deleteCartDetails(cookie) {
-  
   try {
     const db = getDb()
 
@@ -510,7 +512,7 @@ async function deleteCartDetails(cookie) {
 
       {
         $set: {
-          lineItems:[],
+          lineItems: [],
           lineItemsSubtotalPrice: 0,
           subtotalPrice: 0,
           totalPrice: 0,
@@ -518,41 +520,39 @@ async function deleteCartDetails(cookie) {
       },
       { multi: true }
     )
-  
 
-    return true;
-
+    return true
   } catch (err) {
-    console.log('error ==>>>', err);
-    throw err;
+    console.log('error ==>>>', err)
+    throw err
   }
-
 }
 
+async function insertCustomer(cartCookie, userCookie) {
+  try {
+    const db = getDb()
+    let finalOrderData = await db
+      .collection('cart')
+      .find({ id: cartCookie })
+      .toArray()
+    let userDetails = await db
+      .collection('anonymousUser')
+      .find({ userId: userCookie })
+      .toArray()
 
-async function insertCustomer(cartCookie,userCookie) {
-  try{
-    const db = getDb();
-    let finalOrderData = await db.collection("cart").find({ id : cartCookie}).toArray();
-    let userDetails = await db.collection("anonymousUser").find( { userId : userCookie}).toArray();
-
-    let unsued =  await db.collection("customer").insertOne({
-                                    orders: finalOrderData[0],
-                                    customerAddress: userDetails[0].billingAddress,
-                                    created_on: Date.now()
-                                    });
-    if(unsued) {
-      return true;
+    let unsued = await db.collection('customer').insertOne({
+      orders: finalOrderData[0],
+      customerAddress: userDetails[0].billingAddress,
+      created_on: Date.now(),
+    })
+    if (unsued) {
+      return unsued
     }
+  } catch (err) {
+    console.log(err, 'error')
+    return false
   }
-    catch(err){
-      console.log(err,"error")
-      return false;
-    }
-
 }
-
-
 
 module.exports.razorOrder = async function (req, res) {
   console.log('Request body for razor order ', req.body)
@@ -561,11 +561,10 @@ module.exports.razorOrder = async function (req, res) {
     if (!req.body.cartCookie) {
       return responseData(res, true, 400, 'No cart cookie')
     }
-  
+
     let data = await db.collection('cart').findOne({ id: req.body.cartCookie })
 
     const amount = parseInt(data.totalPrice)
-
 
     if (amount < 1) {
       return responseData(res, true, 400, 'No Product in cart')

@@ -1,10 +1,14 @@
-const sendGridMail = require('@sendgrid/mail');
-sendGridMail.setApiKey("");
+const sendGridMail = require('@sendgrid/mail')
+sendGridMail.setApiKey(
+  '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'
+)
 
 function repeatUpdate(updatedLineItems) {
-  let repeated = ``;
-  updatedLineItems.forEach(element => {
-    repeated = repeated + `<tr>
+  let repeated = ``
+  updatedLineItems.forEach((element) => {
+    repeated =
+      repeated +
+      `<tr>
     <td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left">
         <!--[if mso]><table width="560" cellpadding="0" cellspacing="0"><tr><td width="270" valign="top"><![endif]-->
         <table cellpadding="0" cellspacing="0" class="es-left" align="left">
@@ -60,17 +64,13 @@ function repeatUpdate(updatedLineItems) {
         </table>
         <!--[if mso]></td></tr></table><![endif]-->
     </td>
-  </tr>`  
-  });
-  return repeated;
-
+  </tr>`
+  })
+  return repeated
 }
 
-
-
 function getOrderConfirmationEmailHtml(cartData) {
-
-  let repeated = repeatUpdate(cartData.lineItems);
+  let repeated = repeatUpdate(cartData.lineItems)
 
   let html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -486,39 +486,38 @@ function getOrderConfirmationEmailHtml(cartData) {
   </body>
   
   </html>`
-  return html;
+  return html
 }
 
 function getMessage(cartData) {
-  
   return {
-    to:'xxstyagixx@gmail.com',
+    to: 'xxstyagixx@gmail.com',
     from: 'xxstyagixx@gmail.com',
     subject: 'We have got your order, you will receive it soon',
     text: `Hey Shriom, we have received your order 123456. We will ship it soon`,
     html: getOrderConfirmationEmailHtml(cartData),
     // html: `<b>Hello from shriom side</b>`,
-  };
+  }
 }
 
 async function sendOrderConfirmation(cartData) {
   try {
-     let data =  await sendGridMail.send(getMessage(cartData));
-     console.log("data" ,data);
-     return  { message: `Order confirmation email sent successfully for orderNr:1234`};
+    let data = await sendGridMail.send(getMessage(cartData))
+    console.log('data', data)
+    return {
+      message: `Order confirmation email sent successfully for orderNr:1234`,
+    }
   } catch (error) {
-    const message = `Error sending order confirmation email or orderNr: 1234`;
-    console.error(message);
-    console.error(error);
+    const message = `Error sending order confirmation email or orderNr: 1234`
+    console.error(message)
+    console.error(error)
     if (error.response) {
       console.error(error.response.body)
     }
-    return {message};
+    return { message }
   }
 }
 
-
-
 module.exports = {
-  sendOrderConfirmation
+  sendOrderConfirmation,
 }

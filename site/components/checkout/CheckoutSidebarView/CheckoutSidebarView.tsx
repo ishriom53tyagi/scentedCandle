@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FC, useState } from 'react'
+import { useRouter } from 'next/router'
 import useRazorpay, { RazorpayOptions } from "react-razorpay";
 import CartItem from '@components/cart/CartItem'
 import { Button, Text } from '@components/ui'
@@ -19,6 +20,7 @@ import { useCheckoutContext } from '../context'
 
 const CheckoutSidebarView: FC = () => {
   const Razorpay = useRazorpay();
+  const router = useRouter()
   const [loadingSubmit, setLoadingSubmit] = useState(false)
   const { setSidebarView, closeSidebar } = useUI()
   const [checked, setChecked] = useState("");
@@ -48,7 +50,6 @@ const CheckoutSidebarView: FC = () => {
         const cartCookie = Cookies.get('cartCookie');
         const data = await createOrder({ cartCookie });
 
-        console.log("Data after order api ",data);
         const order = data.data;
 
         const options: RazorpayOptions = {
@@ -60,7 +61,6 @@ const CheckoutSidebarView: FC = () => {
           image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1574276039-19851559-097-b-1574276022.jpg?crop=1.00xw:0.834xh;0,0.110xh&resize=768:*",
           order_id: order.id,
           handler: async (res) => {
-            console.log("Razor Payment response ",res);
             await onCheckout({ type: checked, ...res })
           },
           prefill: {
@@ -79,14 +79,17 @@ const CheckoutSidebarView: FC = () => {
         const rzpay = new Razorpay(options);
         rzpay.open();
       }else {
-        await onCheckout({ type: checked })
+        const value = await onCheckout({ type: checked });
         clearCheckoutFields()
         setLoadingSubmit(false)
         refreshCart()
         closeSidebar()
+        router.push(`/success/${value.orderId}`);
       }
      
-    } catch {
+    } catch(e) {
+
+      console.log("Error happend ",e);
       // TODO - handle error UI here.
       setLoadingSubmit(false)
     }

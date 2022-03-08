@@ -55,7 +55,6 @@ export default function Home({
   useEffect(() => {
     async function fetchUser() {
       let response = await getAllProducts();
-      console.log("Response after call",response);
     }
     fetchUser();
   },[]);

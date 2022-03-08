@@ -9,29 +9,29 @@ import Cookie from 'js-cookie';
 
 export default useSubmitCheckout as UseSubmitCheckout<typeof handler>
 
-export const handler: MutationHook<SubmitCheckoutHook> = {
+export const handler: MutationHook<any> = {
   fetchOptions: {
     url: 'http://localhost:5120/api/backend/submit/checkout',
     method: 'POST',
   },
   async fetcher({ input: item, options, fetch }) {
-    // @TODO: Make form validations in here, import generic error like import { CommerceError } from '@vercel/commerce/utils/errors'
-    // Get payment and delivery information in here
     const cartCookie = Cookie.get('cartCookie');
     const userCookie = Cookie.get('anoynmusUserCookie');
+    console.log("Cart cookies ",cartCookie, userCookie, item);
     const data = await fetch({
       ...options,
       body: { item, cartCookie, userCookie },
     })
-
+    console.log("After submit data",data);
     return data
   },
   useHook: ({ fetch }) =>
     function useHook() {
       return useCallback(
         async function onSubmitCheckout(input) {
+          console.log("Before submit checkout callback");
           const data = await fetch({ input })
-
+          console.log("After submit checkout callback",data);
           return data
         },
         [fetch]

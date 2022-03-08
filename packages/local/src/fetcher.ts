@@ -32,8 +32,7 @@ export const fetcher: Fetcher = async ({
     const res = await fetch(url!, { method, body, headers , credentials: 'same-origin' })
     if (res.ok) {
       const result = await res.json();
-
-      if(result?.data.cartCookie && !(Cookies.get("cartCookie")))
+      if(result.data && result?.data.cartCookie && !(Cookies.get("cartCookie")))
       {
         const options = {
           expires:60 * 60 * 24 * 30
