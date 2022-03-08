@@ -22,23 +22,23 @@ const links = [
   },
   {
     name: 'About Us',
-    url: '/',
+    url: '/legal/about',
   } ,
   {
     name: 'Contact Us',
-    url: '/',
+    url: '/legal/contact',
   } ,
   {
     name: 'Terms of Service',
-    url: '/',
+    url: '/legal/terms',
   },
   {
     name: 'Privacy Policy',
-    url: '/',
+    url: '/legal/privacy',
   },
   {
     name: 'Shipping & Payment',
-    url: '/',
+    url: '/legal/shipping',
   }
 ]
 
