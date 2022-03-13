@@ -10,11 +10,10 @@ const app = express()
 const config = require('./config.json')
 const db = require('./utils/database')
 const backendRoutes = require('./routes/backend')
-const documentService = require('./services/documentation')
-const apiMngt = require('./services/apiManagement')
+
 const adminRoutes = require('./routes/admin')
 const staticRoutes = require('./routes/static')
-const dummyRoutes = require('./routes/dummy')
+
 const cors = require('cors')
 
 app.enable('trust proxy')

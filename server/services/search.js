@@ -64,7 +64,7 @@ async function getAllProducts() {
                      temp.prices.retailPrice = null;
                      temp.price = element.price;
                      temp.slug = element.slug;
-                     img.url = "/abcd.png";
+                     img.url = element.images[0].url
                      img.alt = "";
                      img.isDefault = true;
                      temp.images = []
@@ -98,7 +98,7 @@ async function getSearchProducts(search) {
                      temp.prices.retailPrice = null;
                      temp.price = element.price;
                      temp.slug = element.slug;
-                     img.url = "/abcd.png";
+                     img.url =element.images[0].url;
                      img.alt = "";
                      img.isDefault = true;
                      temp.images = []
@@ -186,7 +186,7 @@ async function getNestedFilteredProducts(query1 , query2) {
                       temp.prices.retailPrice = null;
                       temp.price = element.price;
                       temp.slug = element.slug;
-                      img.url = "/abcd.png";
+                      img.url = element.images[0].url;
                       img.alt = "";
                       img.isDefault = true;
                       temp.images = []
@@ -232,7 +232,7 @@ async function getFeaturedProducts (query) {
                       temp.prices.retailPrice = null;
                       temp.price = element.price;
                       temp.slug = element.slug;
-                      img.url = "/abcd.png";
+                      img.url = element.images[0].url;
                       img.alt = "";
                       img.isDefault = true;
                       temp.images = []
@@ -291,7 +291,7 @@ async function getfilterProducts(query) {
                       temp.prices.retailPrice = null;
                       temp.price = element.price;
                       temp.slug = element.slug;
-                      img.url = "/abcd.png";
+                      img.url = element.images[0].url   ;
                       img.alt = "";
                       img.isDefault = true;
                       temp.images = []
