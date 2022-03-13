@@ -10,6 +10,7 @@ import type { LineItem, UpdateItemHook } from '@vercel/commerce/types/cart'
 import { handler as removeItemHandler } from './use-remove-item'
 import useCart from './use-cart'
 import Cookies from "js-cookie"
+import { HOST_NAME } from '../../environment'
 
 export type UpdateItemActionInput<T = any> = T extends LineItem
   ? Partial<UpdateItemHook['actionInput']>
@@ -19,7 +20,7 @@ export default useUpdateItem as UseUpdateItem<typeof handler>
 
 export const handler = {
   fetchOptions: {
-    url: 'http://localhost:5120/api/backend/cart/update',
+    url: `${HOST_NAME}/api/backend/cart/update`,
     method: 'POST',
   },
   async fetcher({

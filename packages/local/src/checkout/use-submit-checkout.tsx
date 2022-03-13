@@ -6,12 +6,13 @@ import useSubmitCheckout, {
   UseSubmitCheckout,
 } from '@vercel/commerce/checkout/use-submit-checkout'
 import Cookie from 'js-cookie';
+import { HOST_NAME } from '../../environment';
 
 export default useSubmitCheckout as UseSubmitCheckout<typeof handler>
 
 export const handler: MutationHook<any> = {
   fetchOptions: {
-    url: 'http://localhost:5120/api/backend/submit/checkout',
+    url: `${HOST_NAME}/api/backend/submit/checkout`,
     method: 'POST',
   },
   async fetcher({ input: item, options, fetch }) {

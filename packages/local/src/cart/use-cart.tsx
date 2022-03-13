@@ -2,13 +2,14 @@ import { useMemo } from 'react'
 import { SWRHook } from '@vercel/commerce/utils/types'
 import useCart, { UseCart } from '@vercel/commerce/cart/use-cart'
 import Cookies from "js-cookie"
+import { HOST_NAME } from '../../environment'
 
 export default useCart as UseCart<typeof handler>
 
 export const handler: SWRHook<any> = {
   fetchOptions: {
     method: 'POST',
-    url:  'http://localhost:5120/api/backend/cartDetails',
+    url:  `${HOST_NAME}/api/backend/cartDetails`,
   },
   async fetcher({ options, fetch }) {
     let cartCookie = Cookies.get("cartCookie");

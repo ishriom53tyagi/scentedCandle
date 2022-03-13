@@ -6,12 +6,13 @@ import useAddresses, {
   UseAddresses,
 } from '@vercel/commerce/customer/address/use-addresses'
 import Cookies from 'js-cookie';
+import { HOST_NAME } from '../../../environment';
 
 export default useAddresses as UseAddresses<typeof handler>
 
 export const handler: SWRHook<GetAddressesHook> = {
   fetchOptions: {
-    url: 'http://localhost:5120/api/backend/customer/getAddress',
+    url: `${HOST_NAME}/api/backend/customer/getAddress`,
     method: 'POST',
   },
   async fetcher({ options, fetch }) {

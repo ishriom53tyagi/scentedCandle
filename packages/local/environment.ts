@@ -1,0 +1,1 @@
+export const HOST_NAME="http://54.211.18.165:5120";

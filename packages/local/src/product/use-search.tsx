@@ -1,11 +1,12 @@
 import { SWRHook } from '@vercel/commerce/utils/types'
 import useSearch, { UseSearch } from '@vercel/commerce/product/use-search'
 export default useSearch as UseSearch<typeof handler>
+import { HOST_NAME } from '../../environment'
 
 export const handler: SWRHook<any> = {
   fetchOptions: {
     method: 'POST',
-    url: 'http://localhost:5120/api/backend/catalog/products',
+    url: `${HOST_NAME}/api/backend/catalog/products`,
   },
   async fetcher({ input: { search, categoryId, brandId, sort }, options, fetch }) {
     // Use a dummy base as we only care about the relative path
