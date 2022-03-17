@@ -1,6 +1,6 @@
 import data from '../../data.json'
 const axios = require("axios");
-import { HOST_NAME } from '../../../environment';
+const HOST_NAME = "http://localhost:5120"
 const host = `${HOST_NAME}/api/backend`;
 
 
@@ -22,3 +22,5 @@ export default function getAllProductPathsOperation() {
 
   return getAllProductPaths
 }
+
+//"http://54.211.18.165:5120"

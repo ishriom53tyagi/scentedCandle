@@ -3,7 +3,7 @@ import { Product } from '@vercel/commerce/types/product'
 import { GetProductOperation } from '@vercel/commerce/types/product'
 import data from '../../data.json'
 import type { OperationContext } from '@vercel/commerce/api/operations'
-import { HOST_NAME } from '../../../environment'
+const HOST_NAME= "http://localhost:5120"
 
 const axios = require("axios");
 

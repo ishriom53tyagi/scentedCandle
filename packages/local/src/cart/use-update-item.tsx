@@ -10,7 +10,7 @@ import type { LineItem, UpdateItemHook } from '@vercel/commerce/types/cart'
 import { handler as removeItemHandler } from './use-remove-item'
 import useCart from './use-cart'
 import Cookies from "js-cookie"
-import { HOST_NAME } from '../../environment'
+const HOST_NAME = "http://localhost:5120"
 
 export type UpdateItemActionInput<T = any> = T extends LineItem
   ? Partial<UpdateItemHook['actionInput']>

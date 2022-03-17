@@ -4,7 +4,7 @@ import type { OperationContext } from '@vercel/commerce/api/operations'
 import type { LocalConfig, Provider } from '../index'
 import data from '../../data.json'
 const axios = require("axios");
-import { HOST_NAME } from '../../../environment'
+const HOST_NAME= "http://localhost:5120"
 const host = `${HOST_NAME}/api/backend`;
 
 export default function getAllProductsOperation({

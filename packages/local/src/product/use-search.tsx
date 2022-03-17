@@ -1,7 +1,7 @@
 import { SWRHook } from '@vercel/commerce/utils/types'
 import useSearch, { UseSearch } from '@vercel/commerce/product/use-search'
 export default useSearch as UseSearch<typeof handler>
-import { HOST_NAME } from '../../environment'
+const HOST_NAME = "http://localhost:5120"
 
 export const handler: SWRHook<any> = {
   fetchOptions: {

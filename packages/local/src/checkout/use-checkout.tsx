@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { SWRHook } from '@vercel/commerce/utils/types'
 import useCheckout, { UseCheckout } from '@vercel/commerce/checkout/use-checkout'
 import useSubmitCheckout from './use-submit-checkout'
-import { HOST_NAME } from '../../environment'
+const HOST_NAME = "http://localhost:5120"
 
 export default useCheckout as UseCheckout<typeof handler>
 

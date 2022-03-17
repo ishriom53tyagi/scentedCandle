@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { SWRHook } from '@vercel/commerce/utils/types'
 import useCart, { UseCart } from '@vercel/commerce/cart/use-cart'
 import Cookies from "js-cookie"
-import { HOST_NAME } from '../../environment'
+const HOST_NAME = "http://localhost:5120"
 
 export default useCart as UseCart<typeof handler>
 

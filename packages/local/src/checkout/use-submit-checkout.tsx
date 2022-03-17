@@ -6,7 +6,7 @@ import useSubmitCheckout, {
   UseSubmitCheckout,
 } from '@vercel/commerce/checkout/use-submit-checkout'
 import Cookie from 'js-cookie';
-import { HOST_NAME } from '../../environment';
+const HOST_NAME = "http://localhost:5120";
 
 export default useSubmitCheckout as UseSubmitCheckout<typeof handler>
 

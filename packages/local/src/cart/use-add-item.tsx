@@ -3,7 +3,7 @@ import { MutationHook } from '@vercel/commerce/utils/types'
 import { useCallback } from 'react';
 import useCart from './use-cart';
 import Cookies from "js-cookie"
-import { HOST_NAME } from '../../environment';
+const HOST_NAME = "http://localhost:5120";
 
 export default useAddItem as UseAddItem<typeof handler>
 export const handler: MutationHook<any> = {

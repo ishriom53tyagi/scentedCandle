@@ -6,7 +6,7 @@ import useAddresses, {
   UseAddresses,
 } from '@vercel/commerce/customer/address/use-addresses'
 import Cookies from 'js-cookie';
-import { HOST_NAME } from '../../../environment';
+const HOST_NAME = "http://localhost:5120"
 
 export default useAddresses as UseAddresses<typeof handler>
 

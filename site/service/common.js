@@ -1,6 +1,6 @@
 const axios = require("axios");
 var uuid = require('uuid');
-import { HOST_NAME } from "@vercel/commerce-local/environment";
+const HOST_NAME = "http://localhost:5120"
 
 const host = `${HOST_NAME}/api/backend`;
 export const getPostData = (url, body) => {

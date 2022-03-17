@@ -7,7 +7,7 @@ import { MutationHook } from '@vercel/commerce/utils/types'
 import { useCallback } from 'react'
 import Cookies from 'js-cookie';
 import useAddresses from './use-addresses'
-import { HOST_NAME } from '../../../environment';
+const HOST_NAME = "http://localhost:5120"
 
 export default useAddItem as UseAddItem<typeof handler>
 

@@ -8,7 +8,7 @@ import useRemoveItem, { UseRemoveItem } from '@vercel/commerce/cart/use-remove-i
 import type { Cart, LineItem, RemoveItemHook } from '@vercel/commerce/types/cart'
 import useCart from './use-cart'
 import Cookies from "js-cookie"
-import { HOST_NAME } from '../../environment'
+const HOST_NAME = "http://localhost:5120"
 
 export type RemoveItemFn<T = any> = T extends LineItem
   ? (input?: RemoveItemActionInput<T>) => Promise<Cart | null | undefined>
