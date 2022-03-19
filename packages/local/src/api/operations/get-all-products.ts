@@ -24,7 +24,7 @@ export default function getAllProductsOperation({
       const headers = { 
         'Authorization': 'Bearer my-token',
     };
-   let result =  await axios.get(`${HOST_NAME}/api/backend/getAllProducts`, { headers });
+   let result =  await axios.get(`${HOST_NAME}/api/backend/getAllProducts`, { headers, params: variables });
    result =  result.data.data.products;
     // return {
     //   products: data.products,
