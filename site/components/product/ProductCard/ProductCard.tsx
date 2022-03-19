@@ -37,6 +37,15 @@ const ProductCard: FC<Props> = ({
     className
   )
 
+  const changeUrlFormat = (url: string,width:any) => {
+    let returnUrl = url;
+    if(url.indexOf("res.cloudinary.com") >= 0) {
+      const testurl = url.split("upload/");
+      returnUrl = `${testurl[0]}upload/w_${width},c_scale/${testurl[1]}`;
+    }
+    return returnUrl;
+  }
+
   return (
     <Link href={`/product/${product.slug}`}>
       <a className={rootClassName} aria-label={product.name}>
@@ -49,7 +58,7 @@ const ProductCard: FC<Props> = ({
               <div>
                 <Image
                   quality="85"
-                  src={product.images[0]?.url || placeholderImg}
+                  src={changeUrlFormat(product.images[0]?.url,320) || placeholderImg}
                   alt={product.name || 'Product Image'}
                   height={320}
                   width={320}
@@ -86,7 +95,7 @@ const ProductCard: FC<Props> = ({
                   <Image
                     alt={product.name || 'Product Image'}
                     className={s.productImage}
-                    src={product.images[0]?.url || placeholderImg}
+                    src={changeUrlFormat(product.images[0]?.url,540) || placeholderImg}
                     height={540}
                     width={540}
                     quality="85"
@@ -118,7 +127,7 @@ const ProductCard: FC<Props> = ({
                   <Image
                     alt={product.name || 'Product Image'}
                     className={s.productImage}
-                    src={product.images[0]?.url || placeholderImg}
+                    src={changeUrlFormat(product.images[0]?.url,540) || placeholderImg}
                     height={540}
                     width={540}
                     quality="85"
