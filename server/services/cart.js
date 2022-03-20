@@ -109,7 +109,6 @@ module.exports.getcartDetails = async function (req, res) {
   try {
     const db = getDb()
     let cart = []
-    console.log('req. body cart cookie ', req.body.cartCookie)
     if (req.body.cartCookie) {
       cart = await db
         .collection('cart')

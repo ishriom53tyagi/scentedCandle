@@ -84,7 +84,7 @@ export default function Home({
         // description= {randomDescriptipon()}
       />
       <Grid layout="B" variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
+        {products.slice(3, 6).map((product: any, i: number) => (
           <ProductCard
             key={product._id}
             product={product}
@@ -96,7 +96,7 @@ export default function Home({
         ))}
       </Grid>
       <Marquee>
-        {products.slice(3).map((product: any, i: number) => (
+        {products.slice(6).map((product: any, i: number) => (
           <ProductCard key={product._id} product={product} variant="slim" />
         ))}
       </Marquee>

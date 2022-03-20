@@ -34,7 +34,7 @@ const ClickOutside = ({
         document.removeEventListener('touchstart', handleClick)
       }
     }
-  })
+  },[]);
 
   return React.cloneElement(children, { ref: innerRef })
 }
