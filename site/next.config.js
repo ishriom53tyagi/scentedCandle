@@ -14,6 +14,9 @@ module.exports = withCommerceConfig({
     locales: ['en-US', 'es'],
     defaultLocale: 'en-US',
   },
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   rewrites() {
     return [
       (isBC || isShopify || isSwell || isVendure || isSaleor) && {
