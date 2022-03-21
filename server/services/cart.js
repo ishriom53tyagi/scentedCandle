@@ -346,8 +346,9 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
       {
         id: 381,
         image: {
-          url: 'https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1',
+          url: productData.images[0]?.url
         },
+        //https://cdn11.bigcommerce.com/s-qfzerv205w/products/117/images/534/Men-TShirt-Black-Front__70046.1603748348.220.290.png?c=1
         listPrice: productData.price.value,
         name: productData.name,
         price: productData.price.value,
