@@ -1,7 +1,7 @@
 const { responseData } = require('../utils/responseHandler');
 const getDb = require('../utils/database').getDb;
 const ObjectId = require('mongodb').ObjectId;
-const jwt = require('jsonwebtoken');
+
 const systemLog = require('../services/systemLog');
 const ipAddress = require('../utils/common');
 const common = require('../utils/common')

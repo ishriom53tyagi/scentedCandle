@@ -1,6 +1,6 @@
 {
   "port": 5120,
-  "appdata_initials": "zt",
+
   "mongodb": {
     "host": "localhost",
     "db": "simplika_1",
@@ -10,38 +10,6 @@
     "password": "",
     "options": {
       "useUnifiedTopology": true
-    }
-  },
-  "mongodb1": {
-    "host": "54.224.35.189",
-    "db": "simplika_sit",
-    "port": 27018,
-    "max_pool_size": 500,
-    "username": "",
-    "password": "",
-    "options": {
-      "useUnifiedTopology": true
-    }
-  },
-
-  "smtp_config": {
-    "host": "email-smtp.us-east-1.amazonaws.com",
-    "auth": {
-      "user": "AKIA4EUZHAVVG3DE2XKP",
-      "pass": "BEH8UbX0yAY/BWuqW8wE+DbaG9DTgkXZGjVEwosfMTGA"
-    },
-    "mailfrom": "The Simplika Team <simplika.admin@vernost.co.in>",
-    "bcc": "Mihir Singh <mihir.singh@vernost.in>,Kshitij Sule <kshitij.sule@vernost.in>,ShriOm Tyagi <shriom.tyagi@vernost.in>,Gaurav Potnis <gaurav.potnis@vernost.in>,Venkatesh G Shetty <venkatesh.g@vernost.in>,Neeta Asodekar <neeta.asodekar@vernost.in>"
-  },
-  "handlebars": {
-    "options": {
-      "viewEngine": {
-        "extName": ".handlebars",
-        "partialsDir": "email-templates/",
-        "layoutsDir": "email-templates/"
-      },
-      "viewPath": "email-templates/",
-      "extName": ".handlebars"
     }
   },
   "encryption": {
@@ -54,76 +22,5 @@
       "secure": false,
       "secret": "simplika$28339ddd2"
     }
-  },
-  "organization_name": "Localhost",
-  "child_process_path": "child-process/",
-  "environment_url": "http://localhost:8081",
-  "web_router_port": 8081,
-  "router_url": [
-    {
-      "type": "/server",
-      "dev": "/server/development/",
-      "test": "/server/test/"
-    },
-    {
-      "type": "/target",
-      "dev": "/target/",
-      "test": "/target-test/"
-    }
-  ],
-  "scheduler": {
-    "port": 8094,
-    "active": true,
-    "configuration": [
-      {
-        "name": "send email process",
-        "process": "send-email-process",
-        "time": "*/5 * * * *",
-        "active": true
-      },
-      {
-        "name": "add email structure",
-        "process": "add-email-schedular",
-        "time": "*/1 * * * *",
-        "active": true
-      },
-      {
-        "name": "add threshold email schedular",
-        "process": "add-threshold-email-schedular",
-        "time": "*/1 * * * *",
-        "active": true
-      }
-    ]
-  },
-  "auth": {
-    "key": "aSi5l3LS",
-    "secret": "vjXFbC4CUgFGtShLjYkCjPB9CV2ZDM"
-  },
-  "error_codes": [500, 504, 408],
-  "log_path": "../logs",
-  "backend_url": "http://localhost:3000",
-  "frontend_url": "http://localhost:4200",
-  "csv_file_path": "../uploads/report/",
-  "csv_downoad_url": "/static/reports",
-  "api_document_path": "../uploads/documents",
-  "jsonPath": "uploads/apis",
-  "imagePathUrl": "static/images/applications",
-  "imagePath": "uploads/images/applications",
-  "secretKey": "6Lf3FuYZAAAAAK06EgWpRzGTOMYvXHb0D-_OpEn7",
-  "verificationUrl": "https://www.google.com/recaptcha/api/siteverify?secret=",
-  "limit": {
-    "small_data": 10,
-    "large_data": 1000
-  },
-  "storageSize": 536870912,
-  "server": "standalone",
-  "s3_bucket": {
-    "url": "https://app-res-uploads-uat.s3.amazonaws.com",
-    "report_path": "/simplika/report/",
-    "image_path": "/simplika/images/applications/",
-    "document_path": "/simplika/documents/"
-  },
-  "authUrl": "../auth/",
-  "tenant": "single",
-  "version": "2.7.0"
+  }
 }

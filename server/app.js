@@ -11,9 +11,6 @@ const config = require('./config.json')
 const db = require('./utils/database')
 const backendRoutes = require('./routes/backend')
 
-const adminRoutes = require('./routes/admin')
-const staticRoutes = require('./routes/static')
-
 const cors = require('cors')
 
 app.enable('trust proxy')
@@ -61,7 +58,6 @@ app.set('views', path.join(__dirname, '/public/views'))
 app.set('view engine', 'ejs')
 
 //setup public folder
-app.use('/static', staticRoutes)
 app.use('/api_doc/css', express.static(__dirname + '/public/css'))
 app.use('/doc', express.static(__dirname + '/public/doc'))
 
@@ -80,7 +76,6 @@ app.use(
 )
 
 app.use('/api/backend', backendRoutes)
-app.use('/api/admin', adminRoutes)
 
 app.get('/*', function (req, res, next) {
   res.set({

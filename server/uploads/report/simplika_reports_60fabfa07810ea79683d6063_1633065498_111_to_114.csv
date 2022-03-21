@@ -1,5 +1,0 @@
-endpoint_url,method,status,response_time_in_milliseconds,client,request_on,target_status_code,proxy_status_code
-/rest/V1/productview/420_1846WY004_5_RED,POST,500,1913,abcd,Invalid Date,,
-/rest/V1/productview/420_1846WY004_5_RED,POST,500,1615,abcd,Invalid Date,,
-/rest/V1/productview/420_1846WY004_5_RED,POST,500,1653,abcd,Invalid Date,,
-/rest/V1/productview/420_1846WY004_5_RED,POST,500,1798,abcd,Invalid Date,,

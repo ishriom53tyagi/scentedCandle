@@ -1,6 +1,5 @@
 const { responseData } = require('../utils/responseHandler')
 const getDb = require('../utils/database').getDb
-const ObjectId = require('mongodb').ObjectId
 const getRandomString = require('../utils/common')
 
 module.exports.getAllProducts = async function (req, res) {

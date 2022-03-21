@@ -1,8 +1,6 @@
 const { responseData } = require('../utils/responseHandler');
-const config = require('../config')
 const getDb = require('../utils/database').getDb;
-const ObjectId = require('mongodb').ObjectId;
-const ipAddress = require('../utils/common');
+
 const bcrypt = require('bcryptjs');
 
 

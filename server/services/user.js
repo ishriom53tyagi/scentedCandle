@@ -1,14 +1,7 @@
 const { responseData } = require('../utils/responseHandler')
 const getDb = require('../utils/database').getDb
 const ObjectId = require('mongodb').ObjectId
-const jwt = require('jsonwebtoken')
-const common = require('../utils/common')
-const Email = require('../utils/sendMail')
-const systemLog = require('../services/systemLog')
-const ipAddress = require('../utils/common')
-const { smtp_config } = require('../config.json')
-const roleJSON = require('../utils/role.json')
-const config = require('../config.json')
+
 
 module.exports.saveAnonymousUserSession = async function (req, res) {
   const db = getDb()
