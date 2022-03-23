@@ -9,6 +9,9 @@
   & .productImage {
     transform: scale(1.2625);
   }
+  & .hovervisible {
+    display: block;
+  }
 
   & .header .name span,
   & .header .price,
@@ -102,6 +105,7 @@
 
 .slim .header {
   @apply absolute inset-0 flex items-center justify-end mr-8 z-20;
+  display: none;
 }
 
 .slim span {

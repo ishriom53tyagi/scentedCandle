@@ -45,13 +45,14 @@ const ProductCard: FC<Props> = ({
     }
     return returnUrl;
   }
+console.log("Root class name",rootClassName);
 
   return (
     <Link href={`/product/${product.slug}`}>
       <a className={rootClassName} aria-label={product.name}>
         {variant === 'slim' && (
           <>
-            <div className={s.header}>
+            <div className={`${s.header} ${s.hovervisible}`}>
               <span>{product.name}</span>
             </div>
             {product?.images && (
