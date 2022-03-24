@@ -17,6 +17,7 @@ import ShippingWidget from '../ShippingWidget'
 import PaymentWidget from '../PaymentWidget'
 import s from './CheckoutSidebarView.module.css'
 import { useCheckoutContext } from '../context'
+import Coupon from '../Coupon';
 
 const CheckoutSidebarView: FC = () => {
   const Razorpay = useRazorpay();
@@ -122,6 +123,8 @@ const CheckoutSidebarView: FC = () => {
           onClick={() => setSidebarView('SHIPPING_VIEW')}
           data={addressData && addressData.length > 0? addressData[0]: null}
         />
+
+        <Coupon />
 
         <ul className={s.lineItemsList}>
           {cartData!.lineItems.map((item: any) => (

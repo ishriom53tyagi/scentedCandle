@@ -44,13 +44,13 @@ const UserNav: FC<Props> = ({ className }) => {
               )}
             </Button>
           </li>
-          <li className={s.item}>
+          {/* <li className={s.item}>
             <Link href="/wishlist">
               <a onClick={closeSidebarIfPresent} aria-label="Wishlist">
                 <Heart />
               </a>
             </Link>
-          </li>
+          </li> */}
           <li className={s.item}>
           
           </li>

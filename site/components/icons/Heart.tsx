@@ -1,7 +1,7 @@
 const Heart = ({ ...props }) => {
   return (
     <svg
-      width="24"
+      width="44"
       height="20"
       viewBox="0 0 24 20"
       fill="none"
