@@ -18,9 +18,9 @@ const CouponView = () => {
       }
     return (
         <form className="h-full w-full" onSubmit={handleSubmit}>
-            <div className={cn(s.fieldset, 'col-span-6')} style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <input name='couponString' placeholder='Enter Coupon' style={{width: '90%', padding: '10px', borderBottom: '1px solid #000', outline:'none' }} />
-                <button type='submit' style={{ width: "15%", border:'none', margin: '10px 25px', textAlign: 'center', textDecoration:'none', display: 'inline-block', fontSize: '15px'}}>Apply</button>
+            <div className={cn(s.fieldset, 'col-span-6')} style={{display:'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                <input name='couponString' placeholder='Enter Coupon' style={{width: '70%', padding: '10px', borderBottom: '1px solid #000', outline:'none' }} />
+                <button type='submit' style={{ width: "25%", border:'1px solid #000', color: "#fff",backgroundColor: "#000", padding: '6px 8px', textAlign: 'center', textDecoration:'none', display: 'inline-block', fontSize: '15px'}}>Apply</button>
             </div>
         </form>
     )

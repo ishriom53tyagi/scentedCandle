@@ -93,5 +93,5 @@ module.exports.addCoupons = async function (req, res) {
 module.exports.getCoupons = async function (req, res) {
   console.log('Get string in getcoupon', req.body)
 
-  return responseData(res, true, 200, 'Coupon Added', 'RandomCoupon')
+  return responseData(res, true, 200, 'Coupon Added', 'Sting')
 }
