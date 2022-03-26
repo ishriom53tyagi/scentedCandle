@@ -9,7 +9,7 @@ import type { SignupSchema } from '../types/signup'
 import type { ProductsSchema } from '../types/product'
 import type { WishlistSchema } from '../types/wishlist'
 import type { CheckoutSchema } from '../types/checkout'
-import type { CustomerCardSchema } from '../types/customer/card'
+import type { CustomerCouponSchema } from '../types/customer/coupon'
 import type { CustomerAddressSchema } from '../types/customer/address'
 import {
   defaultOperations,
@@ -27,7 +27,7 @@ export type APISchemas =
   | ProductsSchema
   | WishlistSchema
   | CheckoutSchema
-  | CustomerCardSchema
+  | CustomerCouponSchema
   | CustomerAddressSchema
 
 export type GetAPISchema<

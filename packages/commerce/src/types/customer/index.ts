@@ -1,4 +1,4 @@
-export * as Card from './card'
+export * as Coupon from './coupon'
 export * as Address from './address'
 
 // TODO: define this type

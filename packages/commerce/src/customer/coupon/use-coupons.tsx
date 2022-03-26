@@ -1,16 +1,16 @@
 import type { SWRHook, HookFetcherFn } from '../../utils/types'
-import type { GetCardsHook } from '../../types/customer/card'
+import type { GetCouponHook } from '../../types/customer/coupon'
 
 import Cookies from 'js-cookie'
 
 import { useHook, useSWRHook } from '../../utils/use-hook'
 import { Provider, useCommerce } from '../..'
 
-export type UseCards<
-  H extends SWRHook<GetCardsHook<any>> = SWRHook<GetCardsHook>
+export type UseCoupons<
+  H extends SWRHook<GetCouponHook<any>> = SWRHook<GetCouponHook>
 > = ReturnType<H['useHook']>
 
-export const fetcher: HookFetcherFn<GetCardsHook> = async ({
+export const fetcher: HookFetcherFn<GetCouponHook> = async ({
   options,
   input: { cartId },
   fetch,
@@ -18,9 +18,9 @@ export const fetcher: HookFetcherFn<GetCardsHook> = async ({
   return cartId ? await fetch(options) : null
 }
 
-const fn = (provider: Provider) => provider.customer?.card?.useCards!
+const fn = (provider: Provider) => provider.customer?.coupon?.useCoupons!
 
-const useCards: UseCards = (input) => {
+const useCoupons: UseCoupons = (input) => {
   const hook = useHook(fn)
   const { cartCookie } = useCommerce()
   const fetcherFn = hook.fetcher ?? fetcher
@@ -31,4 +31,4 @@ const useCards: UseCards = (input) => {
   return useSWRHook({ ...hook, fetcher: wrapper })(input)
 }
 
-export default useCards
+export default useCoupons

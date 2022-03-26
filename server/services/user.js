@@ -2,7 +2,6 @@ const { responseData } = require('../utils/responseHandler')
 const getDb = require('../utils/database').getDb
 const ObjectId = require('mongodb').ObjectId
 
-
 module.exports.saveAnonymousUserSession = async function (req, res) {
   const db = getDb()
   console.log('Inside anonlymos', req.body)
@@ -15,7 +14,9 @@ module.exports.saveAnonymousUserSession = async function (req, res) {
     if (user && user.length > 0) {
       return responseData(res, true, 200, 'already exist')
     }
-    await db.collection('anonymousUser').insertOne({ userId: req.body.userCookie });
+    await db
+      .collection('anonymousUser')
+      .insertOne({ userId: req.body.userCookie })
 
     return responseData(res, true, 200, 'updated')
   }
@@ -25,7 +26,7 @@ module.exports.saveAnonymousUserSession = async function (req, res) {
 module.exports.addAddress = async function (req, res) {
   const db = getDb()
 
-  console.log("Req body cookie user" , req.body.userCookie);
+  console.log('Req body cookie user', req.body.userCookie)
   if (req.body.userCookie) {
     let user = await db
       .collection('anonymousUser')
@@ -81,4 +82,16 @@ module.exports.getAddress = async function (req, res) {
       user[0]?.billingAddress
     )
   }
+}
+
+module.exports.addCoupons = async function (req, res) {
+  console.log('Get string in add Coupon', req.body)
+
+  return responseData(res, true, 200, 'Coupon Added', req.body.couponString)
+}
+
+module.exports.getCoupons = async function (req, res) {
+  console.log('Get string in getcoupon', req.body)
+
+  return responseData(res, true, 200, 'Coupon Added', 'RandomCoupon')
 }

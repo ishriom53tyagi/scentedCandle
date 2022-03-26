@@ -1,5 +1,5 @@
 import type { HookFetcherFn, MutationHook } from '../../utils/types'
-import type { UpdateItemHook } from '../../types/customer/card'
+import type { UpdateItemHook } from '../../types/customer/coupon'
 import type { Provider } from '../..'
 
 import { useHook, useMutationHook } from '../../utils/use-hook'
@@ -11,7 +11,7 @@ export type UseUpdateItem<
 
 export const fetcher: HookFetcherFn<UpdateItemHook> = mutationFetcher
 
-const fn = (provider: Provider) => provider?.customer?.card?.useUpdateItem!
+const fn = (provider: Provider) => provider?.customer?.coupon?.useUpdateItem!
 
 const useUpdateItem: UseUpdateItem = (input) => {
   const hook = useHook(fn)

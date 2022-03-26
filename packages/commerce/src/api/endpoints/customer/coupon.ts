@@ -1,18 +1,18 @@
-import type { CustomerCardSchema } from '../../../types/customer/card'
+import type { CustomerCouponSchema } from '../../../types/customer/coupon'
 import type { GetAPISchema } from '../..'
 
 import { CommerceAPIError } from '../../utils/errors'
 import isAllowedOperation from '../../utils/is-allowed-operation'
 
-const customerCardEndpoint: GetAPISchema<
+const customerCouponEndpoint: GetAPISchema<
   any,
-  CustomerCardSchema
+  CustomerCouponSchema
 >['endpoint']['handler'] = async (ctx) => {
   const { req, res, handlers, config } = ctx
 
   if (
     !isAllowedOperation(req, res, {
-      GET: handlers['getCards'],
+      GET: handlers['getCoupons'],
       POST: handlers['addItem'],
       PUT: handlers['updateItem'],
       DELETE: handlers['removeItem'],
@@ -30,7 +30,7 @@ const customerCardEndpoint: GetAPISchema<
     // Create or add a card
     if (req.method === 'GET') {
       const body = { ...req.body }
-      return await handlers['getCards']({ ...ctx, body })
+      return await handlers['getCoupons']({ ...ctx, body })
     }
 
     // Create or add an item to customer cards
@@ -62,4 +62,4 @@ const customerCardEndpoint: GetAPISchema<
   }
 }
 
-export default customerCardEndpoint
+export default customerCouponEndpoint

@@ -22,10 +22,10 @@ const Coupon: FC<ComponentProps> = ({ onClick, isValid, data }) => {
 
   return (
     <>
-      <button onClick={toggleHandle} style={{ marginBottom: '12px', textDecoration: 'underline', textUnderlinePosition: 'under' }}>Apply Coupon</button>
+      <button onClick={toggleHandle} style={{ marginBottom: '12px', textDecoration: 'underline', textUnderlinePosition: 'under', width: "100%", textAlign: "right" }}>Apply Coupon</button>
       {
         toggle &&
-        <div className="flex flex-1 items-center">
+        <div className={`${s.root} mt-2`}>
           <CouponView />
         </div>
       }

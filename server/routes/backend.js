@@ -35,6 +35,10 @@ router.post('/customer/addaddress', user.addAddress)
 
 router.post('/customer/getAddress', user.getAddress)
 
+router.post('/customer/addcoupons', user.addCoupons)
+
+router.post('/customer/getCoupon', user.getCoupons)
+
 router.post('/catalog/products', search.getSearchDetails)
 
 router.post('/submit/checkout', cart.saveOrder)
