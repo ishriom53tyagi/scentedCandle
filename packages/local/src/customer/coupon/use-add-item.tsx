@@ -18,9 +18,10 @@ export const handler: MutationHook<AddItemHook> = {
   },
   async fetcher({ input: item, options, fetch }) {
     let userCookie = Cookies.get("anoynmusUserCookie");
+    let cartCookie = Cookies.get("cartCookie");
     const data = await fetch({
       ...options,
-      body: { item, userCookie },
+      body: { item, userCookie, cartCookie },
     })
 
     return data
