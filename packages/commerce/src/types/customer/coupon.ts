@@ -2,6 +2,8 @@ export interface Coupon {
   id: string
   mask: string
   provider: string
+  error: string,
+  coupon: string,
 }
 
 export interface CouponFields {

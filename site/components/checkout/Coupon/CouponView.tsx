@@ -1,6 +1,8 @@
 import s from './Coupon.module.css'
 import cn from 'classnames'
+import { Check } from '@components/icons';
 import useAddCoupons from '@framework/customer/coupon/use-add-item'
+import getCoupons from '@framework/customer/coupon/use-coupons';
 
 interface Form extends HTMLFormElement {
     couponString: HTMLInputElement
@@ -9,6 +11,7 @@ interface Form extends HTMLFormElement {
 const CouponView = () => {
 
     const addCoupon = useAddCoupons();
+    const {data } = getCoupons();
     async function handleSubmit(event: React.ChangeEvent<Form>) {
         event.preventDefault()
           await addCoupon({
@@ -16,13 +19,24 @@ const CouponView = () => {
           })
     
       }
+    console.log("Data ",data);
     return (
-        <form className="h-full w-full" onSubmit={handleSubmit}>
+      <>
+      { data && data[0] && data[0].coupon ? <div className={s.root}>
+      <div className="flex flex-1 items-center">
+        <Check className="w-5 flex" /> 
+      <span>{data[0].coupon}</span>
+    </div>
+    </div>:  <form className="h-full w-full" onSubmit={handleSubmit}>
             <div className={cn(s.fieldset, 'col-span-6')} style={{display:'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <input name='couponString' placeholder='Enter Coupon' style={{width: '70%', padding: '10px', borderBottom: '1px solid #000', outline:'none' }} />
                 <button type='submit' style={{ width: "25%", border:'1px solid #000', color: "#fff",backgroundColor: "#000", padding: '6px 8px', textAlign: 'center', textDecoration:'none', display: 'inline-block', fontSize: '15px'}}>Apply</button>
             </div>
+            { data && data[0] && data[0].error ? <h4 className='mt-2' style={{ textAlign: "left", color: "red"}}>{data[0].error}</h4>:""}
         </form>
+        }
+       
+      </>
     )
 }
 
