@@ -153,6 +153,7 @@ module.exports.addCoupons = async function (req, res) {
           $set: {
             subtotalPrice: discountPrice,
             totalPrice: discountPrice,
+            coupon : isCouponValid[0]
           },
         }
       )
@@ -172,7 +173,20 @@ module.exports.addCoupons = async function (req, res) {
 }
 
 module.exports.getCoupons = async function (req, res) {
-  console.log('Get string in getcoupon', req.body)
+  const db = getDb()
+  let cartData = await db.collection("cart").find({ id:req.body.cartCookie }).toArray();
+
+  if(cartData && cartData.length > 0) {
+
+    let isCoupan = cartData[0]?.coupon?.code ;
+    if(isCoupan) {
+      return responseData(res, true, 200, 'Coupon fetch successfully', {
+        coupon: isCoupan
+      })
+    }
+
+  } 
+
 
   return responseData(res, true, 200, 'Coupon Added', 'Sting')
 }

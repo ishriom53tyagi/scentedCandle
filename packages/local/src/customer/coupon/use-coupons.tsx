@@ -17,9 +17,10 @@ export const handler: SWRHook<GetCouponHook> = {
   },
   async fetcher({ options, fetch }) {
     let userCookie = Cookies.get("anoynmusUserCookie");
+    let cartCookie = Cookies.get("cartCookie");
     return  await fetch({
        ...options ,
-       body: { userCookie}
+       body: { userCookie , cartCookie}
     })
     
   },
@@ -34,6 +35,7 @@ export const handler: SWRHook<GetCouponHook> = {
           Object.create(response, {
             isEmpty: {
               get() {
+                console.log("response value for fetching the data" , response.data, response);
                 return (response.data?.length ?? 0) <= 0
               },
               enumerable: true,
