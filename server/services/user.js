@@ -160,13 +160,9 @@ module.exports.addCoupons = async function (req, res) {
 
     console.log('Coupon valid ', req.body.item.couponString)
 
-    return responseData(
-      res,
-      true,
-      200,
-      'Coupon added successfully',
-      req.body.item.couponString
-    )
+    return responseData(res, true, 200, 'Coupon added successfully', {
+      coupon: req.body.item.couponString,
+    })
   } catch (err) {
     console.log(err)
     return responseData(res, false, 200, 'Error while applying coupon', {
