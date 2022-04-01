@@ -22,10 +22,10 @@ const CouponView = () => {
     console.log("Data ",data);
     return (
       <>
-      { data && data[0] && data[0].coupon ? <div className={s.root}>
+      { data && data[0] && data[0].coupon ? <div className={"h-full w-full"}>
       <div className="flex flex-1 items-center">
         <Check className="w-5 flex" /> 
-      <span>{data[0].coupon}</span>
+      <span className='ml-3'>{data[0].coupon}</span>
     </div>
     </div>:  <form className="h-full w-full" onSubmit={handleSubmit}>
             <div className={cn(s.fieldset, 'col-span-6')} style={{display:'flex', alignItems: 'center', justifyContent: 'space-between'}}>
