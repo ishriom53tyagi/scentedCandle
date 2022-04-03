@@ -11,6 +11,7 @@ import { handler as useAddAddressItem } from './customer/address/use-add-item'
 import { handler as useAddCouponsItem } from './customer/coupon/use-add-item'
 import { handler as useAddresses } from './customer/address/use-addresses'
 import { handler as useCoupons } from './customer/coupon/use-coupons'
+import { handler as useCouponRemoveItem } from './customer/coupon/use-remove-item'
 import { handler as useSignup } from './auth/use-signup'
 import { handler as useCheckout } from './checkout/use-checkout'
 import { handler as useSubmitCheckout } from './checkout/use-submit-checkout'
@@ -27,7 +28,8 @@ export const localProvider = {
   },
 coupon: {
   useCoupons,
-    useAddItem: useAddCouponsItem,
+  useAddItem: useAddCouponsItem,
+  useRemoveItem: useCouponRemoveItem,
 } },
   products: { useSearch },
   auth: { useLogin, useLogout, useSignup },

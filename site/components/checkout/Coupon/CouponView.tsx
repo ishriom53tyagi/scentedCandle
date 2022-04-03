@@ -1,16 +1,20 @@
 import s from './Coupon.module.css'
 import cn from 'classnames'
-import { Check } from '@components/icons';
+import { Check, Trash } from '@components/icons';
 import useAddCoupons from '@framework/customer/coupon/use-add-item'
+import useRemoveItem from '@framework/customer/coupon/use-remove-item'
 import getCoupons from '@framework/customer/coupon/use-coupons';
+import React, { FC } from 'react';
 
 interface Form extends HTMLFormElement {
     couponString: HTMLInputElement
   }
 
-const CouponView = () => {
+const CouponView: FC = () => {
+
 
     const addCoupon = useAddCoupons();
+    const removeCoupon = useRemoveItem();
     const {data } = getCoupons();
     async function handleSubmit(event: React.ChangeEvent<Form>) {
         event.preventDefault()
@@ -19,6 +23,9 @@ const CouponView = () => {
           })
     
       }
+      const onDelete = async () => {
+        await removeCoupon();
+      }
     console.log("Data Coupon",data);
     return (
       <>
@@ -26,6 +33,10 @@ const CouponView = () => {
       <div className="flex flex-1 items-center">
         <Check className="w-5 flex" /> 
       <span className='ml-3'>{data[0].coupon}</span>
+
+      <button className='ml-auto'  onClick={onDelete}>
+        <Trash  />
+      </button>
     </div>
     </div>:  <form className="h-full w-full" onSubmit={handleSubmit}>
             <div className={cn(s.fieldset, 'col-span-6')} style={{display:'flex', alignItems: 'center', justifyContent: 'space-between'}}>

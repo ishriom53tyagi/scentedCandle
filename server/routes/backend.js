@@ -39,6 +39,8 @@ router.post('/customer/addcoupons', user.addCoupons)
 
 router.post('/customer/getCoupon', user.getCoupons)
 
+router.post('/customer/deleteCoupon', user.deleteCoupon)
+
 router.post('/catalog/products', search.getSearchDetails)
 
 router.post('/submit/checkout', cart.saveOrder)

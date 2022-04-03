@@ -27,7 +27,6 @@ module.exports.saveAnonymousUserSession = async function (req, res) {
 module.exports.addAddress = async function (req, res) {
   const db = getDb()
 
-  console.log('Req body cookie user', req.body.userCookie)
   if (req.body.userCookie) {
     let user = await db
       .collection('anonymousUser')
@@ -63,7 +62,6 @@ module.exports.addAddress = async function (req, res) {
 
 module.exports.getAddress = async function (req, res) {
   const db = getDb()
-  console.log('REquest body addAddress', req.body)
   if (req.body.userCookie) {
     let user = await db
       .collection('anonymousUser')
@@ -74,7 +72,6 @@ module.exports.getAddress = async function (req, res) {
       return responseData(res, true, 200, 'User Does not exist')
     }
 
-    console.log('Billing Address', user)
     return responseData(
       res,
       true,
@@ -87,7 +84,6 @@ module.exports.getAddress = async function (req, res) {
 
 module.exports.addCoupons = async function (req, res) {
   try {
-    console.log('Get string in add Coupon', req.body)
     const db = getDb()
     if (!req.body.item.couponString) {
       return responseData(res, false, 200, 'coupon invalid', {
@@ -98,7 +94,6 @@ module.exports.addCoupons = async function (req, res) {
       req.body.item.couponString.toUpperCase(),
       req.body.cartCookie
     )
-    console.log('iscouponAlready apply or not ', isCouponAlreadyApply)
     if (!isCouponAlreadyApply) {
       return responseData(res, false, 200, 'Coupon invalid', {
         error: 'coupon already applied',
@@ -169,8 +164,6 @@ module.exports.addCoupons = async function (req, res) {
       )
     }
 
-    console.log('Coupon valid ', req.body.item.couponString)
-
     return responseData(res, true, 200, 'Coupon added successfully', {
       coupon: req.body.item.couponString,
     })
@@ -216,7 +209,6 @@ async function checkAlreadyApplied(code, cartCookie) {
 
       if (checkCode?.coupon) {
         if (Object.keys(checkCode?.coupon).length > 0) {
-          console.log('Wow we are value is here')
           return false
         }
         return true
@@ -229,9 +221,10 @@ async function checkAlreadyApplied(code, cartCookie) {
     return []
   }
 }
-
-async function deleteCoupon(code, cartCookie) {
+module.exports.deleteCoupon = async (req, res) => {
   try {
+    console.log('Request body ', req.body)
+    const cartCookie = req.body.cartCookie
     const db = getDb()
     let checkCode = await db
       .collection('cart')
@@ -270,17 +263,27 @@ async function deleteCoupon(code, cartCookie) {
             $set: {
               subtotalPrice: subtotalPrice,
               totalPrice: totalPrice,
+              coupon: null,
             },
           }
         )
-        return false
+        return responseData(res, true, 200, 'Coupon added successfully', {
+          status: true,
+        })
       }
-      return true
+      return responseData(res, true, 200, 'Coupon added successfully', {
+        status: true,
+      })
     }
-    return true
+    return responseData(res, true, 200, 'Coupon added successfully', {
+      status: true,
+    })
   } catch (err) {
     console.log('error value is here', err)
-    return []
+    return responseData(res, true, 200, 'Coupon added successfully', {
+      status: false,
+      error: err,
+    })
   }
 }
 

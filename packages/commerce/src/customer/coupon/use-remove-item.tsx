@@ -13,9 +13,9 @@ export const fetcher: HookFetcherFn<RemoveItemHook> = mutationFetcher
 
 const fn = (provider: Provider) => provider.customer?.coupon?.useRemoveItem!
 
-const useRemoveItem: UseRemoveItem = (input) => {
+const useRemoveItem: UseRemoveItem = () => {
   const hook = useHook(fn)
-  return useMutationHook({ fetcher, ...hook })(input)
+  return useMutationHook({ fetcher, ...hook })()
 }
 
 export default useRemoveItem

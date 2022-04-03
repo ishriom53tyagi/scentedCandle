@@ -40,10 +40,10 @@ export type UpdateItemHook<T extends CustomerCouponTypes = CustomerCouponTypes> 
 
 export type RemoveItemHook<T extends CustomerCouponTypes = CustomerCouponTypes> = {
   data: T['coupon'] | null
-  input: { item?: T['coupon'] }
-  fetcherInput: { itemId: string }
+  input: { }
+  fetcherInput: {  }
   body: { itemId: string }
-  actionInput: { id: string }
+  actionInput: { }
 }
 
 export type CustomerCouponHooks<T extends CustomerCouponTypes = CustomerCouponTypes> =
