@@ -94,9 +94,12 @@ module.exports.addCoupons = async function (req, res) {
         error: 'Enter some Value to apply',
       })
     }
-    let isCouponAlreadyApply = await checkAlreadyApplied(req.body.item.couponString.toUpperCase() ,req.body.cartCookie );
-    console.log("iscouponAlready apply or not " , isCouponAlreadyApply);
-    if (!(isCouponAlreadyApply)) {
+    let isCouponAlreadyApply = await checkAlreadyApplied(
+      req.body.item.couponString.toUpperCase(),
+      req.body.cartCookie
+    )
+    console.log('iscouponAlready apply or not ', isCouponAlreadyApply)
+    if (!isCouponAlreadyApply) {
       return responseData(res, false, 200, 'Coupon invalid', {
         error: 'coupon already applied',
       })
@@ -160,7 +163,7 @@ module.exports.addCoupons = async function (req, res) {
           $set: {
             subtotalPrice: discountPrice,
             totalPrice: discountPrice,
-            coupon : isCouponValid[0]
+            coupon: isCouponValid[0],
           },
         }
       )
@@ -181,84 +184,100 @@ module.exports.addCoupons = async function (req, res) {
 
 module.exports.getCoupons = async function (req, res) {
   const db = getDb()
-  let cartData = await db.collection("cart").find({ id:req.body.cartCookie }).toArray();
+  let cartData = await db
+    .collection('cart')
+    .find({ id: req.body.cartCookie })
+    .toArray()
 
-  if(cartData && cartData.length > 0) {
-
-    let isCoupan = cartData[0]?.coupon?.code ;
-    if(isCoupan) {
-      return responseData(res, true, 200, 'Coupon fetch successfully', {
-        coupon: isCoupan
-      })
+  if (cartData && cartData.length > 0) {
+    let isCoupan = cartData[0]?.coupon?.code
+    if (isCoupan) {
+      return responseData(res, true, 200, 'Coupon fetch successfully', [
+        {
+          coupon: isCoupan,
+        },
+      ])
     }
-
-  } 
-
+  }
 
   return responseData(res, true, 200, 'Coupon Added', 'Sting')
 }
 
-async function checkAlreadyApplied(code , cartCookie) {
+async function checkAlreadyApplied(code, cartCookie) {
   try {
     const db = getDb()
-    let checkCode =   await db.collection('cart').find({ id: cartCookie }).toArray();
+    let checkCode = await db
+      .collection('cart')
+      .find({ id: cartCookie })
+      .toArray()
 
-    if(checkCode && checkCode.length) {
-      checkCode = checkCode[0];
+    if (checkCode && checkCode.length) {
+      checkCode = checkCode[0]
 
-      if(checkCode?.coupon) {
-        if(Object.keys(checkCode?.coupon).length > 0) {
-          console.log("Wow we are value is here");
-          return false;
+      if (checkCode?.coupon) {
+        if (Object.keys(checkCode?.coupon).length > 0) {
+          console.log('Wow we are value is here')
+          return false
         }
-        return true;
+        return true
       }
-      return true;
-    }   
-    return true;
-      
+      return true
+    }
+    return true
   } catch (err) {
     console.log('error value is here', err)
     return []
   }
 }
 
-
-async function deleteCoupon(code , cartCookie) {
+async function deleteCoupon(code, cartCookie) {
   try {
     const db = getDb()
-    let checkCode =   await db.collection('cart').find({ id: cartCookie }).toArray();
+    let checkCode = await db
+      .collection('cart')
+      .find({ id: cartCookie })
+      .toArray()
 
-    if(checkCode && checkCode.length) {
-      checkCode = checkCode[0];
+    if (checkCode && checkCode.length) {
+      checkCode = checkCode[0]
 
-      if(checkCode?.coupon) {
+      if (checkCode?.coupon) {
         let subtotalPrice
         let totalPrice
-        if(checkCode.coupon.Discount.type == "Price") {
-
-           subtotalPrice = checkCode.coupon.Discount.totalDiscount + checkCode.subtotalPrice;
-           totalPrice =checkCode.coupon.Discount.totalDiscount + checkCode.totalPrice;
-        } 
-        else
-        {
-           subtotalPrice =  checkCode.subtotalPrice + Math.round( checkCode.subtotalPrice *checkCode.coupon.Discount.totalDiscount ) /100    ;
-           totalPrice = checkCode.totalPrice + Math.round( checkCode.totalPrice * checkCode.coupon.Discount.totalDiscount ) / 100 ;
+        if (checkCode.coupon.Discount.type == 'Price') {
+          subtotalPrice =
+            checkCode.coupon.Discount.totalDiscount + checkCode.subtotalPrice
+          totalPrice =
+            checkCode.coupon.Discount.totalDiscount + checkCode.totalPrice
+        } else {
+          subtotalPrice =
+            checkCode.subtotalPrice +
+            Math.round(
+              checkCode.subtotalPrice * checkCode.coupon.Discount.totalDiscount
+            ) /
+              100
+          totalPrice =
+            checkCode.totalPrice +
+            Math.round(
+              checkCode.totalPrice * checkCode.coupon.Discount.totalDiscount
+            ) /
+              100
         }
 
-        await db.collection('cart').updateOne({ id: cartCookie }, {
-
-          $set :{
-            subtotalPrice: subtotalPrice,
-            totalPrice: totalPrice
+        await db.collection('cart').updateOne(
+          { id: cartCookie },
+          {
+            $set: {
+              subtotalPrice: subtotalPrice,
+              totalPrice: totalPrice,
+            },
           }
-        });
-        return false;
+        )
+        return false
       }
-      return true;
-    }   
-    return true;
-      
+      return true
+    }
+    return true
   } catch (err) {
     console.log('error value is here', err)
     return []

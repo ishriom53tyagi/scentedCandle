@@ -19,7 +19,7 @@ const CouponView = () => {
           })
     
       }
-    console.log("Data ",data);
+    console.log("Data Coupon",data);
     return (
       <>
       { data && data[0] && data[0].coupon ? <div className={"h-full w-full"}>
