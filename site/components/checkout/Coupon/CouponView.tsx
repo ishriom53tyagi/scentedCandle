@@ -5,6 +5,7 @@ import useAddCoupons from '@framework/customer/coupon/use-add-item'
 import useRemoveItem from '@framework/customer/coupon/use-remove-item'
 import getCoupons from '@framework/customer/coupon/use-coupons';
 import React, { FC } from 'react';
+import useCart from '@framework/cart/use-cart'
 
 interface Form extends HTMLFormElement {
     couponString: HTMLInputElement
@@ -16,15 +17,17 @@ const CouponView: FC = () => {
     const addCoupon = useAddCoupons();
     const removeCoupon = useRemoveItem();
     const {data } = getCoupons();
+    const {mutate: refreshCart} = useCart();
     async function handleSubmit(event: React.ChangeEvent<Form>) {
         event.preventDefault()
           await addCoupon({
             couponString: event.target.couponString.value,
           })
-    
+          refreshCart();
       }
       const onDelete = async () => {
         await removeCoupon();
+        refreshCart();
       }
     console.log("Data Coupon",data);
     return (
