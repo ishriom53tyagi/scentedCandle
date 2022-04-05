@@ -21,6 +21,7 @@ export { default as ChevronDown } from './ChevronDown'
 export { default as ChevronRight } from './ChevronRight'
 export { default as DoubleChevron } from './DoubleChevron'
 export { default as Instagram } from './Instagram';
+export { default as Pinterest } from './pinterset';
 export { default as Facebook } from './Facebook';
 export { default as Visa } from './Visa';
 export { default as Rupay } from './Rupay';

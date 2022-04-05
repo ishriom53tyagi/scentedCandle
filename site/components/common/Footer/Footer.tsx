@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import type { Page } from '@commerce/types/page'
 import getSlug from '@lib/get-slug'
-import { Instagram,  Facebook, Visa, Paytm, Rupay } from '@components/icons'
+import { Instagram,  Facebook, Visa, Paytm, Rupay , Pinterest } from '@components/icons'
 import { Logo, Container } from '@components/ui'
 import { I18nWidget } from '@components/common'
 import s from './Footer.module.css'
@@ -79,7 +79,8 @@ const Footer: FC<Props> = ({ className, pages }) => {
               NEW DELHI | BANGLORE | MUMBAI | HYDERABAD | CHENNAI | PUNE | KOLKATA | NOIDA | GURUGRA | AHMEDABAD | CHANDIGARH | JAIPUR | LUCKNOW | INDORE | GAZIABAD | AND MORE....
             </div>
             <div className='mt-4 flex'>
-                <a href=""><Instagram /></a>
+                <a href="https://www.instagram.com/findmygifts.in/?hl=en" target="_blank" ><Instagram /></a>
+                <a href="https://www.pinterest.com/findmygifting/" className='ml-2' target="_blank" ><Pinterest /></a>
                 <a href="" className='ml-2'><Facebook /></a>
             </div>
           </div>
