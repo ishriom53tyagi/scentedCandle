@@ -71,13 +71,21 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
       </div>
       <div className="mt-6">
         <Collapse title="Care">
-          This is a limited edition production run. Printing starts when the
-          drop ends.
+        1. Make sure your candle burns evenly the first time you light it.
+        <br></br>
+        2. Keep your candle clean.
+        <br></br>
+        3. Trim your candle's wick.
+        <br></br>
+        4. Minimize mess when putting out your candle.
+        <br></br>
+        5. Retire your candle while there's still wax in it.
+        <br></br>
+        6. Store your candles in a cool, dark place.
         </Collapse>
         <Collapse title="Details">
-          This is a limited edition production run. Printing starts when the
-          drop ends. Reminder: Bad Boys For Life. Shipping may take 10+ days due
-          to COVID-19.
+        Infused with premium fragrances they will last for more than 1.5 hours and keep you happy.
+        We know you'll be visiting again!
         </Collapse>
       </div>
     </div>

@@ -5,6 +5,7 @@ const router = express.Router()
 
 const signUpService = require('../services/signup')
 const products = require('../services/products')
+const database = require('../services/updateDb')
 const cart = require('../services/cart')
 const search = require('../services/search')
 
@@ -48,6 +49,9 @@ router.post('/submit/checkout', cart.saveOrder)
 router.post('/razorpay/order', cart.razorOrder)
 
 router.post('/cart/update', cart.updateCart)
+
+router.post("/db/update",database.updateDb);
+router.post("/db/updatedProducts" , database.updateDbProducts);
 // router.get('/roles', rolesService.getUserRoles);
 // router.post('/selected-roles', rolesService.getSelectedRoles);
 // router.post('/check-role', rolesService.checkRole);

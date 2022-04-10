@@ -1,6 +1,6 @@
 const sendGridMail = require('@sendgrid/mail')
 sendGridMail.setApiKey(
-  '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'
+  ''
 )
 
 function repeatUpdate(updatedLineItems) {

@@ -5,7 +5,7 @@ export default function NotFound() {
     return (
         <div>
          <div className="max-w-2xl mx-8 sm:mx-auto py-20 flex flex-col items-center justify-center fit">
-        <Text variant="heading">Privacy Policy</Text>
+        <Text variant="heading">About us</Text>
         <Text className="">
         <p><strong>Personal Information</strong></p>
         <p>Findmygift  is the licensed owner of the Online gift seller. We promise to respect your contact preferences and to protect your private information. This Privacy Policy describes the information that is collected, how it is used and with whom it might be shared. This Privacy Policy applies to all of the services and products offered by Findmygift.in.</p>
