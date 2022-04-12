@@ -486,12 +486,15 @@ module.exports.saveOrder = async function (req, res) {
       req.body.cartCookie,
       req.body.userCookie
     )
-    let cartData = await db
+
+   let customerData =  await db.collection('customer').findOne({ userId : req.body.userCookie })
+
+   let cartData = await db
       .collection('cart')
-      .find({ id: req.body.cartCookie })
+      .find({ id: req.body.cartCookie  })
       .toArray()
 
-    let emailSent = await email.sendOrderConfirmation(cartData[0])
+    let emailSent = await email.sendOrderConfirmation(cartData[0] , customerData?.customerAddress[0].email);
 
     await deleteCartDetails(req.body.cartCookie)
 
@@ -499,6 +502,7 @@ module.exports.saveOrder = async function (req, res) {
       orderId: customerInserted.insertedId,
     })
   } catch (err) {
+
     return responseData(res, false, 400, err)
   }
 }
@@ -541,6 +545,7 @@ async function insertCustomer(cartCookie, userCookie) {
       .toArray()
 
     let unsued = await db.collection('customer').insertOne({
+      userId : userDetails[0].userId,
       orders: finalOrderData[0],
       customerAddress: userDetails[0].billingAddress,
       created_on: Date.now(),
