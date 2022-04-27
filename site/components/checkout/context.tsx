@@ -6,24 +6,24 @@ import React, {
   useContext,
   createContext,
 } from 'react'
-import type { CardFields } from '@commerce/types/customer/card'
+import type { CouponFields } from '@commerce/types/customer/coupon'
 import type { AddressFields } from '@commerce/types/customer/address'
 
 export type State = {
-  cardFields: CardFields
+  couponFields: CouponFields
   addressFields: AddressFields
 }
 
 type CheckoutContextType = State & {
-  setCardFields: (cardFields: CardFields) => void
+  setCouponFields: (couponFields: CouponFields) => void
   setAddressFields: (addressFields: AddressFields) => void
   clearCheckoutFields: () => void
 }
 
 type Action =
   | {
-      type: 'SET_CARD_FIELDS'
-      card: CardFields
+      type: 'SET_COUPON_FIELDS'
+      coupon: CouponFields
     }
   | {
       type: 'SET_ADDRESS_FIELDS'
@@ -34,7 +34,7 @@ type Action =
     }
 
 const initialState: State = {
-  cardFields: {} as CardFields,
+  couponFields: {} as CouponFields,
   addressFields: {} as AddressFields,
 }
 
@@ -44,10 +44,10 @@ CheckoutContext.displayName = 'CheckoutContext'
 
 const checkoutReducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'SET_CARD_FIELDS':
+    case 'SET_COUPON_FIELDS':
       return {
         ...state,
-        cardFields: action.card,
+        couponFields: action.coupon,
       }
     case 'SET_ADDRESS_FIELDS':
       return {
@@ -57,7 +57,7 @@ const checkoutReducer = (state: State, action: Action): State => {
     case 'CLEAR_CHECKOUT_FIELDS':
       return {
         ...state,
-        cardFields: initialState.cardFields,
+        couponFields: initialState.couponFields,
         addressFields: initialState.addressFields,
       }
     default:
@@ -68,8 +68,8 @@ const checkoutReducer = (state: State, action: Action): State => {
 export const CheckoutProvider: FC = (props) => {
   const [state, dispatch] = useReducer(checkoutReducer, initialState)
 
-  const setCardFields = useCallback(
-    (card: CardFields) => dispatch({ type: 'SET_CARD_FIELDS', card }),
+  const setCouponFields = useCallback(
+    (coupon: CouponFields) => dispatch({ type: 'SET_COUPON_FIELDS', coupon }),
     [dispatch]
   )
 
@@ -84,19 +84,19 @@ export const CheckoutProvider: FC = (props) => {
     [dispatch]
   )
 
-  const cardFields = useMemo(() => state.cardFields, [state.cardFields])
+  const couponFields = useMemo(() => state.couponFields, [state.couponFields])
 
   const addressFields = useMemo(() => state.addressFields, [state.addressFields])
 
   const value = useMemo(
     () => ({
-      cardFields,
+      couponFields,
       addressFields,
-      setCardFields,
+      setCouponFields,
       setAddressFields,
       clearCheckoutFields,
     }),
-    [cardFields, addressFields, setCardFields, setAddressFields, clearCheckoutFields]
+    [couponFields, addressFields, setCouponFields, setAddressFields, clearCheckoutFields]
   )
 
   return <CheckoutContext.Provider value={value} {...props} />
