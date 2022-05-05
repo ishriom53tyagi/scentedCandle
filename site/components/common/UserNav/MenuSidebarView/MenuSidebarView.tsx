@@ -19,13 +19,13 @@ const MenuSidebarView: FC<MenuProps> = (props) => {
       <div className={s.root}>
         <nav>
           <ul>
-            <li className={s.item}>
+            <li className={s.item} onClick={handleClose}>
               <Link href="/search">
                 <a>All</a>
               </Link>
             </li>
             {props.links?.map((l: any) => (
-              <li key={l.href} className={s.item}>
+              <li key={l.href} className={s.item} onClick={handleClose}>
                 <Link href={l.href}>
                   <a>{l.label}</a>
                 </Link>
