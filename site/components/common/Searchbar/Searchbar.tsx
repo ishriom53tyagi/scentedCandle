@@ -19,8 +19,8 @@ const Searchbar: FC<Props> = ({ className, id = 'search' }) => {
     e.preventDefault()
 
     if (e.key === 'Enter') {
-      const q = e.currentTarget.value
-
+      const q = e.currentTarget.value;
+      e.currentTarget.value = "";
       router.push(
         {
           pathname: `/search`,
@@ -41,7 +41,7 @@ const Searchbar: FC<Props> = ({ className, id = 'search' }) => {
         id={id}
         className={s.input}
         placeholder="Search for products..."
-        defaultValue={router.query.q}
+        defaultValue={""}
         onKeyUp={handleKeyUp}
       />
       <div className={s.iconContainer}>
