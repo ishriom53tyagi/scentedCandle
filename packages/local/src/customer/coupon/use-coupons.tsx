@@ -6,13 +6,14 @@ import useCoupons, {
   UseCoupons,
 } from '@vercel/commerce/customer/coupon/use-coupons'
 import Cookies from 'js-cookie';
-const HOST_NAME = "http://localhost:5120"
+// const HOST_NAME = "http://localhost:5120"
+import host from '../../serverConfiguration.json'
 
 export default useCoupons as UseCoupons<typeof handler>
 
 export const handler: SWRHook<GetCouponHook> = {
   fetchOptions: {
-    url: `${HOST_NAME}/api/backend/customer/getCoupon`,
+    url: `${host.HOST_NAME}/api/backend/customer/getCoupon`,
     method: 'POST',
   },
   async fetcher({ options, fetch }) {

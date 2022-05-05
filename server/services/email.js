@@ -29,7 +29,7 @@ try{
                               <tbody>
                                   <tr>
                                       <td class="esd-block-image" align="center" style="font-size:0">
-                                          <a href="" target="_blank"><img src=${img[i]} alt="Natural Balance L.I.D., sale 30%" class="adapt-img" title="Natural Balance L.I.D., sale 30%" style="display: inline-block; margin: 10px 0; border-radius: 15px" width="130"></a>
+                                          <a href="" target="_blank" rel="noreferrer"><img src=${img[i]} alt="Natural Balance L.I.D., sale 30%" class="adapt-img" title="Natural Balance L.I.D., sale 30%" style="display: inline-block; margin: 10px 0; border-radius: 15px" width="130"></a>
                                       </td>
                                   </tr>
                               </tbody>
@@ -61,7 +61,7 @@ try{
                                       </td>
                                   </tr>
                                   <tr>
-                                      <td align="left" class="esd-block-button es-p15t es-p10b"><span class="es-button-border es-button-border-1563183272251"><a href="" class="es-button es-button-1563183272218" target="_blank"></a></span></td>
+                                      <td align="left" class="esd-block-button es-p15t es-p10b"><span class="es-button-border es-button-border-1563183272251"><a href="" class="es-button es-button-1563183272218" target="_blank" rel="noreferrer"></a></span></td>
                                   </tr>
                               </tbody>
                           </table>
@@ -801,7 +801,7 @@ async function getOrderConfirmationEmailHtml(cartData) {
                                                                                     <tbody>
                                                                                         <tr>
                                                                                             <td class="esd-block-image" style="font-size:0" align="center">
-                                                                                              <a target="_blank" href="https://viewstripo.email/"><img class="adapt-img" src="https://res.cloudinary.com/plan4upainting/image/upload/v1649591190/findmygift/logo/LOGO-FINDMYGIFT_c96ycj.png" alt width="75"></a>
+                                                                                              <a target="_blank" rel="noreferrer" href="https://viewstripo.email/"><img class="adapt-img" src="https://res.cloudinary.com/plan4upainting/image/upload/v1649591190/findmygift/logo/LOGO-FINDMYGIFT_c96ycj.png" alt width="75"></a>
                                                                                             </td>
                                                                                         </tr>
                                                                                     </tbody>
@@ -933,7 +933,7 @@ async function getOrderConfirmationEmailHtml(cartData) {
                                                                                         </tr>
                                                                                         <tr>
                                                                                             <td class="esd-block-text" align="center">
-                                                                                                <p style="line-height: 150%; color: #242424;">Call <a target="_blank" style="line-height: 150%; " href="tel:123456789">123456789</a> or <a target="_blank" href="https://viewstripo.email/">visit us online</a></p>
+                                                                                                <p style="line-height: 150%; color: #242424;">Call <a target="_blank" rel="noreferrer" rel="noreferrer" style="line-height: 150%; " href="tel:123456789">123456789</a> or <a target="_blank" rel="noreferrer" href="https://viewstripo.email/">visit us online</a></p>
                                                                                                 <p style="line-height: 150%; color: #242424;">for expert assistance.</p>
                                                                                             </td>
                                                                                         </tr>
@@ -1013,7 +1013,7 @@ async function getOrderConfirmationEmailHtml(cartData) {
                                                                                         </tr>
                                                                                         <tr>
                                                                                             <td class="esd-block-text" align="center">
-                                                                                                <p><strong><a target="_blank" style="line-height: 150%;" class="unsubscribe" href>Unsubscribe</a> • <a target="_blank" style="line-height: 150%;" href="https://viewstripo.email">Update Preferences</a> • <a target="_blank" style="line-height: 150%;" href="https://viewstripo.email">Customer Support</a></strong></p>
+                                                                                                <p><strong><a target="_blank" rel="noreferrer" style="line-height: 150%;" class="unsubscribe" href>Unsubscribe</a> • <a target="_blank"  rel="noreferrer" style="line-height: 150%;" href="https://viewstripo.email">Update Preferences</a> • <a target="_blank" rel="noreferrer"  style="line-height: 150%;" href="https://viewstripo.email">Customer Support</a></strong></p>
                                                                                             </td>
                                                                                         </tr>
                                                                                         <tr>

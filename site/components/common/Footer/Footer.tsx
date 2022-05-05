@@ -79,9 +79,9 @@ const Footer: FC<Props> = ({ className, pages }) => {
               NEW DELHI | BANGLORE | MUMBAI | HYDERABAD | CHENNAI | PUNE | KOLKATA | NOIDA | GURUGRA | AHMEDABAD | CHANDIGARH | JAIPUR | LUCKNOW | INDORE | GAZIABAD | AND MORE....
             </div>
             <div className='mt-4 flex'>
-                <a href="https://www.instagram.com/findmygifts.in/?hl=en" target="_blank" ><Instagram /></a>
-                <a href="https://www.pinterest.com/findmygifting/" className='ml-2' target="_blank" ><Pinterest /></a>
-                <a href="" className='ml-2'><Facebook /></a>
+                <a href="https://www.instagram.com/findmygifts.in/?hl=en" target="_blank"  rel="noreferrer" ><Instagram /></a>
+                <a href="https://www.pinterest.com/findmygifting/" className='ml-2' target="_blank"  rel="noreferrer" ><Pinterest /></a>
+                <a href=""target="_blank"  rel="noreferrer"  className='ml-2'><Facebook /></a>
             </div>
           </div>
         </div>

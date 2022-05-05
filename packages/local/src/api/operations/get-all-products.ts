@@ -4,8 +4,7 @@ import type { OperationContext } from '@vercel/commerce/api/operations'
 import type { LocalConfig, Provider } from '../index'
 import data from '../../data.json'
 const axios = require("axios");
-const HOST_NAME= "http://localhost:5120"
-const host = `${HOST_NAME}/api/backend`;
+import  host from '../../serverConfiguration.json'
 
 export default function getAllProductsOperation({
   commerce,
@@ -24,7 +23,7 @@ export default function getAllProductsOperation({
       const headers = { 
         'Authorization': 'Bearer my-token',
     };
-   let result =  await axios.get(`${HOST_NAME}/api/backend/getAllProducts`, { headers, params: variables });
+   let result =  await axios.get(`${host.HOST_NAME}/api/backend/getAllProducts`, { headers, params: variables });
    result =  result.data.data.products;
     // return {
     //   products: data.products,

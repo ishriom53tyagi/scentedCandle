@@ -8,7 +8,8 @@ import useRemoveItem, { UseRemoveItem } from '@vercel/commerce/cart/use-remove-i
 import type { Cart, LineItem, RemoveItemHook } from '@vercel/commerce/types/cart'
 import useCart from './use-cart'
 import Cookies from "js-cookie"
-const HOST_NAME = "http://localhost:5120"
+// const HOST_NAME = "http://localhost:5120"
+import host from '../serverConfiguration.json'
 
 export type RemoveItemFn<T = any> = T extends LineItem
   ? (input?: RemoveItemActionInput<T>) => Promise<Cart | null | undefined>
@@ -22,7 +23,7 @@ export default useRemoveItem as UseRemoveItem<typeof handler>
 
 export const handler = {
   fetchOptions: {
-    url: `${HOST_NAME}/api/backend/deleteCart`,
+    url: `${host.HOST_NAME}/api/backend/deleteCart`,
     method: 'POST',
   },
   async fetcher({

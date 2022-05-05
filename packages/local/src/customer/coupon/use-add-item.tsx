@@ -7,13 +7,15 @@ import { MutationHook } from '@vercel/commerce/utils/types'
 import { useCallback } from 'react'
 import Cookies from 'js-cookie';
 import useCoupons from './use-coupons'
-const HOST_NAME = "http://localhost:5120"
+// const HOST_NAME = "http://localhost:5120"
+
+import  host from '../../serverConfiguration.json'
 
 export default useAddItem as UseAddItem<typeof handler>
 
 export const handler: MutationHook<AddItemHook> = {
   fetchOptions: {
-    url: `${HOST_NAME}/api/backend/customer/addcoupons`,
+    url: `${host.HOST_NAME}/api/backend/customer/addcoupons`,
     method: 'POST',
   },
   async fetcher({ input: item, options, fetch }) {

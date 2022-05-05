@@ -1,5 +1,6 @@
 const axios = require("axios");
-const HOST_NAME = "http://localhost:5120"
+// const HOST_NAME = "http://localhost:5120"
+import { HOST_NAME } from '../serverConfigSite.json'
 const host = `${HOST_NAME}/api/backend`;
 
 export const saveUserSession = (body) => {

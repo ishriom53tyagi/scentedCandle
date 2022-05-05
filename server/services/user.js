@@ -94,6 +94,7 @@ module.exports.addCoupons = async function (req, res) {
       req.body.item.couponString.toUpperCase(),
       req.body.cartCookie
     )
+
     if (!isCouponAlreadyApply) {
       return responseData(res, false, 200, 'Coupon invalid', {
         error: 'coupon already applied',
@@ -109,6 +110,7 @@ module.exports.addCoupons = async function (req, res) {
       })
     }
 
+
     let isCodeEnds = await checkCouponTime(
       req.body.item.couponString.toUpperCase(),
       moment().format('YYYY-MM-DD')
@@ -119,6 +121,28 @@ module.exports.addCoupons = async function (req, res) {
         error: 'Coupon Expired',
       })
     }
+
+    if(isCouponValid[0].code  == "SPECIFIC" ) {
+          //we will do everything here 
+          console.log("Request client Ip value is here" , req.clientIp );
+
+          let customerIp  =  await db.collection("clientIp").findOne({
+                      "ip": req.clientIp,
+                      });
+
+          if( customerIp.ip ) {
+            return responseData(res, false, 200, 'Coupon only applied Once', {
+              error: 'Only allowed once',
+            })
+          }
+
+          await db.collection("clientIp").insertOne({
+            "ip": req.clientIp, 
+            "cartCookie" : req.body.cartCookie ,
+            "created" : Date.now(),
+            });
+
+    } 
 
     if (isCouponValid[0].isApplyOnes) {
       let isFirstTimeValid = await checkFirstTime(
@@ -223,13 +247,18 @@ async function checkAlreadyApplied(code, cartCookie) {
 }
 module.exports.deleteCoupon = async (req, res) => {
   try {
-    console.log('Request body ', req.body)
+
     const cartCookie = req.body.cartCookie
     const db = getDb()
     let checkCode = await db
       .collection('cart')
       .find({ id: cartCookie })
       .toArray()
+
+    console.log("Client ip when deleted" , req.clientIp);
+    await db.collection("clientIp").deleteOne({
+    "ip": req.clientIp
+    });
 
     if (checkCode && checkCode.length) {
       checkCode = checkCode[0]
@@ -275,6 +304,7 @@ module.exports.deleteCoupon = async (req, res) => {
         status: true,
       })
     }
+
     return responseData(res, true, 200, 'Coupon added successfully', {
       status: true,
     })

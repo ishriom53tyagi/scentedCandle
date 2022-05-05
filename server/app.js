@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 const helmet = require('helmet')
+const requestIp = require('request-ip');
 var path = require('path')
 var session = require('express-session')
 var MongoDBStore = require('connect-mongodb-session')(session)
@@ -30,6 +31,7 @@ var store = new MongoDBStore({
 
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(requestIp.mw());
 app.use(express.static(path.join(__dirname, 'dist/light')))
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(
@@ -38,20 +40,6 @@ app.use(
         credentials: true,
       })
 );
-
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*')
-//   res.header(
-//     'Access-Control-Allow-Headers',
-//     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-//   )
-//   if (req.method == 'OPTIONS') {
-//     res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET')
-//     return res.status(200).json({})
-//   }
-
-//   next()
-// })
 
 // view engine setup
 app.set('views', path.join(__dirname, '/public/views'))

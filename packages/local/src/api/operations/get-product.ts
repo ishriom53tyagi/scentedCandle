@@ -3,7 +3,8 @@ import { Product } from '@vercel/commerce/types/product'
 import { GetProductOperation } from '@vercel/commerce/types/product'
 import data from '../../data.json'
 import type { OperationContext } from '@vercel/commerce/api/operations'
-const HOST_NAME= "http://localhost:5120"
+import  host from '../../serverConfiguration.json'
+
 
 const axios = require("axios");
 
@@ -22,7 +23,7 @@ export default function getProductOperation({
   } = {}): Promise<Product | {} | any> {
     const headers = { 
       'Authorization': 'Bearer my-token' };
-    let result =  await axios.get(`${HOST_NAME}/api/backend/getAllProducts`, { headers });
+    let result =  await axios.get(`${host.HOST_NAME}/api/backend/getAllProducts`, { headers });
     result =  result.data.data;
     // return {
     //   product: data.products.find(({ slug }) => slug === variables!.slug),

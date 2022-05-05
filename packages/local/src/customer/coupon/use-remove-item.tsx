@@ -7,13 +7,14 @@ import useRemoveItem, {
   import { useCallback } from 'react'
   import Cookies from 'js-cookie';
   import useCoupons from './use-coupons'
-  const HOST_NAME = "http://localhost:5120"
+  // const HOST_NAME = "http://localhost:5120"
+  import  host from '../../serverConfiguration.json'
   
   export default useRemoveItem as UseRemoveItem<typeof handler>
   
   export const handler: MutationHook<RemoveItemHook> = {
     fetchOptions: {
-      url: `${HOST_NAME}/api/backend/customer/deleteCoupon`,
+      url: `${host.HOST_NAME}/api/backend/customer/deleteCoupon`,
       method: 'POST',
     },
     async fetcher({ options, fetch }) {
