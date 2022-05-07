@@ -1,7 +1,7 @@
 import data from '../../data.json'
 const axios = require("axios");
 import  host from '../../serverConfiguration.json'
-console.log("HOST NAME",host.HOST_NAME);
+
 export type GetAllProductPathsResult = {
   products: Array<{ path: string }>
 }

@@ -44,6 +44,7 @@ let obj = {
 
 module.exports.getcart = async function (req, res) {
   try {
+
     const db = getDb()
     let cartCookie
     let productsData = await db
@@ -64,6 +65,7 @@ module.exports.getcart = async function (req, res) {
         lineItemsSubtotalPrice: productsData[0].price.value,
         subtotalPrice: productsData[0].price.value,
         totalPrice: productsData[0].price.value,
+        shippingPrice : 60,
       }
 
       let updatedCart = await updateCartObj(false, productsData[0])
@@ -290,7 +292,6 @@ module.exports.updateCart = async function (req, res) {
   cart = cart[0]
   let price, qunatity
   for (let i = 0; i < cart.lineItems.length > 0; i++) {
-    console.log(cart.lineItems[i].productId, req.body.itemId)
     if (cart.lineItems[i].productId == req.body.itemId) {
       price = cart.lineItems[i].price
       qunatity = cart.lineItems[i].quantity
@@ -380,11 +381,11 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
       }
     }
 
-    let lineItemsSubtotalPrice =
-      data.lineItemsSubtotalPrice - price * quantity + (quantity + 1) * price
-    let subtotalPrice =
-      data.subtotalPrice - price * quantity + (quantity + 1) * price
-    let totalPrice = data.totalPrice - price * quantity + (quantity + 1) * price
+    let lineItemsSubtotalPrice = data.lineItemsSubtotalPrice - price * quantity + (quantity + 1) * price
+      
+    let subtotalPrice = data.subtotalPrice - price * quantity + (quantity + 1) * price  
+      
+    let totalPrice = data.totalPrice - price * quantity + (quantity + 1) * price  
     await db.collection('cart').updateOne(
       { id: cartCookie, 'lineItems.id': productData.id },
       {
@@ -393,18 +394,20 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
           lineItemsSubtotalPrice: lineItemsSubtotalPrice,
           subtotalPrice: subtotalPrice,
           totalPrice: totalPrice,
+          shippingPrice : 60
         },
       }
     )
     linesObject.quantity = quantity + 1
     linesObject.lineItems = []
     data.lineItems[0].quantity = quantity + 1
-    linesObject.lineItemsSubtotalPrice =
-      data.lineItemsSubtotalPrice - price * quantity + (quantity + 1) * price
-    linesObject.subtotalPrice =
-      data.subtotalPrice - price * quantity + (quantity + 1) * price
-    linesObject.totalPrice =
-      data.totalPrice - price * quantity + (quantity + 1) * price
+    linesObject.lineItemsSubtotalPrice = data.lineItemsSubtotalPrice - price * quantity + (quantity + 1) * price
+     
+    linesObject.subtotalPrice =    data.subtotalPrice - price * quantity + (quantity + 1) * price
+    linesObject.shippingPrice = 60;
+  
+    linesObject.totalPrice = data.totalPrice - price * quantity + (quantity + 1) * price 
+     
     ;(linesObject.currency = { code: 'INR' }),
       linesObject.lineItems.push(data.lineItems[0])
 
@@ -412,49 +415,11 @@ async function updateCartObj(iscartUpdated, productData, cartData, cartCookie) {
   }
 
   cartData.lineItems.push(linesObject)
-  cartData.lineItemsSubtotalPrice =
-    cartData.lineItemsSubtotalPrice + productData.price.value
+  cartData.lineItemsSubtotalPrice = cartData.lineItemsSubtotalPrice + productData.price.value
   cartData.subtotalPrice = cartData.subtotalPrice + productData.price.value
-  cartData.totalPrice = cartData.totalPrice + productData.price.value
-
+  cartData.totalPrice = cartData.totalPrice + productData.price.value 
+  cartData.shippingPrice = 60;
   return cartData
-}
-
-async function UpdatedCart(cart) {
-  let price, qunatity
-
-  for (let i = 0; i < cart.lineItems.length > 0; i++) {
-    if (cart.lineItems[i].productId == req.body.itemId) {
-      price = cart.lineItems[i].price
-      qunatity = cart.lineItems[i].quantity
-    }
-  }
-
-  let lineItemsSubtotalPrice =
-    cart.lineItemsSubtotalPrice -
-    price * qunatity +
-    req.body.item.quantity * price
-  let subtotalPrice =
-    cart.subtotalPrice - price * qunatity + req.body.item.quantity * price
-  let totalPrice =
-    cart.totalPrice - price * qunatity + req.body.item.quantity * price
-
-  await db.collection('cart').updateOne(
-    { id: req.body.cartCookie, 'lineItems.id': req.body.itemId },
-    {
-      $set: {
-        'lineItems.$.quantity': req.body.item.quantity,
-        lineItemsSubtotalPrice: lineItemsSubtotalPrice,
-        subtotalPrice: subtotalPrice,
-        totalPrice: totalPrice,
-      },
-    }
-  )
-  let data = await db
-    .collection('cart')
-    .find({ id: req.body.cartCookie })
-    .toArray()
-  return data
 }
 
 module.exports.saveOrder = async function (req, res) {

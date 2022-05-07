@@ -1,26 +1,21 @@
 {
   "title": "findmygift | Powered by findmygift",
   "titleTemplate": "%s - findmygift",
-  "description": "Next.js Commerce - https://www.nextjs.org/commerce",
+  "description": "findmygift ",
   "openGraph": {
     "title": "findmygift | Powered by findmygift",
-    "description": "Next.js Commerce - https://www.nextjs.org/commerce",
+    "description": "findmygift -",
     "type": "website",
     "locale": "en_IE",
-    "url": "https://nextjs.org/commerce",
-    "site_name": "Next.js Commerce",
+    
+    "site_name": "findmygift",
     "images": [
       {
         "url": "/card.png",
         "width": 800,
         "height": 600,
-        "alt": "Next.js Commerce"
+        "alt": "findmygift"
       }
     ]
-  },
-  "twitter": {
-    "handle": "@nextjs",
-    "site": "@nextjs",
-    "cardType": "summary_large_image"
   }
 }

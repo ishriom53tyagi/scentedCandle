@@ -45,7 +45,7 @@ const ProductCard: FC<Props> = ({
     }
     return returnUrl;
   }
-console.log("Root class name",rootClassName);
+
 
   return (
     <Link href={`/product/${product.slug}`}>

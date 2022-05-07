@@ -14,7 +14,7 @@ import { createOrder } from 'service/razorPay';
 import Cookies from 'js-cookie';
 
 import ShippingWidget from '../ShippingWidget'
-import PaymentWidget from '../PaymentWidget'
+
 import s from './CheckoutSidebarView.module.css'
 import { useCheckoutContext } from '../context'
 import Coupon from '../Coupon';
@@ -36,9 +36,18 @@ const CheckoutSidebarView: FC = () => {
       currencyCode: cartData.currency.code,
     }
   )
+  let totalPrice = cartData.totalPrice + cartData.shippingPrice;
+
   const { price: total } = usePrice(
     cartData && {
-      amount: Number(cartData.totalPrice),
+      amount: Number(totalPrice),
+      currencyCode: cartData.currency.code,
+    }
+  )
+
+  const { price: shipping } = usePrice(
+    cartData && {
+      amount: Number(cartData.shippingPrice),
       currencyCode: cartData.currency.code,
     }
   )
@@ -55,7 +64,7 @@ const CheckoutSidebarView: FC = () => {
 
         const options: RazorpayOptions = {
           key: 'rzp_test_t5UpDd0l8YtnLg',
-          amount: String(Number(cartData.totalPrice)*100),
+          amount: String(Number(cartData.totalPrice + cartData.shippingPrice )*100),
           currency: "INR",
           name: "Scented Candles",
           description: "Order Payment",
@@ -80,6 +89,7 @@ const CheckoutSidebarView: FC = () => {
         const rzpay = new Razorpay(options);
         rzpay.open();
       }else {
+       
         const value = await onCheckout({ type: checked });
         clearCheckoutFields()
         setLoadingSubmit(false)
@@ -147,13 +157,10 @@ const CheckoutSidebarView: FC = () => {
             <span>Subtotal</span>
             <span>{subTotal}</span>
           </li>
-          <li className="flex justify-between py-1">
-            <span>Taxes</span>
-            <span>Calculated at checkout</span>
-          </li>
+       
           <li className="flex justify-between py-1">
             <span>Shipping</span>
-            <span className="font-bold tracking-wide">FREE</span>
+            <span className="font-bold tracking-wide">{shipping}</span>
           </li>
         </ul>
         <div className="flex justify-between border-t border-accent-2 py-3 font-bold mb-2">

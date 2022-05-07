@@ -1,7 +1,7 @@
 const axios = require("axios");
 var uuid = require('uuid');
-// const HOST_NAME = "http://localhost:5120"
-import { HOST_NAME } from '../serverConfigSite.json'
+const HOST_NAME = "http://localhost:5120"
+// import { HOST_NAME } from '../serverConfigSite.json'
 
 const host = `${HOST_NAME}/api/backend`;
 export const getPostData = (url, body) => {
