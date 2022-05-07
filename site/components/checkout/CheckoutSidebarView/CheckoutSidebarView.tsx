@@ -62,7 +62,7 @@ const CheckoutSidebarView: FC = () => {
 
         const order = data.data;
 
-        const options: RazorpayOptions = {
+        const options: any = {
           key: 'rzp_test_t5UpDd0l8YtnLg',
           amount: String(Number(cartData.totalPrice + cartData.shippingPrice )*100),
           currency: "INR",
@@ -70,9 +70,10 @@ const CheckoutSidebarView: FC = () => {
           description: "Order Payment",
           image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1574276039-19851559-097-b-1574276022.jpg?crop=1.00xw:0.834xh;0,0.110xh&resize=768:*",
           order_id: order.id,
-          handler: async (res) => {
+          handler: async (res: any) => {
+            console.log("Response ",res);
             await onCheckout({ type: checked, ...res })
-          },
+          }, 
           prefill: {
             name: "Piyush Garg",
             email: "youremail@example.com",
@@ -84,9 +85,25 @@ const CheckoutSidebarView: FC = () => {
           theme: {
             color: "#3399cc",
           },
+          modal: {
+            "ondismiss": function(){
+              setLoadingSubmit(false);
+          }
+          }
         };
     
         const rzpay = new Razorpay(options);
+
+        rzpay.on("payment.failed", function (response: any) {
+          console.log("Error payment failed");
+          console.log(response.error.code);
+          console.log(response.error.description);
+          console.log(response.error.source);
+          console.log(response.error.step);
+          console.log(response.error.reason);
+          console.log(response.error.metadata.order_id);
+          console.log(response.error.metadata.payment_id);
+        });
         rzpay.open();
       }else {
        
